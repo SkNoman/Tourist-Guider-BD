@@ -33,27 +33,29 @@ class MainActivity : AppCompatActivity() {
        /* window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)*/
         drawerLayout = binding.drawerLayout
-//OPEN NAV DRAWER FROM DEFAULT TOOLBAR
-   /*      toggle = ActionBarDrawerToggle(this, drawerLayout,R.string.navigation_drawer_open,
-             R.string.navigation_drawer_close)
-        drawerLayout.addDrawerListener(toggle)
-        toggle.syncState()*/
-
-//OPEN NAV DRAWER FROM CUSTOM TOOLBAR BUTTON
+        //OPEN NAV DRAWER FROM CUSTOM TOOLBAR BUTTON
         binding.btnMenu.setOnClickListener {
             val drawerLayout = binding.drawerLayout
             drawerLayout.openDrawer(GravityCompat.START)
         }
+        binding.switchLanguage.setOnClickListener{
+            if (binding.switchLanguage.text == "Bangla") {
+                Log.e("nlog","yes")
+                setAppLanguage("bn")
+            }else{
+                setAppLanguage("en")
+            }
+        }
+
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val navView: NavigationView = binding.navigationView
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.users -> navController.navigate(R.id.fragmentUserDashboard)
+                R.id.item1 -> Toast.makeText(this,"Clicked Menu 2",Toast.LENGTH_SHORT).show()
                 R.id.item2 -> Toast.makeText(this,"Clicked Menu 2",Toast.LENGTH_SHORT).show()
                 R.id.item3 -> Toast.makeText(this,"Clicked Menu 3",Toast.LENGTH_SHORT).show()
-                R.id.item4 -> setAppLanguage("bn")
             }
             true
         }
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.fragmentSplash ->{
                     binding.toolbar.visibility = View.GONE
                 }
-                R.id.fragmentUserDashboard -> {
+                R.id.fragmentDashboard -> {
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
                 binding.toolbar.visibility = View.VISIBLE
                 }
@@ -93,10 +95,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         try {
             when (navController.currentDestination?.id) {
-                R.id.fragmentLogin -> {
-                    finish()
-                }
-                R.id.fragmentUserDashboard -> {
+                R.id.fragmentDashboard -> {
                     finish()
                 }
                 else -> {

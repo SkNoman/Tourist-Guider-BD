@@ -12,6 +12,6 @@ data class MenusItem(
 	@PrimaryKey(autoGenerate = true)
 	val menuId: Int? = null,
 	val menuTitle: String? = null,
-	val menuImage: String? = null
+	val menuImage: Int? = null
 )
 

@@ -48,7 +48,7 @@ RecyclerView.ViewHolder(inflater.inflate(R.layout.item_home_main_menu,parent,fal
 
     fun bind(context: Context,menuData:MenusItem){
         title.text = menuData.menuTitle
-        Glide.with(context).load(menuData.menuImage).placeholder(R.drawable.preloader).into(icon)
+        menuData.menuImage?.let { icon.setImageResource(it) }
     }
 }
 

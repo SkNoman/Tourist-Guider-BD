@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_200dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    >
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/ivPlaceImage"
+        android:layout_width="@dimen/dp150"
+        android:layout_height="@dimen/dp150"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="true"
+        android:fitsSystemWindows="true"
+        android:src="@drawable/item3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="30dp">
+
+    </com.makeramen.roundedimageview.RoundedImageView>
+
+    <TextView
+        android:id="@+id/txtPlaceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="serif"
+        android:text="@string/cox_s_bazar"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPlaceImage" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        android:contentDescription="@string/tour"
+        app:layout_constraintBottom_toBottomOf="@+id/ivPlaceImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/info" />
+
+    <TextView
+        android:id="@+id/txtHotelsCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="5dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="@string/_17_hotels"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_13sp"
+        app:drawableStartCompat="@drawable/baseline_hotel_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPlaceName" />
+
+    <TextView
+        android:id="@+id/txtDistantCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="16dp"
+        android:drawablePadding="5dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="@string/_5_hours"
+        android:textColor="@color/black"
+        android:textSize="10sp"
+        app:drawableStartCompat="@drawable/baseline_access_time_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtHotelsCount"
+        app:layout_constraintTop_toBottomOf="@+id/txtPlaceName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

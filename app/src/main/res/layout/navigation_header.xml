@@ -12,7 +12,8 @@
         android:src="@drawable/bg_nav_header"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/tour" />
 
     <TextView
         android:id="@+id/userNameNavBar"
@@ -20,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Abdullah Al Noman"
+        android:text="Bangladesh Tourist Guider"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -33,9 +34,10 @@
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/linkedin"
+        android:src="@mipmap/ic_launcher_round"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/tour"/>
 
     <TextView
         android:id="@+id/userEmailNavBar"
@@ -44,7 +46,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="abdullah@gmail.com"
+        android:text="Bangladesh"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/appBanner"
         app:layout_constraintEnd_toEndOf="parent"

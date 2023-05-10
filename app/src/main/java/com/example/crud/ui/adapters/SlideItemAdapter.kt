@@ -1,18 +1,22 @@
 package com.example.crud.ui.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.crud.R
 import com.example.crud.model.SlideItem
 import com.makeramen.roundedimageview.RoundedImageView
 
 
 class SlideItemAdapter(
+    context: Context,
     slideItemList: ArrayList<SlideItem>
 ): RecyclerView.Adapter<SlideItemViewHolder>() {
 
     private val content: ArrayList<SlideItem> = slideItemList
+    private var mContext: Context = context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SlideItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -25,7 +29,7 @@ class SlideItemAdapter(
 
     override fun onBindViewHolder(holder: SlideItemViewHolder, position: Int) {
         val slideContent: SlideItem = content[position]
-        holder.bind(slideContent,position,content,viewPagerRunnable)
+        holder.bind(mContext,slideContent,position,content,viewPagerRunnable)
 
     }
     private val viewPagerRunnable = Runnable {
@@ -39,12 +43,14 @@ RecyclerView.ViewHolder(inflater.inflate(R.layout.slide_item_container,parent,fa
     private var imageView: RoundedImageView = itemView.findViewById(R.id.imageSlide)
 
     fun bind(
+        context: Context,
         slideItemList: SlideItem,
         position: Int,
         content: ArrayList<SlideItem>,
         viewPagerRunnable: Runnable
     ){
-        imageView.setImageResource(slideItemList.image)
+        Glide.with(context).load(slideItemList.image)
+            .placeholder(R.drawable.preloader).into(imageView)
         if (position == content.size -2){
             itemView.post(viewPagerRunnable)
         }
