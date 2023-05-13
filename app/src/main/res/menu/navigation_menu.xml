@@ -5,22 +5,54 @@
         android:id="@+id/group1"
         android:checkableBehavior="single">
         <item
-            android:id="@+id/item1"
-            android:icon="@drawable/ic_baseline_security_24"
-            android:title="@string/app_name"
-            android:checked="true" />
+            android:id="@+id/home"
+            android:icon="@drawable/baseline_home_24"
+            android:title="@string/home" />
+
         <item
-            android:id="@+id/item2"
-            android:icon="@drawable/ic_baseline_security_24"
-            android:title="@string/app_name" />
+            android:id="@+id/maps"
+            android:icon="@drawable/baseline_location_on_24_orrange"
+            android:title="@string/maps" />
+
+        <!-- Group 3: Nearby -->
         <item
-            android:id="@+id/item3"
-            android:icon="@drawable/ic_baseline_security_24"
-            android:title="@string/app_name" />
+            android:id="@+id/nearby_attractions"
+            android:icon="@drawable/baseline_near_me_24"
+            android:title="@string/nearby_attractions" />
+
+        <!-- Group 4: Restaurants & Cafes -->
         <item
-            android:id="@+id/item4"
-            android:icon="@drawable/baseline_language_24"
-            android:title="@string/app_name"/>
+            android:id="@+id/restaurants_cafes"
+            android:icon="@drawable/baseline_local_hotel_24"
+            android:title="@string/restaurants_cafes" />
+
+
+
+
+
+        <!-- Group 7: Travel Tips -->
+        <item
+            android:id="@+id/travel_tips"
+            android:icon="@drawable/baseline_tips_and_updates_24"
+            android:title="@string/travel_tips" />
+
+        <!-- Group 8: Weather Updates -->
+
+
     </group>
+
+    <group android:id="@+id/group_acc"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/language"
+            android:icon="@drawable/baseline_language_24"
+            android:title="@string/language" />
+
+        <item
+            android:id="@+id/about_us"
+            android:icon="@drawable/info"
+            android:title="@string/about_us" />
+    </group>
+
 
 </menu>

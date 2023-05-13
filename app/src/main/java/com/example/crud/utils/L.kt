@@ -1,0 +1,45 @@
+package com.example.crud.utils
+
+object L {
+
+    //dhaka
+    const val LAT_AHSAN_MANZIL_MUSEUM = 23.708237
+    const val LONG_AHSAN_MANZIL_MUSEUM = 90.404422
+
+    const val LAT_LALBAGH_FORT = 23.711456
+    const val LONG_LALBAGH_FORT = 90.394492
+
+    const val LAT_BANGLADESH_NATIONAL_PARLIAMENT = 23.777176
+    const val LONG_BANGLADESH_NATIONAL_PARLIAMENT = 90.417631
+
+    const val LAT_SONARGAON_MUSEUM = 23.683422
+    const val LONG_SONARGAON_MUSEUM = 90.530688
+
+    const val LAT_BANGABANDHU_SAFARI_PARK = 23.850259
+    const val LONG_BANGABANDHU_SAFARI_PARK = 90.251736
+
+    const val LAT_BANGABANDHU_MILITARY_MUSEUM = 23.735321
+    const val LONG_BANGABANDHU_MILITARY_MUSEUM = 90.404987
+
+    const val LAT_TAJ_MAHAL_BANGLADESH = 23.706766
+    const val LONG_TAJ_MAHAL_BANGLADESH = 90.415586
+
+    const val LAT_HATIR_JHEEL = 23.741782
+    const val LONG_HATIR_JHEEL = 90.403159
+
+    //cox
+    const val LAT_PATENGA_SEA_BEACH = 22.2787
+    const val LONG_PATENGA_SEA_BEACH = 91.7903
+
+    const val LAT_COX_BAZAR_SEA_BEACH = 21.4272
+    const val LONG_COX_BAZAR_SEA_BEACH = 92.0058
+
+    const val LAT_SAINT_MARTIN_ISLAND = 20.6345
+    const val LONG_SAINT_MARTIN_ISLAND = 92.3084
+
+    const val LAT_CHANDRANATH_HILLS = 21.4635
+    const val LONG_CHANDRANATH_HILLS = 91.9557
+
+// Add more variables for other places if needed
+
+}

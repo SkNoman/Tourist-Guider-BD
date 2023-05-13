@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.example.crud.databinding.ActivityMainBinding
+import com.example.crud.utils.GoogleMaps
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
@@ -53,9 +54,15 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.item1 -> Toast.makeText(this,"Clicked Menu 2",Toast.LENGTH_SHORT).show()
-                R.id.item2 -> Toast.makeText(this,"Clicked Menu 2",Toast.LENGTH_SHORT).show()
-                R.id.item3 -> Toast.makeText(this,"Clicked Menu 3",Toast.LENGTH_SHORT).show()
+                R.id.home -> {
+                    Toast.makeText(this,getString(R.string.already_in_home),Toast.LENGTH_SHORT).show()
+                }
+                R.id.maps -> {
+                    GoogleMaps.openGoogleMaps(this,23.9756079,90.394622)
+                }
+                else -> {
+                    Toast.makeText(this,getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
+                }
             }
             true
         }

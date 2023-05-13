@@ -9,4 +9,5 @@ object Constant {
     val stringSize = 64
     const val ERROR_MESSAGE = "Something went wrong"
     const val demo= "demo"
+
 }

@@ -12,17 +12,23 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentPlacesListBinding
+import com.example.crud.model.PlaceDetails
 import com.example.crud.model.menu.PlaceListItem
 import com.example.crud.ui.adapters.OnClickPlace
 import com.example.crud.ui.adapters.PlaceListAdapter
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.L
+import com.example.crud.utils.PIL
 import com.example.crud.utils.showCustomToast
+import kotlin.math.PI
 
 
 class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
     (FragmentPlacesListBinding::inflate),OnClickPlace{
 
     private val list: MutableList<PlaceListItem> = mutableListOf()
+    private val pD: MutableList<PlaceDetails> = mutableListOf()
+
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -86,6 +92,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
     }
 
     private fun showKhulnaDivision() {
+        list.clear()
         list.add(PlaceListItem(
             1,
             "Sundarbans",
@@ -125,6 +132,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
     }
 
     private fun showChittagongDivision() {
+        list.clear()
         list.add(PlaceListItem(
             201,
             "Patenga Sea Beach",
@@ -155,7 +163,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
             "Nafa-Khum Waterfall",
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/NafaKhum%2CThanchi%2CBandarban.jpg/2560px-NafaKhum%2CThanchi%2CBandarban.jpg"
             ,"20"))
-        list.add(PlaceListItem(
+/*        list.add(PlaceListItem(
             207,
             "Buddha Dhatu Jadi",
             "https://live.staticflickr.com/5584/14854459840_e48bc3ee37_b.jpg"
@@ -169,50 +177,51 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
             209,
             "Radiant Fish World",
             "https://lh3.googleusercontent.com/p/AF1QipM62wV9uk_itmunxyIkeloj3KHClxC9zol5IsTK=s680-w680-h510"
-            ,"17"))
+            ,"17"))*/
         showPlaceList(list)
     }
 
     private fun showDhakaDivision() {
+        list.clear()
         list.add(PlaceListItem(
-            1,
-            "Ahsan Manjil",
-            "https://images.unsplash.com/photo-1564034503-e7c9edcb420c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            101,
+            getString(R.string.place_ahsan_manzil),
+            PIL.PLACE_AHSAN_MANZIL_IMAGE
             ,"17"))
         list.add(PlaceListItem(
-            2,
-            "Lalbag Kella",
-            "https://images.unsplash.com/photo-1564034503-e7c9edcb420c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            102,
+             getString(R.string.place_lalbagh_fort)
+             ,PIL.PLACE_LALBAGH_FORT_IMAGE
             ,"20"))
         list.add(PlaceListItem(
-            3,
-            "Hatirjheel",
-            "https://images.unsplash.com/photo-1564034503-e7c9edcb420c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            103,
+             getString(R.string.place_national_parliament)
+            ,PIL.PLACE_NATIONAL_PARLIAMENT_IMAGE
             ,"10"))
         list.add(PlaceListItem(
-            4,
-            "Fantasy Kingdom",
-            "https://images.unsplash.com/photo-1564034503-e7c9edcb420c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            104,
+             getString(R.string.place_sonargaon_museum)
+           ,PIL.PLACE_SONARGAON_MUSEUM_IMAGE
             ,"17"))
         list.add(PlaceListItem(
-            5,
-            "National Museum",
-            "https://images.unsplash.com/photo-1564034503-e7c9edcb420c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            105,
+            getString(R.string.place_bangabandhu_safari_park),
+            PIL.PLACE_BANGABANDHU_SAFARI_PARK_IMAGE
             ,"17"))
         list.add(PlaceListItem(
-            6,
-            "Safari Park",
-            "https://images.unsplash.com/photo-1564034503-e7c9edcb420c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            106,
+             getString(R.string.place_bangabandhu_military_museum)
+            ,PIL.PLACE_BANGABANDHU_MILITARY_MUSEUM_IMAGE
             ,"20"))
         list.add(PlaceListItem(
-            7,
-            "National Zoo",
-            "https://images.unsplash.com/photo-1564034503-e7c9edcb420c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            107,
+            getString(R.string.place_taj_mahal_bangladesh)
+            ,PIL.PLACE_TAJ_MAHAL_BANGLADESH_IMAGE
             ,"10"))
         list.add(PlaceListItem(
-            8,
-            "Old Dhaka",
-            "https://images.unsplash.com/photo-1564034503-e7c9edcb420c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+            108,
+            getString(R.string.place_hatir_jheel)
+           ,PIL.PLACE_HATIR_JHEEL_IMAGE
             ,"17"))
         showPlaceList(list)
     }
@@ -236,12 +245,115 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
     }
 
     override fun onClick(id: Int) {
-        val bundle = Bundle()
         when(id){
+
+            //100 - > DHAKA
+            101 -> {
+                pD.add(PlaceDetails(getString(R.string.place_ahsan_manzil),
+                    getString(R.string.place_ahsan_manzil_details),
+                    getString(R.string.dhaka), L.LAT_AHSAN_MANZIL_MUSEUM,
+                    L.LONG_AHSAN_MANZIL_MUSEUM, PIL.PLACE_AHSAN_MANZIL_IMAGE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            102 -> {
+                pD.add(PlaceDetails(getString(R.string.place_lalbagh_fort),
+                    getString(R.string.place_lalbagh_fort_details),
+                    getString(R.string.dhaka), L.LAT_LALBAGH_FORT,
+                    L.LONG_LALBAGH_FORT, PIL.PLACE_LALBAGH_FORT_IMAGE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            103 -> {
+                pD.add(PlaceDetails(getString(R.string.place_national_parliament),
+                    getString(R.string.place_national_parliament_details),
+                    getString(R.string.dhaka), L.LAT_BANGLADESH_NATIONAL_PARLIAMENT,
+                    L.LONG_BANGLADESH_NATIONAL_PARLIAMENT, PIL.PLACE_NATIONAL_PARLIAMENT_IMAGE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            104 -> {
+                pD.add(PlaceDetails(getString(R.string.place_sonargaon_museum),
+                    getString(R.string.place_sonargaon_museum_details),
+                    getString(R.string.dhaka), L.LAT_SONARGAON_MUSEUM,
+                    L.LONG_SONARGAON_MUSEUM, PIL.PLACE_SONARGAON_MUSEUM_IMAGE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            105 -> {
+                pD.add(PlaceDetails(getString(R.string.place_bangabandhu_safari_park),
+                    getString(R.string.place_bangabandhu_safari_park_details),
+                    getString(R.string.dhaka), L.LAT_BANGABANDHU_SAFARI_PARK,
+                    L.LONG_BANGABANDHU_SAFARI_PARK, PIL.PLACE_BANGABANDHU_SAFARI_PARK_IMAGE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            106 -> {
+                pD.add(PlaceDetails(getString(R.string.place_bangabandhu_military_museum),
+                    getString(R.string.place_bangabandhu_military_museum_details),
+                    getString(R.string.dhaka), L.LAT_BANGABANDHU_MILITARY_MUSEUM,
+                    L.LONG_BANGABANDHU_MILITARY_MUSEUM, PIL.PLACE_BANGABANDHU_MILITARY_MUSEUM_IMAGE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            107 -> {
+                pD.add(PlaceDetails(getString(R.string.place_taj_mahal_bangladesh),
+                    getString(R.string.place_taj_mahal_bangladesh_details),
+                    getString(R.string.dhaka), L.LAT_BANGABANDHU_MILITARY_MUSEUM,
+                    L.LONG_BANGABANDHU_MILITARY_MUSEUM, PIL.PLACE_TAJ_MAHAL_BANGLADESH_IMAGE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            108 ->{
+                pD.add(PlaceDetails(getString(R.string.place_hatir_jheel),
+                    getString(R.string.place_hatir_jheel_details),
+                    getString(R.string.dhaka), L.LAT_HATIR_JHEEL,
+                    L.LONG_HATIR_JHEEL, PIL.PLACE_HATIR_JHEEL_IMAGE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+
+
+
+
+
+
+            //SERIES 200 IS FOR CHITTAGONG DIVISION
+            201 -> {
+                pD.add(PlaceDetails(getString(R.string.place_patenga_sea_beach)
+                ,getString(R.string.place_patenga_sea_beach_description),
+                getString(R.string.chittagong), L.LAT_PATENGA_SEA_BEACH,
+                L.LONG_PATENGA_SEA_BEACH,
+                PIL.PATENGA_SEA_BEACH))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
             //cox bazaar
             202 ->{
-                bundle.putInt("placeId",id)
-                findNavController().navigate(R.id.action_placesListFragment_to_placeDetailsFragment,bundle)
+                pD.add(PlaceDetails(getString(R.string.cox_s_bazar_sea_beach)
+                    ,getString(R.string.cox_bazar_desc),
+                    getString(R.string.chittagong),
+                    L.LAT_COX_BAZAR_SEA_BEACH,
+                    L.LONG_COX_BAZAR_SEA_BEACH,
+                    PIL.COXS_BAZAR_SEA_BEACH))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
             }else ->{
                 Toast.makeText(requireContext(),getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
             }

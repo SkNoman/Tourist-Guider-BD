@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">BD Tourist Guider</string>
     <string name="android_n_development">Android \nDevelopment</string>
     <string name="app_description">This is a demo application</string>
@@ -22,14 +22,14 @@
     <string name="search">Search</string>
     <string name="this_feature_is_under_development">This feature is under development</string>
     <string name="english">Bangla</string>
-    <string name="tour">tour</string>
+    <string name="tour" translatable="false">tour</string>
     <string name="dhaka">Dhaka</string>
     <string name="chittagong">Chittagong</string>
     <string name="khulna">Khulna</string>
     <string name="rajshahi">Rajshahi</string>
     <string name="barisal">Barisal</string>
     <string name="sylhet">Sylhet</string>
-    <string name="rangpur">Rangpur</string>
+    <string name="rangpur" tools:ignore="MissingTranslation">Rangpur</string>
     <string name="mymensingh">Mymensingh</string>
     <string name="chittagong_division">Chittagong Division</string>
     <string name="dhaka_division">Dhaka Division</string>
@@ -47,4 +47,82 @@
     <string name="description">Description</string>
     <string name="cox_bazar_desc">Cox\'s Bazar Beach, located at Cox\'s Bazar, Bangladesh, is the longest natural sea beach in the world running 120 kilometres and 5th longest beach after Praia do Cassino of Brazil, Padre Island on the US Gulf Coast, Eighty Mile Beach in Western Australia, and Ninety Mile Beach of Australia</string>
     <string name="cox_s_bazar_sea_beach">Cox\'s Bazar Sea Beach</string>
+
+
+    <!-- Chandranath Pahar -->
+    <string name="place_chandranath_pahar">Chandranath Pahar</string>
+    <string name="place_chandranath_pahar_description">Chandranath Pahar is a hill located in Sitakunda, Chittagong, offering breathtaking views and a spiritual atmosphere.</string>
+
+    <!-- Guliakhali Sea Beach -->
+    <string name="place_guliakhali_sea_beach">Guliakhali Sea Beach</string>
+    <string name="place_guliakhali_sea_beach_description">Guliakhali Sea Beach is a serene coastal area in Bangladesh, providing a tranquil escape and picturesque views.</string>
+    <string name="sitakund">Sitakund</string>
+
+    <!-- Saint Martin -->
+    <string name="place_saint_martin">Saint Martin</string>
+    <string name="place_saint_martin_description">Saint Martin\'s Island is a picturesque coral island located in the Bay of Bengal. It is renowned for its pristine beaches, crystal-clear turquoise waters, and diverse marine life. The island offers opportunities for snorkeling, diving, and exploring vibrant coral reefs. Visitors can relish delicious seafood, witness stunning sunsets, and experience the tranquil island atmosphere. Saint Martin\'s Island is a paradise for nature lovers and a perfect escape from the bustling city life.</string>
+
+    <!-- Patenga Sea Beach -->
+    <string name="place_patenga_sea_beach">Patenga Sea Beach</string>
+    <string name="place_patenga_sea_beach_description">Patenga Sea Beach is a popular beach destination in Chittagong, Bangladesh. It is known for its long stretch of sandy shores, gentle waves, and scenic beauty. Visitors can enjoy leisurely walks along the beach, indulge in local street food, and capture mesmerizing sunsets. The beach also offers horse riding and boat trips for a fun-filled experience. Patenga Sea Beach is a favorite spot for locals and tourists alike, providing a refreshing coastal retreat.</string>
+
+    <!-- Kaptai Lake -->
+    <string name="place_kaptai_lake">Kaptai Lake</string>
+    <string name="place_kaptai_lake_description">Kaptai Lake is a man-made reservoir located in the Rangamati Hill District of Bangladesh. It is surrounded by lush green hills and dense forests, creating a scenic and serene environment. The lake offers boat rides, allowing visitors to explore its vast expanse and enjoy the breathtaking views. Kaptai Lake is also home to various indigenous tribal communities, offering a glimpse into their traditional way of life. The combination of natural beauty and cultural richness makes Kaptai Lake a must-visit destination for nature enthusiasts and cultural explorers.</string>
+
+    <!-- Buddha Dhatu Jadi -->
+    <string name="place_buddha_dhatu_jadi">Buddha Dhatu Jadi</string>
+    <string name="place_buddha_dhatu_jadi_description">Buddha Dhatu Jadi, also known as the Bandarban Golden Temple, is a magnificent Buddhist temple located in Bandarban, Bangladesh. The temple features stunning architecture adorned with intricate designs, colorful decorations, and golden accents. It houses a large golden statue of Lord Buddha, surrounded by beautiful gardens and serene surroundings. Visitors can immerse themselves in the peaceful ambiance, explore the temple complex, and gain insights into Buddhist teachings and practices. Buddha Dhatu Jadi is a spiritual and cultural landmark, offering a serene and enlightening experience.</string>
+
+    <!-- Radiant Fish World -->
+    <string name="place_radiant_fish_world">Radiant Fish World</string>
+    <string name="place_radiant_fish_world_description" translatable="false">Radiant Fish World is a unique aquatic attraction situated in Dhaka, Bangladesh. It is a paradise for fish enthusiasts and nature lovers alike. The world-class aquarium showcases a wide range of exotic and colorful fish species from around the world. Visitors can marvel at the vibrant underwater world, observe fascinating marine life, and learn about different aquatic ecosystems. Radiant Fish World also offers educational exhibits, interactive displays, and informative presentations. It is a captivating destination that combines entertainment, education, and appreciation for the beauty of marine life.</string>
+    <string name="cox_bazar" translatable="false">Cox Bazar</string>
+    <string name="teknaf" translatable="false">Teknaf</string>
+    <string name="bandarban" translatable="false">Bandarban</string>
+
+
+    <!-- Place Names -->
+    <string name="place_ahsan_manzil">Ahsan Manzil Museum</string>
+    <string name="place_lalbagh_fort">Lalbagh Fort</string>
+    <string name="place_national_parliament">Bangladesh National Parliament</string>
+    <string name="place_sonargaon_museum">Sonargaon Museum</string>
+    <string name="place_bangabandhu_safari_park">Bangabandhu Safari Park</string>
+    <string name="place_bangabandhu_military_museum">Bangabandhu Military Museum</string>
+    <string name="place_taj_mahal_bangladesh">Taj Mahal Bangladesh</string>
+    <string name="place_hatir_jheel">Hatir Jheel</string>
+
+    <!-- Place Details -->
+    <string name="place_ahsan_manzil_details">Ahsan Manzil Museum is a historical palace located in Dhaka. It showcases the rich cultural heritage of Bangladesh.</string>
+    <string name="place_lalbagh_fort_details">Lalbagh Fort is a Mughal fort complex in Dhaka. It is an architectural marvel with beautiful gardens and structures.</string>
+    <string name="place_national_parliament_details">The Bangladesh National Parliament is the supreme legislative body of the country. It is an iconic symbol of democracy.</string>
+    <string name="place_sonargaon_museum_details">Sonargaon Museum is a historical site in Dhaka. It showcases the rich history and culture of the region.</string>
+    <string name="place_bangabandhu_safari_park_details">Bangabandhu Safari Park is a wildlife park in Gazipur. It is home to various species of animals and offers an exciting safari experience.</string>
+    <string name="place_bangabandhu_military_museum_details">Bangabandhu Military Museum is a museum dedicated to the armed forces of Bangladesh. It showcases the country\'s military history.</string>
+    <string name="place_taj_mahal_bangladesh_details">Taj Mahal Bangladesh is a replica of the iconic Taj Mahal in India. It is a beautiful architectural masterpiece.</string>
+    <string name="place_hatir_jheel_details">Hatir Jheel is a popular lake and recreational area in Dhaka. It offers boating and other activities for visitors.</string>
+    <string name="tourist_guider">Tourist Guider</string>
+    <string name="bangladesh">Bangladesh</string>
+    <string name="explore">Explore</string>
+    <string name="maps">Maps</string>
+
+    <!-- Add more strings for other places if needed -->
+
+
+    <!-- Menu Titles -->
+    <string name="home">Home</string>
+    <string name="places_of_interest">Places of Interest</string>
+    <string name="nearby_attractions">Nearby Attractions</string>
+    <string name="restaurants_cafes">Restaurants &amp; Cafes</string>
+    <string name="accommodation">Accommodation</string>
+    <string name="transportation">Transportation</string>
+    <string name="travel_tips">Travel Tips</string>
+    <string name="weather_updates">Weather Updates</string>
+    <string name="language">Language</string>
+    <string name="about_us">About Us</string>
+    <string name="settings">Settings</string>
+    <string name="already_in_home">Already in home</string>
+    <string name="welcome_back">Welcome Back</string>
+
+
 </resources>

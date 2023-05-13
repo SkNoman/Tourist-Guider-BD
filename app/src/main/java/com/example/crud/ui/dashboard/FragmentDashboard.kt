@@ -6,7 +6,6 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -25,6 +24,7 @@ import com.example.crud.ui.adapters.DashboardMainMenuAdapter
 import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
+import com.example.crud.utils.PIL
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -37,7 +37,6 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener {
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var swipeLayout: SwipeRefreshLayout
-    var divisionId:Int?=null
 
     override fun onPause() {
         super.onPause()
@@ -54,7 +53,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
 
         CoroutineScope(Dispatchers.IO).launch {
             Log.e("Thread-Long-Run2",Thread.currentThread().name)
-            autoSliderHotItem()
+            autoPlaceSlider()
         }
         featuredRecycler()
         swipeLayout = binding.layoutDashboard
@@ -62,28 +61,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
 
         setMenus()
 
-//        binding.txtTrendingNow.setOnClickListener{
-//            GoogleMaps.openGoogleMaps(requireActivity(),23.9756079,90.394622)
-//        }
-        binding.bottomNavigation.setOnNavigationItemReselectedListener { item ->
-            when(item.itemId) {
-                R.id.item1 -> {
-                    Toast.makeText(requireContext(),getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
-                }
-                R.id.item2 -> {
-                    Toast.makeText(requireContext(),getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
-                }
-                R.id.item3 ->{
-                    Toast.makeText(requireContext(),getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
-                }
-                R.id.item4 ->{
-                    Toast.makeText(requireContext(),getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
-                }
 
-
-
-            }
-        }
 
     }
 
@@ -108,11 +86,18 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         }
     }
 
-    private fun autoSliderHotItem() {
+    private fun autoPlaceSlider() {
         val sliderItem :ArrayList<SlideItem> = ArrayList()
         sliderItem.add(SlideItem("https://images.pexels.com/photos/3560020/pexels-photo-3560020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"))
         sliderItem.add(SlideItem("https://images.unsplash.com/photo-1549300461-11c5b94e8855?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"))
         sliderItem.add(SlideItem("https://images.unsplash.com/photo-1608958435020-e8a7109ba809?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"))
+
+        sliderItem.add(SlideItem(PIL.PLACE_HATIR_JHEEL_IMAGE))
+        sliderItem.add(SlideItem(PIL.COXS_BAZAR_SEA_BEACH))
+        sliderItem.add(SlideItem(PIL.NAFA_KHUM_WATERFALL))
+        sliderItem.add(SlideItem(PIL.CHANDRANATH_HILLS))
+        sliderItem.add(SlideItem(PIL.PLACE_TAJ_MAHAL_BANGLADESH_IMAGE))
+
         binding.viewPagerHotItem.apply {
             adapter = SlideItemAdapter(requireContext(),sliderItem)
             clipToPadding = false
@@ -148,23 +133,23 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         //MANUAL ADDITION OF RECYCLER CARD VIEW
         featuredLocations.add(
             FeaturedItem(
-                R.drawable.google,
-                "Google",
-                "The best search engine"
+                PIL.NAFA_KHUM_WATERFALL,
+                "Nafa Khum",
+                "The best water fall"
             )
         )
         featuredLocations.add(
             FeaturedItem(
-                R.drawable.facebook,
-                "Facebook",
-                "Best social media platform"
+                PIL.COXS_BAZAR_SEA_BEACH,
+                "Cox Bazar",
+                "Longest sea beach"
             )
         )
         featuredLocations.add(
             FeaturedItem(
-                R.drawable.linkedin,
-                "Linkedin",
-                "Best professional media"
+                PIL.PLACE_HATIR_JHEEL_IMAGE,
+                "Hatir Jheel",
+                "Best jheel in dhaka"
             )
         )
         binding.featuredRecyclerView.layoutManager =

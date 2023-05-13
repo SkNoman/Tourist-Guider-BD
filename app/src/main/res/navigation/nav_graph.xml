@@ -42,5 +42,9 @@
         android:id="@+id/placeDetailsFragment"
         android:name="com.example.crud.ui.divisions.PlaceDetailsFragment"
         android:label="fragment_place_details"
-        tools:layout="@layout/fragment_place_details" />
+        tools:layout="@layout/fragment_place_details" >
+        <argument
+            android:name="pD"
+            app:argType="com.example.crud.model.PlaceDetails" />
+    </fragment>
 </navigation>

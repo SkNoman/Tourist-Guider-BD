@@ -6,6 +6,8 @@
     android:id="@+id/imageSlide"
     android:layout_marginEnd="@dimen/dp10"
     android:adjustViewBounds="true"
-    app:riv_corner_radius="12dp">
+    app:riv_corner_radius="12dp"
+    android:scaleType="centerCrop"
+    >
 
 </com.makeramen.roundedimageview.RoundedImageView>

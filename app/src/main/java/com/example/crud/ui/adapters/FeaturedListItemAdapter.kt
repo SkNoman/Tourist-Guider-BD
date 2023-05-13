@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.crud.R
 import com.example.crud.model.dashboard.FeaturedItem
 
@@ -38,6 +39,7 @@ RecyclerView.ViewHolder(inflater.inflate(R.layout.item_featured_menu_list,parent
     private var icon: ImageView = itemView.findViewById(R.id.fImage)
     fun bind(context: Context,featuredItem: FeaturedItem){
         title.text = featuredItem.title
-        icon.setImageResource(featuredItem.image)
+        Glide.with(context).load(featuredItem.image)
+            .placeholder(R.drawable.preloader).into(icon)
     }
 }
