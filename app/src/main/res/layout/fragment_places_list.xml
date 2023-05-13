@@ -4,18 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".ui.divisions.PlacesListFragment">
 
-    tools:context=".ui.divisions.DhakaFragment">
-
-    <include
-        android:id="@+id/layout_top"
-        layout="@layout/list_page_header"
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/ivBackBtn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp16"
-        app:layout_constraintBottom_toTopOf="@+id/txtPlaceBannerName"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_35" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -34,37 +42,35 @@
 
     <TextView
         android:id="@+id/txtPlaceBannerName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="cursive"
-        android:text="@string/dhaka_division"
+        android:text="@string/division"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="normal"
-        app:layout_constraintBottom_toTopOf="@+id/searchPlaces"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias=".1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_top" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <EditText
         android:id="@+id/searchPlaces"
         android:layout_width="0dp"
-        android:padding="@dimen/dp10"
         android:layout_height="@dimen/_40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="serif"
+        android:autofillHints="dhaka"
         android:background="@drawable/bg_search_edit_text"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="@string/search"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewDhakaDivision"
+        android:padding="@dimen/dp10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPlaceBannerName"
-        android:autofillHints="dhaka" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPlaceBannerName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

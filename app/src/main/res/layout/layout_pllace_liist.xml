@@ -10,7 +10,7 @@
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/ivPlaceImage"
         android:layout_width="@dimen/dp150"
-        android:layout_height="@dimen/dp150"
+        android:layout_height="120dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -20,19 +20,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:riv_corner_radius="30dp">
+        app:riv_corner_radius="30dp"
+        android:scaleType="centerCrop">
 
     </com.makeramen.roundedimageview.RoundedImageView>
 
     <TextView
         android:id="@+id/txtPlaceName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
         android:fontFamily="serif"
+        android:gravity="center_horizontal"
         android:text="@string/cox_s_bazar"
         android:textColor="@color/black"
-        android:textSize="@dimen/_20sp"
+        android:textSize="@dimen/sp15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivPlaceImage" />
@@ -42,7 +46,7 @@
         android:layout_width="@dimen/dp50"
         android:layout_height="@dimen/dp50"
         android:contentDescription="@string/tour"
-        app:layout_constraintBottom_toBottomOf="@+id/ivPlaceImage"
+        app:layout_constraintBottom_toTopOf="@+id/txtPlaceName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/info" />

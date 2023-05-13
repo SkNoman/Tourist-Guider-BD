@@ -15,29 +15,32 @@
         android:name="com.example.crud.ui.dashboard.FragmentDashboard"
         android:label="fragment_user_dashboard"
         tools:layout="@layout/fragment_user_dashboard" >
+
         <action
-            android:id="@+id/action_fragmentDashboard_to_dhakaFragment"
-            app:destination="@id/dhakaFragment"
+            android:id="@+id/action_fragmentDashboard_to_placesListFragment"
+            app:destination="@id/placesListFragment"
             app:enterAnim="@anim/enter_right_to_left"
             app:exitAnim="@anim/exit_right_to_left"
             app:popEnterAnim="@anim/enter_left_to_right"
             app:popExitAnim="@anim/exit_left_to_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/placesListFragment"
+        android:name="com.example.crud.ui.divisions.PlacesListFragment"
+        android:label="fragment_dhaka"
+        tools:layout="@layout/fragment_places_list" >
         <action
-            android:id="@+id/action_fragmentDashboard_to_chittagongFragment"
-            app:destination="@id/chittagongFragment"
+            android:id="@+id/action_placesListFragment_to_placeDetailsFragment"
+            app:destination="@id/placeDetailsFragment"
             app:enterAnim="@anim/enter_right_to_left"
             app:exitAnim="@anim/exit_right_to_left"
             app:popEnterAnim="@anim/enter_left_to_right"
             app:popExitAnim="@anim/exit_left_to_right" />
     </fragment>
     <fragment
-        android:id="@+id/dhakaFragment"
-        android:name="com.example.crud.ui.divisions.DhakaFragment"
-        android:label="fragment_dhaka"
-        tools:layout="@layout/fragment_dhaka" />
-    <fragment
-        android:id="@+id/chittagongFragment"
-        android:name="com.example.crud.ui.divisions.ChittagongFragment"
-        android:label="fragment_chittagong"
-        tools:layout="@layout/fragment_chittagong" />
+        android:id="@+id/placeDetailsFragment"
+        android:name="com.example.crud.ui.divisions.PlaceDetailsFragment"
+        android:label="fragment_place_details"
+        tools:layout="@layout/fragment_place_details" />
 </navigation>

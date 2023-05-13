@@ -25,7 +25,6 @@ import com.example.crud.ui.adapters.DashboardMainMenuAdapter
 import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
-import com.example.crud.utils.GoogleMaps
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -38,6 +37,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener {
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var swipeLayout: SwipeRefreshLayout
+    var divisionId:Int?=null
 
     override fun onPause() {
         super.onPause()
@@ -90,14 +90,14 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     private fun setMenus() {
         val menusItem: MutableList<MenusItem> = mutableListOf()
         // Add items to the menusItem list
-        menusItem.add(MenusItem(1, getString(R.string.dhaka),R.drawable.google))
-        menusItem.add(MenusItem(2,getString(R.string.chittagong),R.drawable.google))
-        menusItem.add(MenusItem(3,getString(R.string.khulna),R.drawable.google))
-        menusItem.add(MenusItem(4,getString(R.string.rajshahi),R.drawable.google))
-        menusItem.add(MenusItem(5,getString(R.string.barisal),R.drawable.google))
-        menusItem.add(MenusItem(6,getString(R.string.sylhet),R.drawable.google))
-        menusItem.add(MenusItem(6,getString(R.string.rangpur),R.drawable.google))
-        menusItem.add(MenusItem(6,getString(R.string.mymensingh),R.drawable.google))
+        menusItem.add(MenusItem(1, getString(R.string.dhaka),R.drawable.dhaka))
+        menusItem.add(MenusItem(2,getString(R.string.chittagong),R.drawable.barisal))
+        menusItem.add(MenusItem(3,getString(R.string.khulna),R.drawable.khulna))
+        menusItem.add(MenusItem(4,getString(R.string.rajshahi),R.drawable.rajshahi))
+        menusItem.add(MenusItem(5,getString(R.string.barisal),R.drawable.barisal))
+        menusItem.add(MenusItem(6,getString(R.string.sylhet),R.drawable.sylhet))
+        menusItem.add(MenusItem(7,getString(R.string.rangpur),R.drawable.rangpur))
+        menusItem.add(MenusItem(8,getString(R.string.mymensingh),R.drawable.mymensing))
         showMenus(menusItem)
     }
 
@@ -182,15 +182,41 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
 
     override fun onClick(id: Int) {
         //EACH ID REPRESENTS DIFFERENT FEATURE WHICH IS DEFINED IN DATABASE
+        val bundle = Bundle()
+
         when(id){
+
             1->{
-                findNavController().navigate(R.id.action_fragmentDashboard_to_dhakaFragment)
+                bundle.putInt("divisionId",1)
+                findNavController().navigate(R.id.action_fragmentDashboard_to_placesListFragment,bundle)
             }
             2->{
-                findNavController().navigate(R.id.action_fragmentDashboard_to_chittagongFragment)
+                bundle.putInt("divisionId",2)
+                findNavController().navigate(R.id.action_fragmentDashboard_to_placesListFragment,bundle)
             }
-            else->{
-                Toast.makeText(requireContext(),getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
+            3->{
+                bundle.putInt("divisionId",3)
+                findNavController().navigate(R.id.action_fragmentDashboard_to_placesListFragment,bundle)
+            }
+            4->{
+                bundle.putInt("divisionId",4)
+                findNavController().navigate(R.id.action_fragmentDashboard_to_placesListFragment,bundle)
+            }
+            5->{
+                bundle.putInt("divisionId",5)
+                findNavController().navigate(R.id.action_fragmentDashboard_to_placesListFragment,bundle)
+            }
+            6->{
+                bundle.putInt("divisionId",6)
+                findNavController().navigate(R.id.action_fragmentDashboard_to_placesListFragment,bundle)
+            }
+            7->{
+                bundle.putInt("divisionId",7)
+                findNavController().navigate(R.id.action_fragmentDashboard_to_placesListFragment,bundle)
+            }
+            8->{
+                bundle.putInt("divisionId",8)
+                findNavController().navigate(R.id.action_fragmentDashboard_to_placesListFragment,bundle)
             }
         }
     }

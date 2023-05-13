@@ -33,7 +33,18 @@
     <string name="mymensingh">Mymensingh</string>
     <string name="chittagong_division">Chittagong Division</string>
     <string name="dhaka_division">Dhaka Division</string>
+    <string name="khulna_division">Khulna Division</string>
+    <string name="barisal_divsion">Barisal Division</string>
+    <string name="rangpur_division">Rangpur Division</string>
+    <string name="rajshahi_division">Rajshahi Division</string>
+    <string name="sylhet_division">Sylhet Division</string>
+    <string name="mymensingh_division">Mymensingh Division</string>
     <string name="cox_s_bazar">Cox\'s Bazar</string>
     <string name="_17_hotels">17 Hotels</string>
     <string name="_5_hours">5 Hours</string>
+    <string name="division">Division</string>
+    <string name="map_direction">Map Direction</string>
+    <string name="description">Description</string>
+    <string name="cox_bazar_desc">Cox\'s Bazar Beach, located at Cox\'s Bazar, Bangladesh, is the longest natural sea beach in the world running 120 kilometres and 5th longest beach after Praia do Cassino of Brazil, Padre Island on the US Gulf Coast, Eighty Mile Beach in Western Australia, and Ninety Mile Beach of Australia</string>
+    <string name="cox_s_bazar_sea_beach">Cox\'s Bazar Sea Beach</string>
 </resources>
