@@ -4,8 +4,8 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
+import android.webkit.WebViewClient
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -25,13 +25,15 @@ import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
 import com.example.crud.utils.PIL
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.*
 
-@Suppress("DEPRECATION")
 @AndroidEntryPoint
 class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener {
@@ -52,24 +54,32 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         super.onViewCreated(view, savedInstanceState)
 
         CoroutineScope(Dispatchers.IO).launch {
-            Log.e("Thread-Long-Run2",Thread.currentThread().name)
             autoPlaceSlider()
         }
         featuredRecycler()
         swipeLayout = binding.layoutDashboard
         swipeLayout.setOnRefreshListener(this)
-
         setMenus()
+        showNearbyHotels()
+    }
 
-
-
+    private fun showNearbyHotels() {
+        // WebViewClient allows you to handle
+        // onPageFinished and override Url loading.
+        binding.webView.webViewClient = WebViewClient()
+        // this will load the url of the website
+        binding.webView.loadUrl("https://www.google.com/maps/search/narby+hotels/@23.7969814,90.4060102,")
+        // this will enable the javascript settings, it can also allow xss vulnerabilities
+        binding.webView.settings.javaScriptEnabled = true
+        // if you want to enable zoom feature
+        binding.webView.settings.setSupportZoom(true)
     }
 
     private fun setMenus() {
         val menusItem: MutableList<MenusItem> = mutableListOf()
         // Add items to the menusItem list
         menusItem.add(MenusItem(1, getString(R.string.dhaka),R.drawable.dhaka))
-        menusItem.add(MenusItem(2,getString(R.string.chittagong),R.drawable.barisal))
+        menusItem.add(MenusItem(2,getString(R.string.chittagong),R.drawable.chittagong))
         menusItem.add(MenusItem(3,getString(R.string.khulna),R.drawable.khulna))
         menusItem.add(MenusItem(4,getString(R.string.rajshahi),R.drawable.rajshahi))
         menusItem.add(MenusItem(5,getString(R.string.barisal),R.drawable.barisal))
