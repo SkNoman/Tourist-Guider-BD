@@ -51,14 +51,28 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val navView: NavigationView = binding.navigationView
+        navView.setCheckedItem(R.id.home)
 
         navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.home -> {
-                    Toast.makeText(this,getString(R.string.already_in_home),Toast.LENGTH_SHORT).show()
+                    drawerLayout.closeDrawer(GravityCompat.START)
                 }
                 R.id.maps -> {
-                    GoogleMaps.openGoogleMaps(this,23.9756079,90.394622)
+                    GoogleMaps.openGoogleMaps(this,23.8103,90.4125)
+                }
+                R.id.about_us -> {
+                    navController.navigate(R.id.aboutFragment)
+                }
+                R.id.restaurants_cafes ->{
+                    val bundle = Bundle()
+                    bundle.putString("type","cafes")
+                    navController.navigate(R.id.webView2,bundle)
+                }
+                R.id.nearby_attractions -> {
+                    val bundle = Bundle()
+                    bundle.putString("type","places")
+                    navController.navigate(R.id.webView2,bundle)
                 }
                 else -> {
                     Toast.makeText(this,getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()

@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.AboutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/ivBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/tour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_arrow_back_35" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/txtPlaceBannerName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="cursive"
+        android:text="@string/about_us"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivBackBtn" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="serif"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp15"
+        android:text="@string/welcome_to_the_bangladesh_tourist_guider_app"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPlaceBannerName" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/our_app_aims_to_provide_you_with_a_comprehensive_guide_to_explore_the_rich_cultural_heritage_natural_beauty_and_historical_landmarks_of_bangladesh_whether_you_re_a_local_resident_or_a_visitor_from_abroad_our_app_is_designed_to_enhance_your_travel_experience_and_make_your_journey_through_bangladesh_memorable_discover_the_hidden_gems_of_bangladesh_through_our_carefully_curated_collection_of_destinations_including_stunning_beaches_historical_sites_vibrant_cities_serene_rivers_and_picturesque_landscapes_our_app_offers_detailed_information_about_each_location_including_its_significance_historical_background_cultural_significance_and_must_visit_attractions_navigate_through_our_interactive_maps_and_find_your_way_to_your_desired_destinations_effortlessly_our_user_friendly_interface_ensures_easy_access_to_information_making_it_convenient_for_you_to_plan_your_itinerary_and_explore_the_wonders_of_bangladesh_at_your_own_pace_stay_updated_with_the_latest_news_events_and_festivals_happening_across_the_country_our_app_provides_valuable_insights_into_local_traditions_cuisines_and_customs_allowing_you_to_immerse_yourself_in_the_true_essence_of_bangladesh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textStyle="bold"
+        android:textColor="@color/magenta_pink"
+        android:text="@string/happy_exploring_n_nthe_bangladesh_tourist_guider_app_team"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,6 +24,7 @@
             app:popEnterAnim="@anim/enter_left_to_right"
             app:popExitAnim="@anim/exit_left_to_right" />
 
+
     </fragment>
     <fragment
         android:id="@+id/placesListFragment"
@@ -47,4 +48,14 @@
             android:name="pD"
             app:argType="com.example.crud.model.PlaceDetails" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.example.crud.ui.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/webView2"
+        android:name="com.example.crud.ui.WebView"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" />
 </navigation>

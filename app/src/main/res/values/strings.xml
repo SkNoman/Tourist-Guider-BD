@@ -22,7 +22,7 @@
     <string name="search">Search</string>
     <string name="this_feature_is_under_development">This feature is under development</string>
     <string name="english">Bangla</string>
-    <string name="tour" translatable="false">tour</string>
+    <string name="tour">tour</string>
     <string name="dhaka">Dhaka</string>
     <string name="chittagong">Chittagong</string>
     <string name="khulna">Khulna</string>
@@ -76,10 +76,10 @@
 
     <!-- Radiant Fish World -->
     <string name="place_radiant_fish_world">Radiant Fish World</string>
-    <string name="place_radiant_fish_world_description" translatable="false">Radiant Fish World is a unique aquatic attraction situated in Dhaka, Bangladesh. It is a paradise for fish enthusiasts and nature lovers alike. The world-class aquarium showcases a wide range of exotic and colorful fish species from around the world. Visitors can marvel at the vibrant underwater world, observe fascinating marine life, and learn about different aquatic ecosystems. Radiant Fish World also offers educational exhibits, interactive displays, and informative presentations. It is a captivating destination that combines entertainment, education, and appreciation for the beauty of marine life.</string>
-    <string name="cox_bazar" translatable="false">Cox Bazar</string>
-    <string name="teknaf" translatable="false">Teknaf</string>
-    <string name="bandarban" translatable="false">Bandarban</string>
+    <string name="place_radiant_fish_world_description">Radiant Fish World is a unique aquatic attraction situated in Dhaka, Bangladesh. It is a paradise for fish enthusiasts and nature lovers alike. The world-class aquarium showcases a wide range of exotic and colorful fish species from around the world. Visitors can marvel at the vibrant underwater world, observe fascinating marine life, and learn about different aquatic ecosystems. Radiant Fish World also offers educational exhibits, interactive displays, and informative presentations. It is a captivating destination that combines entertainment, education, and appreciation for the beauty of marine life.</string>
+    <string name="cox_bazar">Cox Bazar</string>
+    <string name="teknaf">Teknaf</string>
+    <string name="bandarban">Bandarban</string>
 
 
     <!-- Place Names -->
@@ -124,6 +124,10 @@
     <string name="already_in_home">Already in home</string>
     <string name="welcome_back">Welcome Back</string>
     <string name="nearby_hotels">Nearby Hotels</string>
+    <string name="welcome_to_the_bangladesh_tourist_guider_app">Welcome to the Bangladesh Tourist Guider App!</string>
+    <string name="our_app_aims_to_provide_you_with_a_comprehensive_guide_to_explore_the_rich_cultural_heritage_natural_beauty_and_historical_landmarks_of_bangladesh_whether_you_re_a_local_resident_or_a_visitor_from_abroad_our_app_is_designed_to_enhance_your_travel_experience_and_make_your_journey_through_bangladesh_memorable_discover_the_hidden_gems_of_bangladesh_through_our_carefully_curated_collection_of_destinations_including_stunning_beaches_historical_sites_vibrant_cities_serene_rivers_and_picturesque_landscapes_our_app_offers_detailed_information_about_each_location_including_its_significance_historical_background_cultural_significance_and_must_visit_attractions_navigate_through_our_interactive_maps_and_find_your_way_to_your_desired_destinations_effortlessly_our_user_friendly_interface_ensures_easy_access_to_information_making_it_convenient_for_you_to_plan_your_itinerary_and_explore_the_wonders_of_bangladesh_at_your_own_pace_stay_updated_with_the_latest_news_events_and_festivals_happening_across_the_country_our_app_provides_valuable_insights_into_local_traditions_cuisines_and_customs_allowing_you_to_immerse_yourself_in_the_true_essence_of_bangladesh">Our app aims to provide you with a comprehensive guide to explore the rich cultural heritage, natural beauty, and historical landmarks of Bangladesh. Whether you\'re a local resident or a visitor from abroad, our app is designed to enhance your travel experience and make your journey through Bangladesh memorable. Discover the hidden gems of Bangladesh through our carefully curated collection of destinations, including stunning beaches, historical sites, vibrant cities, serene rivers, and picturesque landscapes. Our app offers detailed information about each location, including its significance, historical background, cultural significance, and must-visit attractions. Navigate through our interactive maps and find your way to your desired destinations effortlessly. Our user-friendly interface ensures easy access to information, making it convenient for you to plan your itinerary and explore the wonders of Bangladesh at your own pace. Stay updated with the latest news, events, and festivals happening across the country. Our app provides valuable insights into local traditions, cuisines, and customs, allowing you to immerse yourself in the true essence of Bangladesh.</string>
+    <string name="happy_exploring_n_nthe_bangladesh_tourist_guider_app_team">Happy exploring!\n\nThe Bangladesh Tourist Guider App Team</string>
+    <string name="search_on_map">Search On Map</string>
 
 
 </resources>

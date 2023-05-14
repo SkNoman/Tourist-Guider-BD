@@ -24,4 +24,30 @@
     <string name="this_feature_is_under_development">এই বৈশিষ্ট্যটি উন্নতির অধীনে</string>
     <string name="english">English</string>
 
+
+
+    <string name="dhaka">ঢাকা</string>
+    <string name="chittagong">চট্টগ্রাম</string>
+    <string name="khulna">খুলনা</string>
+    <string name="rajshahi">রাজশাহী</string>
+    <string name="barisal">বরিশাল</string>
+    <string name="sylhet">সিলেট</string>
+    <string name="rangpur">রংপুর</string>
+    <string name="mymensingh">ময়মনসিংহ</string>
+    <string name="chittagong_division">চট্টগ্রাম বিভাগ</string>
+    <string name="dhaka_division">ঢাকা বিভাগ</string>
+    <string name="khulna_division">খুলনা বিভাগ</string>
+    <string name="barisal_divsion">বরিশাল বিভাগ</string>
+    <string name="rangpur_division">রংপুর বিভাগ</string>
+    <string name="rajshahi_division">রাজশাহী বিভাগ</string>
+    <string name="sylhet_division">সিলেট বিভাগ</string>
+    <string name="mymensingh_division">ময়মনসিংহ বিভাগ</string>
+    <string name="cox_s_bazar">কক্সবাজার</string>
+    <string name="_17_hotels">১৭ টি হোটেল</string>
+    <string name="_5_hours">৫ ঘন্টা</string>
+    <string name="division">বিভাগ</string>
+    <string name="map_direction">মানচিত্র নির্দেশনা</string>
+    <string name="description">বর্ণনা</string>
+
+
 </resources>
