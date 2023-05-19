@@ -1,6 +1,9 @@
 package com.example.crud
 
+import android.content.Context
+import android.content.pm.PackageManager
 import android.content.res.Configuration
+import android.location.LocationManager
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -8,12 +11,16 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.example.crud.databinding.ActivityMainBinding
+import com.example.crud.ui.WebView
 import com.example.crud.utils.GoogleMaps
+import com.example.crud.utils.showCustomToast
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
@@ -65,14 +72,33 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(R.id.aboutFragment)
                 }
                 R.id.restaurants_cafes ->{
-                    val bundle = Bundle()
-                    bundle.putString("type","cafes")
-                    navController.navigate(R.id.webView2,bundle)
+                    if (isLocationEnabled()){
+                        if (checkPermission()){
+                            val bundle = Bundle()
+                            bundle.putString("type","cafes")
+                            navController.navigate(R.id.webView2,bundle)
+                        }else{
+                            requestPermission()
+                        }
+
+                    }else{
+                        Toast(this).showCustomToast(getString(R.string.turn_on_location),this)
+                    }
+
                 }
                 R.id.nearby_attractions -> {
-                    val bundle = Bundle()
-                    bundle.putString("type","places")
-                    navController.navigate(R.id.webView2,bundle)
+                    if (isLocationEnabled()){
+                        if (checkPermission()){
+                            val bundle = Bundle()
+                            bundle.putString("type","places")
+                            navController.navigate(R.id.webView2,bundle)
+                        }else{
+                            requestPermission()
+                        }
+
+                    }else{
+                        Toast(this).showCustomToast(getString(R.string.turn_on_location),this)
+                    }
                 }
                 else -> {
                     Toast.makeText(this,getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
@@ -99,6 +125,26 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+    private fun requestPermission() {
+        ActivityCompat.requestPermissions(this, arrayOf(
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
+            android.Manifest.permission.ACCESS_COARSE_LOCATION),
+            7777
+        )
+    }
+    private fun isLocationEnabled():Boolean{
+        val locationManager: LocationManager = this.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)||locationManager.isProviderEnabled(
+            LocationManager.NETWORK_PROVIDER)
+    }
+    private fun checkPermission():Boolean{
+        if(ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(this,android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+        {
+            return true
+        }
+        return false
     }
 
     private fun setAppLanguage(languageCode: String) {

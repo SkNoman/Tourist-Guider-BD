@@ -1,5 +1,8 @@
 package com.example.crud.ui.dashboard
 
+import android.content.Context
+import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -9,6 +12,7 @@ import android.view.View
 import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,14 +23,18 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentUserDashboardBinding
+import com.example.crud.model.PlaceDetails
 import com.example.crud.model.SlideItem
 import com.example.crud.model.dashboard.FeaturedItem
 import com.example.crud.model.dashboard.MenusItem
+import com.example.crud.ui.WebView
 import com.example.crud.ui.adapters.DashboardMainMenuAdapter
 import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
+import com.example.crud.ui.divisions.PlacesListFragmentDirections
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.L
 import com.example.crud.utils.PIL
 import com.example.crud.utils.showCustomToast
 import com.google.android.gms.maps.GoogleMap
@@ -40,9 +48,10 @@ import java.util.*
 
 @AndroidEntryPoint
 class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
-    (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener {
+    (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener,FeaturedListItemAdapter.OnClickPopularPlace {
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var swipeLayout: SwipeRefreshLayout
+    private val pD: MutableList<PlaceDetails> = mutableListOf()
 
     override fun onPause() {
         super.onPause()
@@ -68,6 +77,20 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         swipeLayout = binding.layoutDashboard
         swipeLayout.setOnRefreshListener(this)
         setMenus()
+
+        binding.ivNerbyPlaces.setOnClickListener{
+            if (isLocationEnabled()){
+                if(checkPermission()){
+                    val bundle = Bundle()
+                    bundle.putString("type","cafes")
+                    findNavController().navigate(R.id.webView2,bundle)
+                }else{
+                    requestPermission()
+                }
+            }else{
+                Toast(requireContext()).showCustomToast(getString(R.string.turn_on_location),requireActivity())
+            }
+        }
 
     }
 
@@ -131,6 +154,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         //MANUAL ADDITION OF RECYCLER CARD VIEW
         featuredLocations.add(
             FeaturedItem(
+                206,
                 PIL.NAFA_KHUM_WATERFALL,
                 "Nafa Khum",
                 "The best water fall"
@@ -138,6 +162,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         )
         featuredLocations.add(
             FeaturedItem(
+                202,
                 PIL.COXS_BAZAR_SEA_BEACH,
                 "Cox Bazar",
                 "Longest sea beach"
@@ -145,6 +170,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         )
         featuredLocations.add(
             FeaturedItem(
+                108,
                 PIL.PLACE_HATIR_JHEEL_IMAGE,
                 "Hatir Jheel",
                 "Best jheel in dhaka"
@@ -153,7 +179,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         binding.featuredRecyclerView.layoutManager =
             LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false)
         binding.featuredRecyclerView.adapter =
-            FeaturedListItemAdapter(requireContext(),featuredLocations)
+            FeaturedListItemAdapter(requireContext(),featuredLocations,this)
     }
 
     private fun showMenus(menusItem: List<MenusItem>) {
@@ -161,6 +187,28 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
             GridLayoutManager(activity,3,GridLayoutManager.VERTICAL,false)
         binding.recyclerviewMainMenu.adapter =
             DashboardMainMenuAdapter(requireContext(),menusItem,this)
+    }
+
+    private fun isLocationEnabled():Boolean{
+        val locationManager: LocationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)||locationManager.isProviderEnabled(
+            LocationManager.NETWORK_PROVIDER)
+    }
+    private fun checkPermission():Boolean{
+        if(ActivityCompat.checkSelfPermission(requireContext(),android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+            ActivityCompat.checkSelfPermission(requireContext(),android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+        {
+            return true
+        }
+        return false
+    }
+
+    private fun requestPermission() {
+        ActivityCompat.requestPermissions(requireActivity(), arrayOf(
+            android.Manifest.permission.ACCESS_FINE_LOCATION,
+            android.Manifest.permission.ACCESS_COARSE_LOCATION),
+            7777
+        )
     }
 
     override fun onClick(id: Int) {
@@ -206,5 +254,35 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
 
     override fun onRefresh() {
         swipeLayout.isRefreshing = false
+    }
+
+    override fun onClickPopularPlace(id: Int) {
+        if (id == 108){
+            pD.add(PlaceDetails(getString(R.string.place_hatir_jheel),
+                getString(R.string.place_hatir_jheel_details),
+                getString(R.string.dhaka), L.LAT_HATIR_JHEEL,
+                L.LONG_HATIR_JHEEL, PIL.PLACE_HATIR_JHEEL_IMAGE))
+            val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
+            pD.clear()
+            findNavController().navigate(action)
+        }
+        else if(id == 202){
+            pD.add(PlaceDetails(getString(R.string.cox_s_bazar),
+                getString(R.string.cox_bazar_desc),
+                getString(R.string.cox_bazar), L.LAT_COX_BAZAR_SEA_BEACH,
+                L.LONG_COX_BAZAR_SEA_BEACH, PIL.COXS_BAZAR_SEA_BEACH))
+            val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
+            pD.clear()
+            findNavController().navigate(action)
+        }
+        else{
+            pD.add(PlaceDetails(getString(R.string.place_hatir_jheel),
+                getString(R.string.place_hatir_jheel_details),
+                getString(R.string.dhaka), L.LAT_HATIR_JHEEL,
+                L.LONG_HATIR_JHEEL, PIL.PLACE_HATIR_JHEEL_IMAGE))
+            val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
+            pD.clear()
+            findNavController().navigate(action)
+        }
     }
 }

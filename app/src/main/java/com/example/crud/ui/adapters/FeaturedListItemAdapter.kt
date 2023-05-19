@@ -12,7 +12,8 @@ import com.example.crud.model.dashboard.FeaturedItem
 
 class FeaturedListItemAdapter(
     context: Context,
-    featuredList: ArrayList<FeaturedItem>
+    featuredList: ArrayList<FeaturedItem>,
+    private var onClickPopularPlace: OnClickPopularPlace
 ):RecyclerView.Adapter<FeaturedItemViewHolder>(){
 
     private var mContext: Context = context
@@ -25,10 +26,16 @@ class FeaturedListItemAdapter(
     override fun onBindViewHolder(holder: FeaturedItemViewHolder, position: Int) {
         val featuredContent: FeaturedItem = content[position]
         holder.bind(mContext,featuredContent)
+        holder.itemView.setOnClickListener{
+            onClickPopularPlace.onClickPopularPlace(featuredContent.id)
+        }
     }
 
     override fun getItemCount(): Int {
         return content.size
+    }
+    interface OnClickPopularPlace{
+        fun onClickPopularPlace(id:Int)
     }
 }
 

@@ -132,6 +132,7 @@
     <string name="location_access_required">Location access required</string>
     <string name="turn_on_location">Please turn on location</string>
     <string name="something_went_wrong">SOMETHING WENT WRONG</string>
+    <string name="something_went_wrong_try_again">SOMETHING WENT WRONG PLEASE TRY AGAIN</string>
     <string name="developed_by_rajia">Developed By Rajia</string>
     <string name="coptyrights">Copyrights reserved to team bd tourist guider 2023</string>
 

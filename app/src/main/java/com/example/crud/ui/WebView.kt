@@ -49,8 +49,9 @@ class WebView : BaseFragmentWithBinding<FragmentWebViewBinding>
                 fusedLocationProviderClient.lastLocation.addOnSuccessListener {
                     val location:Location?=it
                     if (location==null){
+                        findNavController().popBackStack()
                         Toast(requireContext()).showCustomToast(getString(
-                            R.string.something_went_wrong),requireActivity())
+                            R.string.something_went_wrong_try_again),requireActivity())
                     }else{
                         showMaps(location.latitude,location.longitude)
                     }
