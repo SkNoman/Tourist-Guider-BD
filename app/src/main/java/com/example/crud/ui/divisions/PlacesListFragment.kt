@@ -20,7 +20,6 @@ import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.L
 import com.example.crud.utils.PIL
 import com.example.crud.utils.showCustomToast
-import kotlin.math.PI
 
 
 class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
@@ -39,9 +38,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
         binding.recyclerViewDhakaDivision.setHasFixedSize(true)
         binding.recyclerViewDhakaDivision.layoutManager =
             GridLayoutManager(activity,2,GridLayoutManager.VERTICAL,false)
-        if(CheckNetwork(requireContext()).isNetworkConnected){
-            //OK
-        }else{
+        if(!CheckNetwork(requireContext()).isNetworkConnected){
             Toast(requireContext()).showCustomToast(getString(R.string.pls_chk_internet),
                 requireActivity())
         }
@@ -60,8 +57,10 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
             }
             4->{
                 binding.txtPlaceBannerName.text = getString(R.string.rajshahi_division)
+                showRajshahiDivision()
             }
             5->{
+                showBarishalDivision()
                 binding.txtPlaceBannerName.text = getString(R.string.barisal_divsion)
             }
             6->{
@@ -91,43 +90,90 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
         })
     }
 
+    private fun showBarishalDivision() {
+        list.clear()
+        list.add(PlaceListItem(
+            501,
+            getString(R.string.place_baitul_aman_jame_masjid),
+            PIL.IMAGE_BAITUL_AMAN_JAME_MASJID
+            ,"1"))
+        list.add(PlaceListItem(
+            502,
+            getString(R.string.place_kuakata_sea_beach),
+            PIL.IMAGE_KUAKATA_SEA_BEACH
+            ,"20"))
+        list.add(PlaceListItem(
+            503,
+            getString(R.string.place_floating_guava_market),
+            PIL.IMAGE_FLOATING_GUAVA_MARKET
+            ,"3"))
+        list.add(PlaceListItem(
+            504,
+            getString(R.string.place_jakob_tower),
+            PIL.IMAGE_JAKOB_TOWER
+            ,"2"))
+
+        showPlaceList(list)
+    }
+
+    private fun showRajshahiDivision() {
+        list.clear()
+        list.add(PlaceListItem(
+            401,
+            getString(R.string.place_name_puthia_temple_complex),
+            PIL.IMAGE_LINK_PUTHIA_TEMPLE_COMPLEX
+            ,"3"))
+        list.add(PlaceListItem(
+            402,
+            getString(R.string.place_name_ruins_buddhist_vihara),
+            PIL.IMAGE_LINK_RUINS_BUDDHIST_VIHARA
+            ,"4"))
+        list.add(PlaceListItem(
+            403,
+            getString(R.string.place_name_mohasthan_garh),
+            PIL.IMAGE_LINK_MOHASTHAN_GARH
+            ,"5"))
+        list.add(PlaceListItem(
+            404,
+            getString(R.string.place_name_choto_shona_mosque),
+            PIL.IMAGE_LINK_CHOTO_SHONA_MOSQUE
+            ,"2"))
+
+        showPlaceList(list)
+    }
+
     private fun showKhulnaDivision() {
         list.clear()
         list.add(PlaceListItem(
-            1,
-            "Sundarbans",
+            301,
+            getString(R.string.sundarbans),
             "https://porzoton.com/wp-content/uploads/2020/04/Royal-Bengal-Tiger-Sundarban-Bangladesh.jpg"
             ,"2"))
         list.add(PlaceListItem(
-            2,
-            "Sixty Dome Mosque",
+            302,
+            getString(R.string.sixty_dome_mosque),
             "https://upload.wikimedia.org/wikipedia/commons/4/4f/Sixty_Dome_Mosque%2CBagerhat.jpg"
             ,"10"))
         list.add(PlaceListItem(
-            3,
-            "Hazrat Khan Jahan Ali Tomb",
+            303,
+            getString(R.string.hazrat_khan_jahan_ali_tomb),
             "https://upload.wikimedia.org/wikipedia/commons/3/38/Khan_jahan_ali_mazar_building.jpg"
             ,"10"))
         list.add(PlaceListItem(
-            4,
-            "Khodla Math Temple",
+            304,
+            getString(R.string.khodla_math_temple),
             "https://www.lrbtravelteam.com/wp-content/uploads/2020/11/Kodla-Moth.png"
             ,"5"))
         list.add(PlaceListItem(
-            5,
-            "Mausoleum of Lalon Shah",
+            305,
+            getString(R.string.mausoleum_of_lalon_shah),
             "https://upload.wikimedia.org/wikipedia/commons/8/8a/Fakir_lalon_saha_mazar.JPG"
             ,"8"))
         list.add(PlaceListItem(
-            6,
-            "Shilaidaha Rabindra Kuthibari",
+            306,
+            getString(R.string.shilaidaha_rabindra_kuthibari),
             "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shilaidaha_Kuthibadi.jpg/1280px-Shilaidaha_Kuthibadi.jpg"
             ,"4"))
-        list.add(PlaceListItem(
-            7,
-            "Nine Domed Mosque",
-            "https://thumbs.dreamstime.com/b/nine-dome-mosque-bagarhat-bangladesh-centuries-old-today-ruin-attracts-local-tourists-114223822.jpg"
-            ,"6"))
         showPlaceList(list)
     }
 
@@ -160,24 +206,9 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
             ,"17"))
         list.add(PlaceListItem(
             206,
-            "Nafa-Khum Waterfall",
+            getString(R.string.nafa_khum_waterfall),
             "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/NafaKhum%2CThanchi%2CBandarban.jpg/2560px-NafaKhum%2CThanchi%2CBandarban.jpg"
             ,"20"))
-/*        list.add(PlaceListItem(
-            207,
-            "Buddha Dhatu Jadi",
-            "https://live.staticflickr.com/5584/14854459840_e48bc3ee37_b.jpg"
-            ,"10"))
-        list.add(PlaceListItem(
-            208,
-            "Guliakhali Sea Beach",
-            "https://www.localguidesconnect.com/t5/image/serverpage/image-id/698988i5EDBCE3C2BF4F1AA/image-size/large?v=v2&px=999"
-            ,"17"))
-        list.add(PlaceListItem(
-            209,
-            "Radiant Fish World",
-            "https://lh3.googleusercontent.com/p/AF1QipM62wV9uk_itmunxyIkeloj3KHClxC9zol5IsTK=s680-w680-h510"
-            ,"17"))*/
         showPlaceList(list)
     }
 
@@ -257,7 +288,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-
             102 -> {
                 pD.add(PlaceDetails(getString(R.string.place_lalbagh_fort),
                     getString(R.string.place_lalbagh_fort_details),
@@ -267,7 +297,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-
             103 -> {
                 pD.add(PlaceDetails(getString(R.string.place_national_parliament),
                     getString(R.string.place_national_parliament_details),
@@ -277,7 +306,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-
             104 -> {
                 pD.add(PlaceDetails(getString(R.string.place_sonargaon_museum),
                     getString(R.string.place_sonargaon_museum_details),
@@ -287,7 +315,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-
             105 -> {
                 pD.add(PlaceDetails(getString(R.string.place_bangabandhu_safari_park),
                     getString(R.string.place_bangabandhu_safari_park_details),
@@ -297,7 +324,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-
             106 -> {
                 pD.add(PlaceDetails(getString(R.string.place_bangabandhu_military_museum),
                     getString(R.string.place_bangabandhu_military_museum_details),
@@ -328,11 +354,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
 
 
 
-
-
-
-
-            //SERIES 200 IS FOR CHITTAGONG DIVISION
+            //200 -> CHITTAGONG
             201 -> {
                 pD.add(PlaceDetails(getString(R.string.place_patenga_sea_beach)
                 ,getString(R.string.place_patenga_sea_beach_description),
@@ -343,7 +365,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-            //cox bazaar
             202 ->{
                 pD.add(PlaceDetails(getString(R.string.cox_s_bazar_sea_beach)
                     ,getString(R.string.cox_bazar_desc),
@@ -354,7 +375,169 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
                 pD.clear()
                 findNavController().navigate(action)
-            }else ->{
+            }
+            203->{
+                pD.add(PlaceDetails(getString(R.string.place_saint_martin)
+                    ,getString(R.string.place_saint_martin_description),
+                    getString(R.string.cox_bazar),
+                    L.LAT_SAINT_MARTIN_ISLAND,
+                    L.LONG_SAINT_MARTIN_ISLAND,
+                    PIL.SAINT_MARTIN_ISLAND))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            204->{
+                pD.add(PlaceDetails(getString(R.string.place_chandranath_pahar)
+                    ,getString(R.string.place_chandranath_pahar_description),
+                    getString(R.string.sitakund),
+                    L.LAT_CHANDRANATH_HILLS,
+                    L.LONG_CHANDRANATH_HILLS,
+                    PIL.CHANDRANATH_HILLS))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            205->{
+                pD.add(PlaceDetails(getString(R.string.place_kaptai_lake)
+                    ,getString(R.string.place_kaptai_lake_description),
+                    getString(R.string.rangamati),
+                    L.LAT_KAPTAI_LAKE,
+                    L.LONG_KAPTAI_LAKE,
+                    PIL.KAPTAI_LAKE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            206 ->{
+                pD.add(PlaceDetails(getString(R.string.nafa_khum_waterfall)
+                    ,getString(R.string.nafa_khum_desc),
+                    getString(R.string.rangamati),
+                    L.LAT_NAFA_KHUM,
+                    L.LONG_NAFA_KHUM,
+                    PIL.NAFA_KHUM_WATERFALL))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            //300 -> KHULNA
+
+
+            301 ->{
+                pD.add(PlaceDetails(getString(R.string.sundarbans)
+                    ,getString(R.string.shundarban_description),
+                    getString(R.string.satkhira),
+                    L.LAT_SHUNDARBAN,
+                    L.LONG_SHUNDARBAN,
+                    PIL.SHUNDARBAN))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            302 ->{
+                pD.add(PlaceDetails(getString(R.string.sixty_dome_mosque)
+                    ,getString(R.string.sixty_domed_mosque_description),
+                    getString(R.string.khulna),
+                    L.LAT_SIXTY_DOMED_MOSQUE,
+                    L.LONG_SAINT_MARTIN_ISLAND,
+                    PIL.SIXTY_DOMED_MOSQUE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            303 ->{
+                pD.add(PlaceDetails(getString(R.string.hazrat_khan_jahan_ali_tomb)
+                    ,getString(R.string.khan_jahan_ali_description),
+                    getString(R.string.khulna),
+                    L.LAT_KHAN_JAHAN_ALI,
+                    L.LONG_KHAN_JAHAN_ALI,
+                    PIL.KHAN_JAHAN_ALI))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            304 ->{
+                pD.add(PlaceDetails(getString(R.string.khodla_math_temple)
+                    ,getString(R.string.khondla_math_temple_description),
+                    getString(R.string.khulna),
+                    L.LAT_KHONDLA_MATH_TEMPLE,
+                    L.LONG_KHONDLA_MATH_TEMPLE,
+                    PIL.KHONDLA_MATH_TEMPLE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            305 ->{
+                pD.add(PlaceDetails(getString(R.string.mausoleum_of_lalon_shah)
+                    ,getString(R.string.lalon_shah_description),
+                    getString(R.string.kushtia),
+                    L.LAT_LALON_SHAH,
+                    L.LONG_LALON_SHAH,
+                    PIL.LALON_SHAH))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            306 ->{
+                pD.add(PlaceDetails(getString(R.string.shilaidaha_rabindra_kuthibari)
+                    ,getString(R.string.rabindar_kutibari_description),
+                    getString(R.string.kushtia),
+                    L.LAT_RABINDAR_KUTIBARI,
+                    L.LONG_RABINDAR_KUTIBARI,
+                    PIL.RABINDAR_KUTIBARI))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            401 ->{
+                pD.add(PlaceDetails(getString(R.string.place_name_puthia_temple_complex)
+                    ,getString(R.string.place_description_puthia_temple_complex),
+                    getString(R.string.rajshahi),
+                    L.LAT_PUTHIA_TEMPLE_COMPLEX,
+                    L.LONG_PUTHIA_TEMPLE_COMPLEX,
+                    PIL.IMAGE_LINK_PUTHIA_TEMPLE_COMPLEX))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            402 ->{
+                pD.add(PlaceDetails(getString(R.string.place_name_ruins_buddhist_vihara)
+                    ,getString(R.string.place_description_ruins_buddhist_vihara),
+                    getString(R.string.rajshahi),
+                    L.LAT_RUINS_OF_THE_BUDDHIST_VIHARA,
+                    L.LONG_RUINS_OF_THE_BUDDHIST_VIHARA,
+                    PIL.IMAGE_LINK_RUINS_BUDDHIST_VIHARA))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            403 ->{
+                pD.add(PlaceDetails(getString(R.string.place_name_mohasthan_garh)
+                    ,getString(R.string.place_description_mohasthan_garh),
+                    getString(R.string.bogura),
+                    L.LAT_MOHASTHAN_GARH,
+                    L.LONG_MOHASTHAN_GARH,
+                    PIL.IMAGE_LINK_MOHASTHAN_GARH))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            404->{
+                pD.add(PlaceDetails(getString(R.string.place_name_choto_shona_mosque)
+                    ,getString(R.string.place_description_choto_shona_mosque),
+                    getString(R.string.rajshahi),
+                    L.LAT_CHOTO_SHONA_MOSQUE,
+                    L.LONG_CHOTO_SHONA_MOSQUE,
+                    PIL.IMAGE_LINK_CHOTO_SHONA_MOSQUE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            else ->{
                 Toast.makeText(requireContext(),getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
             }
         }

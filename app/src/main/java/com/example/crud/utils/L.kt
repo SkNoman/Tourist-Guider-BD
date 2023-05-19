@@ -40,6 +40,59 @@ object L {
     const val LAT_CHANDRANATH_HILLS = 21.4635
     const val LONG_CHANDRANATH_HILLS = 91.9557
 
+    const val LAT_KAPTAI_LAKE = 22.5928
+    const val LONG_KAPTAI_LAKE = 92.2138
+
+    const val LAT_NAFA_KHUM = 21.7385147
+    const val LONG_NAFA_KHUM = 92.286584
+
+    //khulna
+    const val LAT_SHUNDARBAN = 21.9497
+    const val LONG_SHUNDARBAN = 89.1833
+
+    const val LAT_SIXTY_DOMED_MOSQUE = 22.6595
+    const val LONG_SIXTY_DOMED_MOSQUE = 89.7858
+
+    const val LAT_KHAN_JAHAN_ALI = 22.6607
+    const val LONG_KHAN_JAHAN_ALI = 89.7858
+
+    const val LAT_KHONDLA_MATH_TEMPLE = 24.6998
+    const val LONG_KHONDLA_MATH_TEMPLE = 88.3488
+
+    const val LAT_LALON_SHAH = 24.4033
+    const val LONG_LALON_SHAH = 89.7825
+
+    const val LAT_RABINDAR_KUTIBARI = 23.2161
+    const val LONG_RABINDAR_KUTIBARI = 89.1279
+
+    //rajshahi
+    const val LAT_PUTHIA_TEMPLE_COMPLEX = 24.381576
+    const val LONG_PUTHIA_TEMPLE_COMPLEX = 88.793834
+
+    const val LAT_RUINS_OF_THE_BUDDHIST_VIHARA = 24.968650
+    const val LONG_RUINS_OF_THE_BUDDHIST_VIHARA = 91.335014
+
+    const val LAT_MOHASTHAN_GARH = 24.798442
+    const val LONG_MOHASTHAN_GARH = 89.366533
+
+    const val LAT_CHOTO_SHONA_MOSQUE = 23.176470
+    const val LONG_CHOTO_SHONA_MOSQUE = 89.193497
+
+    //BARISHAL
+    const val LAT_BAITUL_AMAN_JAME_MASJID = 23.801056
+    const val LONG_BAITUL_AMAN_JAME_MASJID = 89.551375
+
+    const val LAT_KUAKATA_SEA_BEACH = 21.827632
+    const val LONG_KUAKATA_SEA_BEACH = 90.131442
+
+    const val LAT_FLOATING_GUAVA_MARKET = 23.436930
+    const val LONG_FLOATING_GUAVA_MARKET = 89.108107
+
+    const val LAT_JAKOB_TOWER = 23.710286
+    const val LONG_JAKOB_TOWER = 90.407938
+
+
+
 // Add more variables for other places if needed
 
 }

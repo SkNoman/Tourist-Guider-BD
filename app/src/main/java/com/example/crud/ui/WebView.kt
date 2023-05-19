@@ -6,17 +6,20 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.util.Log
 import android.view.View
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.navigation.fragment.findNavController
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentWebViewBinding
+import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.showCustomToast
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -26,6 +29,7 @@ class WebView : BaseFragmentWithBinding<FragmentWebViewBinding>
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     var searchLink = "https://www.google.com/maps/search/narby+hotels/"
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
@@ -33,6 +37,9 @@ class WebView : BaseFragmentWithBinding<FragmentWebViewBinding>
             findNavController().popBackStack()
         }
 
+        if (!CheckNetwork(requireContext()).isNetworkConnected){
+            Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
+        }
         val mapType =   requireArguments().getString("type")
         if (mapType == "places"){
             searchLink = "https://www.google.com/maps/search/nearby+tourist+spot/"

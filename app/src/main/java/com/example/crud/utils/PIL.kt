@@ -23,5 +23,27 @@ object PIL {
     const val PLACE_TAJ_MAHAL_BANGLADESH_IMAGE = "https://lh3.googleusercontent.com/p/AF1QipNkTIhj0yw7Z5JYnuSWRvefrS08U94Pi9ehGDD2=s680-w680-h510"
     const val PLACE_HATIR_JHEEL_IMAGE = "https://shweb.me/infointeriors/wp-content/uploads/2017/01/Hatirjheel1.jpg"
 
+    //KHULNA
+
+    const val SHUNDARBAN = "https://porzoton.com/wp-content/uploads/2020/04/Royal-Bengal-Tiger-Sundarban-Bangladesh.jpg"
+    const val SIXTY_DOMED_MOSQUE = "https://upload.wikimedia.org/wikipedia/commons/4/4f/Sixty_Dome_Mosque%2CBagerhat.jpg"
+    const val KHAN_JAHAN_ALI = "https://upload.wikimedia.org/wikipedia/commons/3/38/Khan_jahan_ali_mazar_building.jpg"
+    const val KHONDLA_MATH_TEMPLE = "https://www.lrbtravelteam.com/wp-content/uploads/2020/11/Kodla-Moth.png"
+    const val LALON_SHAH = "https://upload.wikimedia.org/wikipedia/commons/8/8a/Fakir_lalon_saha_mazar.JPG"
+    const val RABINDAR_KUTIBARI = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shilaidaha_Kuthibadi.jpg/1280px-Shilaidaha_Kuthibadi.jpg"
+
+    //RAJSHAHI
+    const val IMAGE_LINK_PUTHIA_TEMPLE_COMPLEX = "https://upload.wikimedia.org/wikipedia/commons/1/19/Shiva_temple_at_Puthia%2C_Rajshahi.JPG"
+    const val IMAGE_LINK_RUINS_BUDDHIST_VIHARA = "https://ak-d.tripcdn.com/images/01A1q120009dcbf7s053F.jpg"
+    const val IMAGE_LINK_MOHASTHAN_GARH = "https://www.travelmate.com.bd/wp-content/uploads/2021/05/mahasthangarh-bogura.jpg"
+    const val IMAGE_LINK_CHOTO_SHONA_MOSQUE = "https://lh3.googleusercontent.com/p/AF1QipN1ErDvJ827ZMRwXI9zPu495yBBk0L-SBIHFlMp=s680-w680-h510"
+
+    //BARISHAL
+    const val IMAGE_BAITUL_AMAN_JAME_MASJID = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Guthia_Mosque_16.jpg/640px-Guthia_Mosque_16.jpg"
+    const val IMAGE_KUAKATA_SEA_BEACH = "https://www.travelmate.com.bd/wp-content/uploads/2020/08/kuakata-patuakhai.jpg"
+    const val IMAGE_FLOATING_GUAVA_MARKET = "https://www.lrbtravelteam.com/wp-content/uploads/2020/11/Floating-Guava-Market-.png"
+    const val IMAGE_JAKOB_TOWER = "https://iamnrdurjoy.files.wordpress.com/2020/10/images.jpeg?w=737"
+
+
 
 }

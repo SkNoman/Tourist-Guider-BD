@@ -135,6 +135,65 @@
     <string name="something_went_wrong_try_again">SOMETHING WENT WRONG PLEASE TRY AGAIN</string>
     <string name="developed_by_rajia">Developed By Rajia</string>
     <string name="coptyrights">Copyrights reserved to team bd tourist guider 2023</string>
+    <string name="rangamati">"Rangamati "</string>
+    <string name="nafa_khum_waterfall">Nafa-Khum Waterfall</string>
+    <string name="nafa_khum_desc">It is among the largest waterfalls in the country by volume of water falling. The wild hilly Remaikree river suddenly falls down here about 25–30 feet or 7.62-9.144 meters. The word Ngafa (ঙাফা) in native Marma language means Baghair fish/ Dwarf goonch and "Khong" means "Ground</string>
+    <string name="sundarbans">Sundarbans</string>
+    <string name="sixty_dome_mosque">Sixty Dome Mosque</string>
+    <string name="hazrat_khan_jahan_ali_tomb">Hazrat Khan Jahan Ali Tomb</string>
+    <string name="khodla_math_temple">Khodla Math Temple</string>
+    <string name="mausoleum_of_lalon_shah">Mausoleum of Lalon Shah</string>
+    <string name="shilaidaha_rabindra_kuthibari">Shilaidaha Rabindra Kuthibari</string>
+
+    <string name="shundarban_description">Shundarban is a mangrove forest in Bangladesh known for its rich biodiversity. It is home to the Royal Bengal Tiger and offers breathtaking natural beauty.</string>
+
+    <string name="sixty_domed_mosque_description">The Sixty Domed Mosque in Bagerhat, Bangladesh, is a UNESCO World Heritage Site. It is an architectural masterpiece and a symbol of the region\'s rich history and cultural heritage.</string>
+
+    <string name="khan_jahan_ali_description">Khan Jahan Ali\'s Mosque is a historic mosque located in Bagerhat, Bangladesh. It was built in the 15th century and is renowned for its unique architectural design.</string>
+
+    <string name="khondla_math_temple_description">Khondla Math Temple, also known as Kodla Moth, is an ancient Hindu temple located in Rajshahi, Bangladesh. It showcases exquisite terracotta artwork and is a significant religious site.</string>
+
+    <string name="lalon_shah_description">Lalon Shah\'s Mazar is the shrine of the famous mystic poet and philosopher, Lalon Shah. Located in Kushtia, Bangladesh, it attracts devotees and visitors seeking spiritual solace.</string>
+
+    <string name="rabindar_kutibari_description">Rabindra Kuthibari, also known as Shilaidaha Kuthibadi, is a historic mansion in Kushtia, Bangladesh, where Nobel laureate Rabindranath Tagore resided. It serves as a cultural heritage site and a museum.</string>
+    <string name="satkhira">Satkhira</string>
+    <string name="kushtia">Kushtia</string>
+
+
+    <!-- Puthia Temple Complex -->
+    <string name="place_name_puthia_temple_complex">Puthia Temple Complex</string>
+    <string name="place_description_puthia_temple_complex">The Puthia Temple Complex is a collection of Hindu temples located in Puthia, Rajshahi. It is renowned for its stunning architecture and intricate designs.</string>
+
+    <!-- Ruins of the Buddhist Vihara -->
+    <string name="place_name_ruins_buddhist_vihara">Ruins of the Buddhist Vihara</string>
+    <string name="place_description_ruins_buddhist_vihara">The Ruins of the Buddhist Vihara are ancient remains of a Buddhist monastery. They provide a glimpse into the rich Buddhist heritage of the region.</string>
+
+    <!-- Mohasthan Garh -->
+    <string name="place_name_mohasthan_garh">Mohasthan Garh</string>
+    <string name="place_description_mohasthan_garh">Mohasthan Garh is an archaeological site in Bogura, known for its historical significance. It is believed to be one of the earliest urban archaeological sites in Bangladesh.</string>
+
+    <!-- Choto Shona Mosque -->
+    <string name="place_name_choto_shona_mosque">Choto Shona Mosque</string>
+    <string name="place_description_choto_shona_mosque">The Choto Shona Mosque is a small but beautiful mosque located in Bagerhat. It is a UNESCO World Heritage Site and showcases the region\'s rich architectural heritage.</string>
+    <string name="bogura">Bogura</string>
+
+
+    <!-- Baitul Aman Jame Masjid -->
+    <string name="place_baitul_aman_jame_masjid">Baitul Aman Jame Masjid</string>
+    <string name="description_baitul_aman_jame_masjid">Baitul Aman Jame Masjid is a beautiful mosque located in Guthia, Bangladesh.</string>
+
+    <!-- Kuakata Sea Beach -->
+    <string name="place_kuakata_sea_beach">Kuakata Sea Beach</string>
+    <string name="description_kuakata_sea_beach">Kuakata Sea Beach is a popular tourist destination known for its scenic beauty and stunning sunset views.</string>
+
+    <!-- Floating Guava Market -->
+    <string name="place_floating_guava_market">Floating Guava Market</string>
+    <string name="description_floating_guava_market">Floating Guava Market is a unique market located in Bangladesh, where guavas are sold on boats floating in the water.</string>
+
+    <!-- Jakob Tower -->
+    <string name="place_jakob_tower">Jakob Tower</string>
+    <string name="description_jakob_tower">Jakob Tower is a prominent landmark and observation tower situated in Bangladesh, offering panoramic views of the surrounding area.</string>
+
 
 
 </resources>
