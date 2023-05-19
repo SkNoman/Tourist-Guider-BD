@@ -7,6 +7,7 @@ import android.os.Looper
 import android.util.Log
 import android.view.View
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -25,7 +26,9 @@ import com.example.crud.ui.adapters.DashboardMainMenuAdapter
 import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
+import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.PIL
+import com.example.crud.utils.showCustomToast
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -53,6 +56,11 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val checkNetwork = CheckNetwork(requireContext())
+        if (!checkNetwork.isNetworkConnected){
+            Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
+        }
         CoroutineScope(Dispatchers.IO).launch {
             autoPlaceSlider()
         }
