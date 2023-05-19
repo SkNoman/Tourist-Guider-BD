@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.webkit.WebViewClient
 import androidx.annotation.RequiresApi
@@ -52,7 +53,6 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         CoroutineScope(Dispatchers.IO).launch {
             autoPlaceSlider()
         }
@@ -60,19 +60,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         swipeLayout = binding.layoutDashboard
         swipeLayout.setOnRefreshListener(this)
         setMenus()
-        showNearbyHotels()
-    }
 
-    private fun showNearbyHotels() {
-        // WebViewClient allows you to handle
-        // onPageFinished and override Url loading.
-        binding.webView.webViewClient = WebViewClient()
-        // this will load the url of the website
-        binding.webView.loadUrl("https://www.google.com/maps/search/narby+hotels/@23.7969814,90.4060102,")
-        // this will enable the javascript settings, it can also allow xss vulnerabilities
-        binding.webView.settings.javaScriptEnabled = true
-        // if you want to enable zoom feature
-        binding.webView.settings.setSupportZoom(true)
     }
 
     private fun setMenus() {
@@ -115,14 +103,6 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
             offscreenPageLimit = sliderItem.size
             getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         }
-        /*   val compositionTransformer = CompositePageTransformer()
-           compositionTransformer.addTransformer(MarginPageTransformer(10))
-           compositionTransformer.addTransformer { page, position ->
-               val r = 1 - kotlin.math.abs(position)
-               page.scaleY = 0.80f + r * 01.1f
-           }
-           binding.viewPager.setPageTransformer(compositionTransformer)*/
-
         binding.viewPagerHotItem.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 handler.removeCallbacks(viewPagerHotItemRunnable)

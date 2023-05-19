@@ -8,6 +8,7 @@ import android.location.Location
 import android.location.LocationManager
 import android.os.Bundle
 import android.provider.Settings
+import android.util.Log
 import android.view.View
 import android.webkit.WebViewClient
 import android.widget.Toast
@@ -25,8 +26,6 @@ class WebView : BaseFragmentWithBinding<FragmentWebViewBinding>
 
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     var searchLink = "https://www.google.com/maps/search/narby+hotels/"
-    private var lat:Double = 0.0
-    private var long:Double = 0.0
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireActivity())
@@ -89,9 +88,11 @@ class WebView : BaseFragmentWithBinding<FragmentWebViewBinding>
 
         if (requestCode == PERMISSION_REQUEST_ACCESS_LOCATION){
             if (grantResults.isNotEmpty() && grantResults[0]== PackageManager.PERMISSION_GRANTED){
+                Log.e("nlog","Location Access Given")
                 getCurrentLocation()
             }else{
                 //show
+                Log.e("nlog","Location Access Denied")
                 requestPermission()
             }
         }
