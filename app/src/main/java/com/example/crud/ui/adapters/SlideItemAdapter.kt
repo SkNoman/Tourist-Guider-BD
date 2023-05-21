@@ -50,7 +50,7 @@ RecyclerView.ViewHolder(inflater.inflate(R.layout.slide_item_container,parent,fa
         viewPagerRunnable: Runnable
     ){
         Glide.with(context).load(slideItemList.image)
-            .placeholder(R.drawable.preloader).into(imageView)
+            .placeholder(R.drawable.item3).into(imageView)
         if (position == content.size -2){
             itemView.post(viewPagerRunnable)
         }

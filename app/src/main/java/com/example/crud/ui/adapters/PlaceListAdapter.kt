@@ -48,6 +48,6 @@ class PlaceListItemViewHolder(inflater: LayoutInflater, parent: ViewGroup):
         placeName.text = placeListData!!.placeName
         "${placeListData.placeHotelCount} Hotels".also { hotelCount.text = it }
         Glide.with(context).load(placeListData.placeImage)
-            .placeholder(R.drawable.preloader).into(placeImage)
+            .placeholder(R.drawable.item3).into(placeImage)
     }
 }

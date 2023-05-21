@@ -44,6 +44,15 @@ object PIL {
     const val IMAGE_FLOATING_GUAVA_MARKET = "https://www.lrbtravelteam.com/wp-content/uploads/2020/11/Floating-Guava-Market-.png"
     const val IMAGE_JAKOB_TOWER = "https://iamnrdurjoy.files.wordpress.com/2020/10/images.jpeg?w=737"
 
+    //SYLHET
+    const val IMAGE_HAZRAT_SHAHJALAL_MAZAR = "https://porzoton.com/wp-content/uploads/2020/06/Shahjalal-Mazar-Dargah-Shahjalal-Sylhet.jpg"
+    const val IMAGE_SADA_PATHOR = "https://sylhetpedia.com/wp-content/uploads/2020/04/mri-47150.jpg"
+    const val IMAGE_JAFLONG = "https://images.unsplash.com/photo-1643001607577-0a0332e79aab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8amFmbG9uZyUyQyUyMHN5bGhldCUyQyUyMGJhbmdsYWRlc2h8ZW58MHx8MHx8&w=1000&q=80"
+    const val IMAGE_LALAKHAL = "https://www.sylhettouristguide.com/assets/image/place/lalakhal/finger.jpg"
+    const val IMAGE_RATARGUL_SWAMP_FOREST = "https://file.portal.gov.bd/uploads/7cbf034f-519d-4a1f-a38c-fcb91cf6497d//60e/bcf/e6a/60ebcfe6aaa33027254823.jpg"
+    const val IMAGE_MALNICHHERA_TEA_GARDEN = "https://www.travelmate.com.bd/wp-content/uploads/2021/03/Malnicherra-Tea-Garden-Estate.jpg"
+    const val IMAGE_TANGUAR_HAOR = "https://porzoton.com/wp-content/uploads/2020/09/Tanguar-Haor.jpg"
+
 
 
 }

@@ -58,7 +58,7 @@ class WebView : BaseFragmentWithBinding<FragmentWebViewBinding>
                     if (location==null){
                         findNavController().popBackStack()
                         Toast(requireContext()).showCustomToast(getString(
-                            R.string.something_went_wrong_try_again),requireActivity())
+                            R.string.something_went_wrong_with_location_try_again),requireActivity())
                     }else{
                         showMaps(location.latitude,location.longitude)
                     }

@@ -92,6 +92,30 @@ object L {
     const val LONG_JAKOB_TOWER = 90.407938
 
 
+    //SYLHET
+    const val LAT_HAZRAT_SHAHJALAL_MAZAR = 24.8993
+    const val LONG_HAZRAT_SHAHJALAL_MAZAR = 91.8678
+
+    const val LAT_SADA_PATHOR = 24.9119
+    const val LONG_SADA_PATHOR = 91.9092
+
+    const val LAT_JAFLONG = 25.0662
+    const val LONG_JAFLONG = 92.0507
+
+    const val LAT_LALAKHAL = 25.0167
+    const val LONG_LALAKHAL = 92.0523
+
+    const val LAT_RATARGUL_SWAMP_FOREST = 25.2042
+    const val LONG_RATARGUL_SWAMP_FOREST = 91.3639
+
+    const val LAT_MALNICHHERA_TEA_GARDEN = 24.8931
+    const val LONG_MALNICHHERA_TEA_GARDEN = 91.9070
+
+    const val LAT_TANGUAR_HAOR = 25.0018
+    const val LONG_TANGUAR_HAOR = 89.8997
+
+
+
 
 // Add more variables for other places if needed
 

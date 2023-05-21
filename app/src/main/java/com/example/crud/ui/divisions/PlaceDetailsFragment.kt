@@ -26,7 +26,7 @@ class PlaceDetailsFragment : BaseFragmentWithBinding<FragmentPlaceDetailsBinding
                 txtDescValueD.text = result.placeDetails
                 txtDistrictD.text = result.placeDistrict
                 Glide.with(requireContext()).load(result.placeImage)
-                    .placeholder(R.drawable.preloader).into(ivPlaceImage)
+                    .placeholder(R.drawable.item3).into(ivPlaceImage)
                 binding.txtMapDirection.setOnClickListener{
                     GoogleMaps.openGoogleMaps(requireContext(),result.lat,result.long)
                 }

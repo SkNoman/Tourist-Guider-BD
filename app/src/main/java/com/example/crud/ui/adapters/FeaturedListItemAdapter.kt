@@ -47,6 +47,6 @@ RecyclerView.ViewHolder(inflater.inflate(R.layout.item_featured_menu_list,parent
     fun bind(context: Context,featuredItem: FeaturedItem){
         title.text = featuredItem.title
         Glide.with(context).load(featuredItem.image)
-            .placeholder(R.drawable.preloader).into(icon)
+            .placeholder(R.drawable.item3).into(icon)
     }
 }

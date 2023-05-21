@@ -16,7 +16,6 @@
     <string name="this_is_a_custom_toast">এটি একটি কাস্টম টোস্ট</string>
     <string name="phone">ফোন</string>
     <string name="popular_tab">জনপ্রিয় ট্যাব</string>
-    <string name="all_time_best_selling_products">সর্বকালের সেরা</string>
     <string name="pls_chk_internet">দয়া করে আপনার ইন্টারনেট সংযোগ চেক করুন</string>
     <string name="trending_now">এখনই ট্রেন্ডিং</string>
     <string name="best_selling_products">সেরা</string>
@@ -48,6 +47,38 @@
     <string name="division">বিভাগ</string>
     <string name="map_direction">মানচিত্র নির্দেশনা</string>
     <string name="description">বর্ণনা</string>
+
+    <string name="cox_bazar_desc">কক্সবাজার সমুদ্র সৈকত, বাংলাদেশের কক্সবাজারে অবস্থিত, বিশ্বের সর্বদৈত্যকারী প্রাকৃতিক সমুদ্র সৈকত, যা ১২০ কিলোমিটার দীর্ঘ এবং প্রাকৃতিক সমুদ্র সৈকতে প্রথম স্থান অধিকার করে। এটি প্রাকৃতিক সমুদ্র সৈকত সমূহের মধ্যে প্রাকৃতিক সমুদ্র সৈকত হলো প্রাইয়া ডো কাসিনো (ব্রাজিল), প্যাড্রে দ্বীপ (মার্কিন যুক্তরাষ্ট্র উত্তর খাড়ি), অষ্টমিল সৈকত (পশ্চিম অস্ট্রেলিয়া), এবং নাইনটি মাইল সৈকত (অস্ট্রেলিয়া) এর পরে ৫টি সর্বদৈত্যকারী সমুদ্র সৈকত।</string>
+    <string name="cox_s_bazar_sea_beach">কক্সবাজার সমুদ্র সৈকত</string>
+    <string name="tour">ভ্রমণ</string>
+    <string name="pls_turn_on_internet">দয়া করে ইন্টারনেট সংযোগ চালু করুন</string>
+    <string name="all_time_best_selling_products">সর্বকালের সেরা দর্শনীয় স্থানসমূহ</string>
+
+    <!-- Chandranath Pahar -->
+    <string name="place_chandranath_pahar">চন্দ্রনাথ পাহাড়</string>
+    <string name="place_chandranath_pahar_description">চন্দ্রনাথ পাহাড় সিতাকুণ্ড, চট্টগ্রামে অবস্থিত একটি পাহাড়, যেখানে চমৎকার দৃশ্য এবং আধ্যাত্মিক বাতাস পাওয়া যায়।</string>
+
+    <!-- Guliakhali Sea Beach -->
+    <string name="place_guliakhali_sea_beach">গুলিয়াখালী সমুদ্র সৈকত</string>
+    <string name="place_guliakhali_sea_beach_description">গুলিয়াখালী সমুদ্র সৈকত বাংলাদেশের একটি শান্তিপূর্ণ কোস্টাল এলাকা, যা প্রাকৃতিক শান্তি এবং মনোহারী দৃশ্য সরবরাহ করে।</string>
+
+    <!-- Saint Martin -->
+    <string name="sitakund">সীতাকুণ্ড</string>
+
+    <!-- Saint Martin -->
+    <string name="place_saint_martin">সেন্ট মার্টিন</string>
+    <string name="place_saint_martin_description">সেন্ট মার্টিন দ্বীপ বঙ্গোপসাগরে অবস্থিত একটি চিত্রসম্পন্ন প্রাণসংযুক্ত দ্বীপ। এটি প্রাকৃতিকভাবে পরিচ্ছন্ন সৈকতিক সৈকত, স্বচ্ছ হলদেওয়া পানি, এবং বিভিন্ন মহাসাগরিক জীবনের জন্য প্রশংসিত। দ্বীপটি স্নোর্কেলিং, ডাইভিং এবং জীববৈচিত্র্য জীবন সংশ্লিষ্ট গবেষণা করার সুযোগ সরবরাহ করে। আগ্রহীগণ সুস্বাদু মাছ আহার, সুন্দর সূর্যাস্ত দেখার সুযোগ এবং শান্তিপূর্ণ দ্বীপের বাতাস অনুভব করতে পারেন। সেন্ট মার্টিন দ্বীপ প্রকৃতি প্রেমিকদের জন্য একটি পর্যটন জায়গা এবং বিশ্রামকের সম্পূর্ণ পাঠ্যক্রম।</string>
+
+    <!-- Patenga Sea Beach -->
+    <string name="place_patenga_sea_beach">পাটেঙ্গা সমুদ্র সৈকত</string>
+
+    <!-- Patenga Sea Beach -->
+    <string name="place_patenga_sea_beach_description">পাটেঙ্গা সমুদ্র সৈকত চট্টগ্রাম, বাংলাদেশের একটি জনপ্রিয় সমুদ্র সৈকত। এটি দীর্ঘ সৈকতিক কিনারা, মৃদু তীর্থস্রোত এবং দৃশ্যমণ্ডলের জন্য পরিচিত। ভ্রমণকারীরা সমুদ্র সৈকতের পাশে সৈকতিক বিশ্রাম করতে পারেন, স্থানীয় রাস্তার খাদ্যে আস্বাদন করতে পারেন এবং মগ্ন সূর্যাস্ত অনুভব করতে পারেন। সমুদ্র সৈকতটি মজার অভিজ্ঞতা জন্য ঘোড়া রাইড এবং নৌকা ভ্রমণ সরবরাহ করে। পাটেঙ্গা সমুদ্র সৈকত স্থানীয় এবং পর্যটকদের পছন্দের জায়গা, যা একটি প্রশান্তিপূর্ণ তীর্থস্থান প্রদান করে।</string>
+
+    <!-- Kaptai Lake -->
+    <string name="place_kaptai_lake">কাপ্তাই লেক</string>
+
+
 
 
 </resources>
