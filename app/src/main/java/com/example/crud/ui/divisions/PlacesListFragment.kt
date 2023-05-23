@@ -20,7 +20,6 @@ import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.L
 import com.example.crud.utils.PIL
 import com.example.crud.utils.showCustomToast
-import kotlin.math.PI
 
 
 class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>

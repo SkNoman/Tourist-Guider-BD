@@ -1,7 +1,9 @@
 package com.example.crud.ui.splash
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.crud.R
@@ -19,12 +21,16 @@ class FragmentSplash : BaseFragmentWithBinding<FragmentSplashBinding>(FragmentSp
 
     private var isFragmentAttached = false
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         isFragmentAttached = true
 
-        Glide.with(this).asGif().load(R.drawable.loader_slow_jump_moving).into(binding.loader)
+        Glide.with(this).asGif().load(R.drawable.splash).into(binding.loader)
 
         navigateDashboard()
     }

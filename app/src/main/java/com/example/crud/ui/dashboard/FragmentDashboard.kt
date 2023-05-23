@@ -7,9 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.View
-import android.webkit.WebViewClient
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
@@ -27,19 +25,14 @@ import com.example.crud.model.PlaceDetails
 import com.example.crud.model.SlideItem
 import com.example.crud.model.dashboard.FeaturedItem
 import com.example.crud.model.dashboard.MenusItem
-import com.example.crud.ui.WebView
 import com.example.crud.ui.adapters.DashboardMainMenuAdapter
 import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
-import com.example.crud.ui.divisions.PlacesListFragmentDirections
 import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.L
 import com.example.crud.utils.PIL
 import com.example.crud.utils.showCustomToast
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -160,24 +153,24 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
             FeaturedItem(
                 206,
                 PIL.NAFA_KHUM_WATERFALL,
-                "Nafa Khum",
-                "The best water fall"
+                getString(R.string.nafa_khum),
+                getString(R.string.the_best_water_fall)
             )
         )
         featuredLocations.add(
             FeaturedItem(
                 202,
                 PIL.COXS_BAZAR_SEA_BEACH,
-                "Cox Bazar",
-                "Longest sea beach"
+                getString(R.string.cox_bazar),
+                getString(R.string.longest_sea_beach)
             )
         )
         featuredLocations.add(
             FeaturedItem(
                 108,
                 PIL.PLACE_HATIR_JHEEL_IMAGE,
-                "Hatir Jheel",
-                "Best jheel in dhaka"
+                getString(R.string.place_hatir_jheel),
+                getString(R.string.best_jheel_in_dhaka)
             )
         )
         binding.featuredRecyclerView.layoutManager =
@@ -261,32 +254,34 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     }
 
     override fun onClickPopularPlace(id: Int) {
-        if (id == 108){
-            pD.add(PlaceDetails(getString(R.string.place_hatir_jheel),
-                getString(R.string.place_hatir_jheel_details),
-                getString(R.string.dhaka), L.LAT_HATIR_JHEEL,
-                L.LONG_HATIR_JHEEL, PIL.PLACE_HATIR_JHEEL_IMAGE))
-            val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
-            pD.clear()
-            findNavController().navigate(action)
-        }
-        else if(id == 202){
-            pD.add(PlaceDetails(getString(R.string.cox_s_bazar),
-                getString(R.string.cox_bazar_desc),
-                getString(R.string.cox_bazar), L.LAT_COX_BAZAR_SEA_BEACH,
-                L.LONG_COX_BAZAR_SEA_BEACH, PIL.COXS_BAZAR_SEA_BEACH))
-            val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
-            pD.clear()
-            findNavController().navigate(action)
-        }
-        else{
-            pD.add(PlaceDetails(getString(R.string.place_hatir_jheel),
-                getString(R.string.place_hatir_jheel_details),
-                getString(R.string.dhaka), L.LAT_HATIR_JHEEL,
-                L.LONG_HATIR_JHEEL, PIL.PLACE_HATIR_JHEEL_IMAGE))
-            val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
-            pD.clear()
-            findNavController().navigate(action)
+        when (id) {
+            108 -> {
+                pD.add(PlaceDetails(getString(R.string.place_hatir_jheel),
+                    getString(R.string.place_hatir_jheel_details),
+                    getString(R.string.dhaka), L.LAT_HATIR_JHEEL,
+                    L.LONG_HATIR_JHEEL, PIL.PLACE_HATIR_JHEEL_IMAGE))
+                val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            202 -> {
+                pD.add(PlaceDetails(getString(R.string.cox_s_bazar),
+                    getString(R.string.cox_bazar_desc),
+                    getString(R.string.cox_bazar), L.LAT_COX_BAZAR_SEA_BEACH,
+                    L.LONG_COX_BAZAR_SEA_BEACH, PIL.COXS_BAZAR_SEA_BEACH))
+                val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            else -> {
+                pD.add(PlaceDetails(getString(R.string.place_hatir_jheel),
+                    getString(R.string.place_hatir_jheel_details),
+                    getString(R.string.dhaka), L.LAT_HATIR_JHEEL,
+                    L.LONG_HATIR_JHEEL, PIL.PLACE_HATIR_JHEEL_IMAGE))
+                val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
         }
     }
 }
