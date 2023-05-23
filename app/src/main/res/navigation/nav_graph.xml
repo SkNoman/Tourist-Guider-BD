@@ -30,6 +30,13 @@
             app:exitAnim="@anim/exit_right_to_left"
             app:popEnterAnim="@anim/enter_left_to_right"
             app:popExitAnim="@anim/exit_left_to_right" />
+        <action
+            android:id="@+id/action_fragmentDashboard_to_tipsFragment"
+            app:destination="@id/tipsFragment"
+            app:enterAnim="@anim/enter_right_to_left"
+            app:exitAnim="@anim/exit_right_to_left"
+            app:popEnterAnim="@anim/enter_left_to_right"
+            app:popExitAnim="@anim/exit_left_to_right" />
 
 
     </fragment>
@@ -65,4 +72,11 @@
         android:name="com.example.crud.ui.WebView"
         android:label="fragment_web_view"
         tools:layout="@layout/fragment_web_view" />
+    <fragment
+        android:id="@+id/tipsFragment"
+        android:name="com.example.crud.ui.TipsFragment"
+        android:label="fragment_tips"
+        tools:layout="@layout/fragment_tips" >
+
+    </fragment>
 </navigation>

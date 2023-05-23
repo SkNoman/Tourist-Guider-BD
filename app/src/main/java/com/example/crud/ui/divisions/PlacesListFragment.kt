@@ -20,6 +20,7 @@ import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.L
 import com.example.crud.utils.PIL
 import com.example.crud.utils.showCustomToast
+import kotlin.math.PI
 
 
 class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
@@ -68,9 +69,11 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 binding.txtPlaceBannerName.text = getString(R.string.sylhet_division)
             }
             7->{
+                showRangpurDivision()
                 binding.txtPlaceBannerName.text = getString(R.string.rangpur_division)
             }
             8->{
+                showMymensingDivision()
                 binding.txtPlaceBannerName.text = getString(R.string.mymensingh_division)
             }
         }
@@ -89,6 +92,53 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
             }
 
         })
+    }
+
+    private fun showMymensingDivision() {
+        list.clear()
+        list.add(
+            PlaceListItem(
+            801,
+            getString(R.string.title_madhutila_eco_park),
+            PIL.IMAGE_URL_MADHUTILA_ECO_PARK,
+                "4"
+        )
+        )
+
+        list.add(
+            PlaceListItem(
+            802,
+            getString(R.string.title_china_matir_pahar),
+            PIL.IMAGE_URL_CHINA_MATIR_PAHAR,
+                "5"
+        )
+        )
+        showPlaceList(list)
+    }
+
+    private fun showRangpurDivision() {
+        list.clear()
+        list.add(
+            PlaceListItem(
+            701,
+            getString(R.string.place_tajhat_palace),
+            PIL.IMAGE_TAJHAT_PALACE,
+            "2"
+            )
+        )
+        list.add(PlaceListItem(
+            702,
+            getString(R.string.place_kantajew_temple),
+            PIL.IMAGE_KANTAJEW_TEMPLE,
+            "3"
+        ))
+        list.add(PlaceListItem(
+            703,
+            getString(R.string.place_shopnopuri_amusement_park),
+            PIL.IMAGE_SHOPNOPURI_AMUSEMENT_PARK,
+            "3"
+        ))
+        showPlaceList(list)
     }
 
     private fun showSylhetDivision() {
@@ -398,7 +448,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
 
 
             //200 -> CHITTAGONG
-            201 -> {
+            201 ->{
                 pD.add(PlaceDetails(getString(R.string.place_patenga_sea_beach)
                 ,getString(R.string.place_patenga_sea_beach_description),
                 getString(R.string.chittagong), L.LAT_PATENGA_SEA_BEACH,
@@ -419,7 +469,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-            203->{
+            203 ->{
                 pD.add(PlaceDetails(getString(R.string.place_saint_martin)
                     ,getString(R.string.place_saint_martin_description),
                     getString(R.string.cox_bazar),
@@ -430,7 +480,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-            204->{
+            204 ->{
                 pD.add(PlaceDetails(getString(R.string.place_chandranath_pahar)
                     ,getString(R.string.place_chandranath_pahar_description),
                     getString(R.string.sitakund),
@@ -441,7 +491,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-            205->{
+            205 ->{
                 pD.add(PlaceDetails(getString(R.string.place_kaptai_lake)
                     ,getString(R.string.place_kaptai_lake_description),
                     getString(R.string.rangamati),
@@ -500,7 +550,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-
             304 ->{
                 pD.add(PlaceDetails(getString(R.string.khodla_math_temple)
                     ,getString(R.string.khondla_math_temple_description),
@@ -568,7 +617,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-            404->{
+            404 ->{
                 pD.add(PlaceDetails(getString(R.string.place_name_choto_shona_mosque)
                     ,getString(R.string.place_description_choto_shona_mosque),
                     getString(R.string.rajshahi),
@@ -638,7 +687,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-
             602->{
                 pD.add(PlaceDetails(getString(R.string.place_title_sada_pathor)
                     ,getString(R.string.place_description_sada_pathor),
@@ -672,7 +720,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
-
             605->{
                 pD.add(PlaceDetails(getString(R.string.place_title_ratargul_swamp_forest)
                     ,getString(R.string.place_description_ratargul_swamp_forest),
@@ -702,6 +749,65 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                     L.LAT_TANGUAR_HAOR,
                     L.LONG_TANGUAR_HAOR,
                     PIL.IMAGE_TANGUAR_HAOR))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            //RANGPUR
+            701->{
+                pD.add(PlaceDetails(getString(R.string.place_tajhat_palace)
+                    ,getString(R.string.place_tajhat_palace_description),
+                    getString(R.string.rangpur),
+                    L.TAJHAT_PALACE_LAT,
+                    L.TAJHAT_PALACE_LONG,
+                    PIL.IMAGE_TAJHAT_PALACE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            702->{
+                pD.add(PlaceDetails(getString(R.string.place_kantajew_temple)
+                    ,getString(R.string.place_kantajew_temple_description),
+                    getString(R.string.rangpur),
+                    L.KANTAJEW_TEMPLE_LAT,
+                    L.KANTAJEW_TEMPLE_LONG,
+                    PIL.IMAGE_KANTAJEW_TEMPLE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            703->{
+                pD.add(PlaceDetails(getString(R.string.place_shopnopuri_amusement_park)
+                    ,getString(R.string.place_shopnopuri_amusement_park_description),
+                    getString(R.string.rangpur),
+                    L.SHOPNOPURI_AMUSEMENT_PARK_LAT,
+                    L.SHOPNOPURI_AMUSEMENT_PARK_LONG,
+                    PIL.IMAGE_SHOPNOPURI_AMUSEMENT_PARK))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            //MYMENTSING
+            801->{
+                pD.add(PlaceDetails(getString(R.string.title_madhutila_eco_park)
+                    ,getString(R.string.description_madhutila_eco_park),
+                    getString(R.string.mymensingh),
+                    L.LAT_MADHUTILA_ECO_PARK,
+                    L.LONG_MADHUTILA_ECO_PARK,
+                    PIL.IMAGE_URL_MADHUTILA_ECO_PARK))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            802->{
+                pD.add(PlaceDetails(getString(R.string.title_china_matir_pahar)
+                    ,getString(R.string.description_china_matir_pahar),
+                    getString(R.string.mymensingh),
+                    L.LAT_CHINA_MATIR_PAHAR,
+                    L.LONG_CHINA_MATIR_PAHAR,
+                    PIL.IMAGE_URL_CHINA_MATIR_PAHAR))
                 val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
                 pD.clear()
                 findNavController().navigate(action)

@@ -53,6 +53,13 @@ object PIL {
     const val IMAGE_MALNICHHERA_TEA_GARDEN = "https://www.travelmate.com.bd/wp-content/uploads/2021/03/Malnicherra-Tea-Garden-Estate.jpg"
     const val IMAGE_TANGUAR_HAOR = "https://porzoton.com/wp-content/uploads/2020/09/Tanguar-Haor.jpg"
 
+    //RANGPUR
+    const val IMAGE_TAJHAT_PALACE = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Tajhat_Palace_28.JPG/800px-Tajhat_Palace_28.JPG"
+    const val IMAGE_KANTAJEW_TEMPLE = "https://lh3.googleusercontent.com/p/AF1QipMt-NfA5o50978Znib7ldD7XXv3UIupom3pgA7k=s680-w680-h510"
+    const val IMAGE_SHOPNOPURI_AMUSEMENT_PARK = "https://dailyasianage.com/library/1507917972_7.jpg"
 
+    //MYMENSING
+    const val IMAGE_URL_MADHUTILA_ECO_PARK = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHtTTbPK3B0NikYKRixN2loCxXQiIeNijy3QYrDka2fTh2xQFY"
+    const val IMAGE_URL_CHINA_MATIR_PAHAR = "https://travelersdiarybd.files.wordpress.com/2016/06/my_sm_bg_399445701.jpg"
 
 }

@@ -100,6 +100,9 @@ class MainActivity : AppCompatActivity() {
                         Toast(this).showCustomToast(getString(R.string.turn_on_location),this)
                     }
                 }
+                R.id.travel_tips ->{
+                    navController.navigate(R.id.tipsFragment)
+                }
                 else -> {
                     Toast.makeText(this,getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
                 }

@@ -57,6 +57,19 @@
                     tools:itemCount="6"
                     tools:listitem="@layout/item_home_main_menu" />
 
+                <ImageView
+                    android:id="@+id/btnTips"
+                    android:layout_width="@dimen/dp50"
+                    android:layout_height="@dimen/dp50"
+                    android:layout_marginTop="24dp"
+                    android:backgroundTint="@color/magenta_pink"
+                    android:contentDescription="@string/tour"
+                    android:src="@drawable/tour_guide"
+                    app:layout_constraintBottom_toBottomOf="@+id/recyclerview_main_menu"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/recyclerview_main_menu"
+                    app:layout_constraintVertical_bias="0.797" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout

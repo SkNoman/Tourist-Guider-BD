@@ -92,6 +92,10 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
             }
         }
 
+        binding.btnTips.setOnClickListener{
+            findNavController().navigate(R.id.action_fragmentDashboard_to_tipsFragment)
+        }
+
     }
 
     private fun setMenus() {
