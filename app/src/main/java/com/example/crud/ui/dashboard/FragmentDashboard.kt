@@ -8,9 +8,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -58,6 +60,9 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // Set the status bar color
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.LightBlue)
 
         val checkNetwork = CheckNetwork(requireContext())
         if (!checkNetwork.isNetworkConnected){

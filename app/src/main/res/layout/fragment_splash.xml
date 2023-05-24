@@ -10,17 +10,17 @@
 
     <ImageView
         android:id="@+id/loader"
-        android:background="@drawable/rounded_bg"
         android:layout_width="80dp"
-        android:padding="5dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
-        android:visibility="visible"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/rounded_bg"
         android:contentDescription="@string/loader"
-        tools:src="@drawable/splash"
+        android:padding="5dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:src="@drawable/splash">
 
     </ImageView>
 

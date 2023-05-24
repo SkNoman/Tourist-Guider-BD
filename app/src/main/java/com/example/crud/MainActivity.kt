@@ -49,9 +49,9 @@ class MainActivity : AppCompatActivity() {
         binding.switchLanguage.setOnClickListener{
             if (binding.switchLanguage.text == "Bangla") {
                 Log.e("nlog","yes")
-                setAppLanguage("bn")
-            }else{
                 setAppLanguage("en")
+            }else{
+                setAppLanguage("bn")
             }
         }
 
