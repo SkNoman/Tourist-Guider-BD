@@ -60,10 +60,8 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // Set the status bar color
+// Set the status bar color
         requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.LightBlue)
-
         val checkNetwork = CheckNetwork(requireContext())
         if (!checkNetwork.isNetworkConnected){
             Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())

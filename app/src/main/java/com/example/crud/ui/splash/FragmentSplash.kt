@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.crud.R
@@ -25,6 +26,8 @@ class FragmentSplash : BaseFragmentWithBinding<FragmentSplashBinding>(FragmentSp
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Set the status bar color
+        requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.white)
         isFragmentAttached = true
 
         Glide.with(this).asGif().load(R.drawable.splash).into(binding.loader)
