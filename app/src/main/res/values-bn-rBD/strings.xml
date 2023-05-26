@@ -78,7 +78,193 @@
     <!-- Kaptai Lake -->
     <string name="place_kaptai_lake">কাপ্তাই লেক</string>
 
+    <string name="place_kaptai_lake_description">কাপ্তাই লেক বাংলাদেশের রাঙ্গামাটি পাহাড় জেলার একটি মানব নির্মিত রাজ্যজীবন কেন্দ্র। এটি ঘেরা প্রাকৃতিক সৌন্দর্যপূর্ণ হাইলস এবং ঘন বনের মাঝে অবস্থিত। লেকটি বোট রাইডের সুযোগ প্রদান করে যাত্রীদের এর বিশাল পরিসর এবং অবাক করা দৃশ্যসমূহ উপভোগ করতে দেয়। কাপ্তাই লেক আও বিভিন্ন আদিবাসী জাতির সংস্কৃতি পরিচয় করার জন্য জনপ্রিয়। প্রাকৃতিক সৌন্দর্য এবং সাংস্কৃতিক সমৃদ্ধির সমন্বয় কাপ্তাই লেককে প্রাকৃতিক প্রেমীদের এবং সাংস্কৃতিক অন্বেষকদের জন্য একটি অবশ্যই ভ্রমণ স্থান।</string>
 
+    <!-- Buddha Dhatu Jadi -->
+    <string name="place_buddha_dhatu_jadi">বুদ্ধ ধাতু জাদি</string>
+    <string name="place_buddha_dhatu_jadi_description">বুদ্ধ ধাতু জাদি, যা বন্দরবানে অবস্থিত বন্দরবান স্বর্ণ মন্দির নামেও পরিচিত, একটি দুর্দান্ত বৌদ্ধ মন্দির। মন্দিরটির অতুলনীয় স্থাপত্যকে অলঙ্কারিত সংকল্পনায় পুর্নবর্ণিত করা হয়েছে, যা মঞ্চের নিখুঁত নকশার সাথে সবুজ বাগান এবং নির্মল পরিবেশের মধ্যে স্থান পায়। দর্শকরা শান্তিময় বাতাসে মনোরম পরিবেশে মনোযোগ দিতে পারেন, মন্দির সমস্ত কমপ্লেক্স অন্বেষণ করতে পারেন এবং বৌদ্ধ শিক্ষা ও অনুশাসনের প্রতিষ্ঠান সম্পর্কে জ্ঞান অর্জন করতে পারেন। বুদ্ধ ধাতু জাদি হল একটি আধ্যাত্মিক এবং সাংস্কৃতিক লক্ষণীয় স্মারক, যা শান্তিপূর্ণ এবং বোধগম্য অভিজ্ঞতা প্রদান করে।</string>
+
+    <!-- Radiant Fish World -->
+    <string name="place_radiant_fish_world">রেডিয়েন্ট ফিশ ওয়ার্ল্ড</string>
+    <string name="place_radiant_fish_world_description">রেডিয়েন্ট ফিশ ওয়ার্ল্ড বাংলাদেশের ঢাকা স্থিত একটি অনন্য জলজীবী আকর্ষণ। এটি মাছ প্রেমিদের এবং প্রকৃতি প্রেমিদের জন্য একটি প্রাকৃতিক স্বর্গ। এই বিশ্ব-শ্রেণীর মাছাঘরটি বিভিন্ন প্রাণী বিধের একটি বিস্ময়কর এবং রঙিন মাছ প্রজাতির দেখায় দারুণ হাল্কা দিয়েছে। দর্শকরা জলময় বিশ্বের মধ্যে আকর্ষণীয় মাছগুলির চমৎকার বিশ্বটি দেখতে পারেন, আদ্রতার বিশ্বজীবী জীবন পর্যবেক্ষণ করতে পারেন এবং বিভিন্ন জলজীবী প্রণালী সম্পর্কে জ্ঞান অর্জন করতে পারেন। রেডিয়েন্ট ফিশ ওয়ার্ল্ড সংস্কৃতি, শিক্ষা এবং মাছের সৌন্দর্যের সমন্বয়ে একটি মর্মান্তিক গন্তব্য, যা বিনোদন, শিক্ষা এবং মাছের সৌন্দর্যের প্রশংসা সমন্বয় করে।</string>
+    <string name="cox_bazar">কক্সবাজার</string>
+    <string name="teknaf">টেকনাফ</string>
+    <string name="bandarban">বান্দরবান</string>
+
+    <!-- Place Names -->
+    <string name="place_ahsan_manzil">আহসান মঞ্জিল মিউজিয়াম</string>
+    <string name="place_lalbagh_fort">লালবাগ দুর্গ</string>
+    <string name="place_national_parliament">বাংলাদেশ জাতীয় সংসদ</string>
+    <string name="place_sonargaon_museum">সোনারগাঁও মিউজিয়াম</string>
+    <string name="place_bangabandhu_safari_park">বঙ্গবন্ধু সাফারি পার্ক</string>
+    <string name="place_bangabandhu_military_museum">বঙ্গবন্ধু মিলিটারি মিউজিয়াম</string>
+    <string name="place_taj_mahal_bangladesh">তাজ মহল বাংলাদেশ</string>
+    <string name="place_hatir_jheel">হাতির ঝিল</string>
+
+    <string name="tourist_guider">পর্যটক পরামর্শক</string>
+    <string name="bangladesh">বাংলাদেশ</string>
+    <string name="explore">অন্বেষণ করুন</string>
+    <string name="maps">মানচিত্র</string>
+
+    <!-- Add more strings for other places if needed -->
+
+    <!-- Menu Titles -->
+
+    <string name="place_ahsan_manzil_details">আহসান মঞ্জিল মিউজিয়াম ঢাকায় অবস্থিত একটি ঐতিহাসিক প্রাসাদ। এটি বাংলাদেশের সমৃদ্ধ সাংস্কৃতিক ঐতিহ্য প্রদর্শন করে।</string>
+    <string name="place_lalbagh_fort_details">লালবাগ দূর্গ ঢাকার একটি মুঘল দূর্গ সমষ্টি। এটি একটি স্থাপত্য অবিশ্বাস্য সৌন্দর্যবিশিষ্ট উদ্যান এবং কাঠামো সম্পন্ন স্থাপন।</string>
+    <string name="place_national_parliament_details">বাংলাদেশ জাতীয় সংসদ হ\'ল দেশের সুপ্রিম বিধান সভা। এটি গণতন্ত্রের একটি প্রতীক।</string>
+    <string name="place_sonargaon_museum_details">সোনারগাঁও মিউজিয়াম ঢাকার একটি ঐতিহাসিক স্থান। এটি এলাকার ঐতিহাসিক এবং সাংস্কৃতিক ধারণা প্রদর্শন করে।</string>
+    <string name="place_bangabandhu_safari_park_details">বঙ্গবন্ধু সাফারি পার্ক গাজীপুরের একটি বন্য উদ্যান। এটি বিভিন্ন প্রাণী প্রজাতির বাসভূমি এবং মজার সাফারি অভিজ্ঞতা উপহার দেয়।</string>
+    <string name="place_bangabandhu_military_museum_details">বঙ্গবন্ধু মিলিটারি মিউজিয়াম বাংলাদেশের সশস্ত্র বাহিনীকে প্রতিষ্ঠিত একটি মিউজিয়াম। এটি দেশের সশস্ত্র ইতিহাস প্রদর্শন করে।</string>
+    <string name="place_taj_mahal_bangladesh_details">তাজ মহল বাংলাদেশ ভারতের আইকনিক তাজ মহলের একটি অনুকরণ। এটি একটি সুন্দর স্থাপত্য মহাকার্য।</string>
+    <string name="place_hatir_jheel_details">হাতিরঝিল ঢাকার একটি জনপ্রিয় লেক এবং বিনোদন এলাকা। এটি পর্যটকদের জন্য নৌকা ভ্রমণ এবং অন্যান্য কার্যক্রম উপলব্ধ করায়।</string>
+    <string name="home">হোম</string>
+    <string name="places_of_interest">আকর্ষণীয় স্থানসমূহ</string>
+    <string name="nearby_attractions">আশেপাশের আকর্ষণীয় স্থানসমূহ</string>
+    <string name="restaurants_cafes">রেস্তোঁরা এবং ক্যাফে</string>
+    <string name="accommodation">বাসস্থান</string>
+    <string name="transportation">পরিবহন</string>
+    <string name="travel_tips">ভ্রমণ টিপস</string>
+    <string name="weather_updates">আবহাওয়া আপডেট</string>
+    <string name="language">ভাষা</string>
+    <string name="about_us">আমাদের সম্পর্কে</string>
+    <string name="settings">সেটিংস</string>
+    <string name="already_in_home">ইতিমধ্যে হোমে</string>
+    <string name="welcome_back">স্বাগতম আবার</string>
+    <string name="welcome">স্বাগতম</string>
+    <string name="nearby_hotels">আশেপাশের হোটেলসমূহ</string>
+
+
+    <string name="welcome_to_the_bangladesh_tourist_guider_app">বাংলাদেশ ট্যুরিস্ট গাইডার অ্যাপে আপনাকে স্বাগতম!</string>
+    <string name="our_app_aims_to_provide_you_with_a_comprehensive_guide_to_explore_the_rich_cultural_heritage_natural_beauty_and_historical_landmarks_of_bangladesh_whether_you_re_a_local_resident_or_a_visitor_from_abroad_our_app_is_designed_to_enhance_your_travel_experience_and_make_your_journey_through_bangladesh_memorable_discover_the_hidden_gems_of_bangladesh_through_our_carefully_curated_collection_of_destinations_including_stunning_beaches_historical_sites_vibrant_cities_serene_rivers_and_picturesque_landscapes_our_app_offers_detailed_information_about_each_location_including_its_significance_historical_background_cultural_significance_and_must_visit_attractions_navigate_through_our_interactive_maps_and_find_your_way_to_your_desired_destinations_effortlessly_our_user_friendly_interface_ensures_easy_access_to_information_making_it_convenient_for_you_to_plan_your_itinerary_and_explore_the_wonders_of_bangladesh_at_your_own_pace_stay_updated_with_the_latest_news_events_and_festivals_happening_across_the_country_our_app_provides_valuable_insights_into_local_traditions_cuisines_and_customs_allowing_you_to_immerse_yourself_in_the_true_essence_of_bangladesh">আমাদের অ্যাপটির লক্ষ্য হলো আপনাকে বাংলাদেশের সমৃদ্ধ সাংস্কৃতিক ঐতিহাসিক স্থানগুলি, প্রাকৃতিক সৌন্দর্য এবং ঐতিহাসিক লক্ষণমূলক স্মারকগুলি অন্বেষণ করার জন্য একটি সম্পূর্ণ গাইড প্রদান করা। আপনি যারা স্থানীয় বাসিন্দা বা বিদেশী ভ্রমণকারী, আমাদের অ্যাপটি আপনার ভ্রমণ অভিজ্ঞতা উন্নত করতে এবং আপনার বাংলাদেশ ভ্রমণকে স্মরণশীল করতে নকশা করা হয়েছে। আমাদের সাবলীলভাবে নির্বাচিত গন্তব্যসমূহের মাধ্যমে বাংলাদেশের গোপন জয়ের সন্ধান করুন, যার মধ্যে আছে আকর্ষনীয় সমুদ্র সৈকত, ঐতিহাসিক স্থান, জীবন্ত শহর, শান্তিপূর্ণ নদী এবং চিত্রসম্পন্ন প্রাকৃতিক দৃশ্য। আমাদের অ্যাপটি প্রতিটি অবস্থানের সম্পূর্ণ তথ্য প্রদান করে, যার মধ্যে তার প্রাসঙ্গিকতা, ঐতিহাসিক পটভূমি, সাংস্কৃতিক গুরুত্ব এবং অবশ্যই ভিজিট করতে হবে আকর্ষণীয় স্থানগুলি সম্পর্কে বিস্তারিত তথ্য রয়েছে। আমাদের ইন্টারাকটিভ মানচিত্র দ্বারা ভ্রমণ করুন এবং আপনার পছন্দসই গন্তব্যের দিকে সহজেই পাওয়ার উপায় খুঁজে নিন। আমাদের ব্যবহারকারীবন্ধকমত ইন্টারফেস একটি সহজ অ্যাক্সেস প্রদান করে তথ্যের জন্য, যা আপনাকে আপনার পরিকল্পনার পরিকল্পনা করতে এবং নিজের পছন্দের মাধ্যমে বাংলাদেশের আশ্চর্য অন্বেষণ করতে সহায়তা করে। দেশব্যাপী সর্বশেষ খবর, ঘটনা এবং উৎসবের সাথে আপডেট থাকুন। আমাদের অ্যাপটি স্থানীয় ঐতিহাসিক ঐতিহাসিক, খাবার এবং প্রথা সম্পর্কে মানুষের উপলব্ধি প্রদান করে, যাতে আপনি নিজেকে বাংলাদেশের সত্যিকার স্বরূপে মনোযোগ দিতে পারেন।</string>
+    <string name="happy_exploring_n_nthe_bangladesh_tourist_guider_app_team">আনন্দে অন্বেষণ করুন!\n\nবাংলাদেশ ট্যুরিস্ট গাইডার অ্যাপ টিম</string>
+    <string name="search_on_map">নকশায় অনুসন্ধান করুন</string>
+    <string name="location_access_required">অবস্থান অ্যাক্সেস প্রয়োজন</string>
+    <string name="turn_on_location">অনুগ্রহ করে অবস্থান চালু করুন</string>
+    <string name="something_went_wrong">কিছু ভুল হয়েছে</string>
+    <string name="something_went_wrong_try_again">কিছু ভুল হয়েছে, অনুগ্রহ করে আবার চেষ্টা করুন</string>
+
+    <string name="something_went_wrong_with_location_try_again">অবস্থানের সাথে কিছু সমস্যা হয়েছে, আবার চেষ্টা করুন</string>
+    <string name="developed_by_rajia">রাজিয়া দ্বারা উন্নয়ন করা হয়েছে</string>
+    <string name="coptyrights">সর্বস্বত্ব টিম বিডি ট্যুরিস্ট গাইডার 2023 এ সংরক্ষিত</string>
+    <string name="rangamati">"রাঙ্গামাটি"</string>
+    <string name="nafa_khum_waterfall">নাফা-খুম ঝর্ণা</string>
+    <string name="nafa_khum_desc">এটি দেশের সর্ববৃহৎ পানিপাত অনুযায়ী একটি প্রাকৃতিক ঝর্ণা। বনপাহাড়ী নদী এখানে আকারের উত্তপ্ততা করে এখানে পড়ে প্রায় 25–30 ফুট বা 7.62-9.144 মিটার। নিজস্ব মারমা ভাষায় "ঙাফা" শব্দটি ছাগলমাছ / বন্ধুক মাছ এবং "খোঁঙ" শব্দটি "মাঠ" বোঝায়।</string>
+    <string name="sundarbans">সুন্দরবন</string>
+    <string name="sixty_dome_mosque">ষাট গম্বুজ মসজিদ</string>
+    <string name="hazrat_khan_jahan_ali_tomb">হযরত খান জাহান আলীর মাজার</string>
+    <string name="khodla_math_temple">খোদলা মঠ মন্দির</string>
+    <string name="mausoleum_of_lalon_shah">লালন শাহের দরগাহ</string>
+    <string name="shilaidaha_rabindra_kuthibari">শিলাইদহ রবীন্দ্র কুঠিবাড়ি</string>
+
+    <string name="shundarban_description">সুন্দরবন একটি ম্যাংগ্রোভ বন যা সমৃদ্ধ বায়ুজীবিত্ত্বের জন্য পরিচিত। এটি রাজশাহী বাঘ এবং আপন্যাসনীয় প্রাকৃতিক সৌন্দর্য দেখায়।</string>
+
+    <string name="sixty_domed_mosque_description">ষাটগম্বুজ মসজিদ বাংলাদেশের বাগেরহাটের একটি ইউনেস্কো বিশ্ব ঐতিহাসিক স্থান। এটি স্থানীয় ঐতিহাসিক এবং সাংস্কৃতিক ঐতিহ্যের প্রতীক হিসেবে একটি স্থাপত্যপূর্ণ মাস্টারপিস।</string>
+
+    <string name="khan_jahan_ali_description">খান জাহান আলীর মসজিদ একটি ঐতিহাসিক মসজিদ যা বাংলাদেশের বাগেরহাটে অবস্থিত। ইতিহাসের 15 শতাব্দীতে নির্মিত এই মসজিদটি অনন্য স্থাপত্য নকশা দ্বারা প্রশংসিত।</string>
+
+    <string name="khondla_math_temple_description">খোদলা মঠ মন্দির, যা কোডলা মঠ হিসাবেও পরিচিত, রাজশাহী, বাংলাদেশে অবস্থিত একটি প্রাচীন হিন্দু মন্দির। এটি সুপ্রসিদ্ধ তেরাকোটা চিত্রকলার প্রদর্শন করে এবং এটি একটি গুরুত্বপূর্ণ ধার্মিক স্থান।</string>
+
+    <string name="lalon_shah_description">লালন শাহের মাজার হল প্রখ্যাত মিষ্টিক কবি এবং দার্শনিক লালন শাহের মাঝার। এটি কুষ্টিয়া, বাংলাদেশে অবস্থিত এবং ভক্তরা এবং আধিকারিক মনোয়জন খুঁজছে।</string>
+
+    <string name="rabindar_kutibari_description">রবীন্দ্র কুঠিবাড়ি, যা শিলাইদহ, কুষ্টিয়া, বাংলাদেশে অবস্থিত, নোবেল বিজয়ী রবীন্দ্রনাথ ঠাকুরের আবাসস্থান। এটি একটি সাংস্কৃতিক ঐতিহ্য স্থান এবং একটি জাদুঘর হিসাবে কাজ করে।</string>
+    <string name="satkhira">সাতক্ষীরা</string>
+    <string name="kushtia">কুষ্টিয়া</string>
+
+
+    <!-- Puthia Temple Complex -->
+    <string name="place_name_puthia_temple_complex">পুঠিয়া মন্দির সমষ্টি</string>
+    <string name="place_description_puthia_temple_complex">পুঠিয়া মন্দির সমষ্টি পুঠিয়া, রাজশাহীতে অবস্থিত হিন্দু মন্দিরের সংগ্রহ। এটি তার আকর্ষণীয় স্থাপত্য এবং জটিল নকশা দ্বারা প্রশংসিত।</string>
+
+    <!-- Ruins of the Buddhist Vihara -->
+    <string name="place_name_ruins_buddhist_vihara">বৌদ্ধ বিহারের ধ্বংসাবশেষ</string>
+    <string name="place_description_ruins_buddhist_vihara">বৌদ্ধ বিহারের ধ্বংসাবশেষ হল প্রাচীন বৌদ্ধ মন্দিরের আবশ্যিক অবশিষ্ট। এটি এলাকার ধনী বৌদ্ধ ঐতিহাসিক পরম্পরায় ঝলসানোর একটি ঝলক দেয়।</string>
+
+    <!-- Mohasthan Garh -->
+    <string name="place_name_mohasthan_garh">মোহাস্ত্রান গঢ়</string>
+    <string name="place_description_mohasthan_garh">মোহাস্ত্রান গঢ় হল একটি ঐতিহাসিক স্থান বগুড়ায়, যা ঐতিহাসিক প্রামাণ্যের জন্য পরিচিত। বাংলাদেশের সবচেয়ে প্রাচীন নগরীগুলির মধ্যে মনে করা হয়।</string>
+
+    <!-- Choto Shona Mosque -->
+    <string name="place_name_choto_shona_mosque">ছোট সোনা মসজিদ</string>
+    <string name="place_description_choto_shona_mosque">ছোট সোনা মসজিদ হল একটি সুন্দর কিন্তু সম্পূর্ণ মসজিদ যা বাগেরহাটে অবস্থিত। এটি একটি ইউনেস্কো বিশ্ব ঐতিহ্য স্থান এবং এটি এলাকার ধনী স্থাপত্য ঐতিহ্য প্রদর্শন করে।</string>
+    <string name="bogura">বগুড়া</string>
+
+    <!-- Baitul Aman Jame Masjid -->
+    <string name="place_baitul_aman_jame_masjid">বায়তুল আমান জামে মসজিদ</string>
+    <string name="description_baitul_aman_jame_masjid">বায়তুল আমান জামে মসজিদ হল একটি সুন্দর মসজিদ যা গুঠিয়া, বাংলাদেশে অবস্থিত।</string>
+
+    <!-- Kuakata Sea Beach -->
+    <string name="place_kuakata_sea_beach">কুয়াকাটা সমুদ্র সৈকত</string>
+    <string name="description_kuakata_sea_beach">কুয়াকাটা সমুদ্র সৈকত হল একটি জনপ্রিয় পর্যটন গন্তব্য যা প্রাকৃতিক সৌন্দর্যের জন্য পরিচিত এবং অবস্থানের অবিশ্বাস্য সূর্যাস্ত দৃশ্যের জন্য।</string>
+
+    <!-- Floating Guava Market -->
+    <string name="place_floating_guava_market">ভাসমান পেয়ারা বাজার</string>
+    <string name="description_floating_guava_market">ভাসমান পেয়ারা বাজার হল একটি অদ্বিতীয় বাজার যা বাংলাদেশে অবস্থিত, যেখানে গুয়াভা নৌকা ওপারে বিক্রি হয়।</string>
+
+    <!-- Jakob Tower -->
+    <string name="place_jakob_tower">জেকব টাওয়ার</string>
+    <string name="description_jakob_tower">জেকব টাওয়ার বাংলাদেশে অবস্থিত একটি প্রমুখ সূচকচিহ্ন এবং দূরদর্শন টাওয়ার, যা পরিবেশটির আঞ্চলিক দৃশ্য প্রদান করে।</string>
+    <string name="patuakhali">পটুয়াখালী</string>
+    <string name="jhalokathi">ঝালকাঠি</string>
+
+    <!-- Hazrat Shahjalal Mazar -->
+    <string name="place_title_hazrat_shahjalal_mazar">হযরত শাহজালাল মাজার</string>
+    <string name="place_description_hazrat_shahjalal_mazar">বাংলাদেশের সিলেটে সম্মানিত হযরত শাহজালাল মাজারে ভ্রমণ করুন।</string>
+
+    <!-- Sada Pathor -->
+    <string name="place_title_sada_pathor">সাদা পাথর</string>
+    <string name="place_description_sada_pathor">বাংলাদেশের সিলেটে আকর্ষণীয় সাদা পাথর পর্যটন করুন।</string>
+
+    <!-- Jaflong -->
+    <string name="place_title_jaflong">জাফলং</string>
+    <string name="place_description_jaflong">বাংলাদেশের সিলেটে জাফলং এর মোহনীয় সৌন্দর্য আবিষ্কার করুন।</string>
+
+    <!-- Lalakhal -->
+    <string name="place_title_lalakhal">লালাখাল</string>
+    <string name="place_description_lalakhal">বাংলাদেশের সিলেটে আবিষ্কার করুন অবাক করা লালাখালের সৌন্দর্য।</string>
+
+    <!-- Ratargul Swamp Forest -->
+    <string name="place_title_ratargul_swamp_forest">রাতারগুল জলাভূমি বন</string>
+    <string name="place_description_ratargul_swamp_forest">বাংলাদেশের সিলেটের রাতারগুল জলাভূমি বনের পুরো হারানো প্রাকৃতিকতায় মন ডুবিয়ে যান।</string>
+
+    <!-- Malnichhera Tea Garden -->
+    <string name="place_title_malnichhera_tea_garden">মালনিচেহারা চা বাগান</string>
+    <string name="place_description_malnichhera_tea_garden">বাংলাদেশের সিলেটের মালনিচেহারা চা বাগান পর্যটন করুন।</string>
+
+    <!-- Tanguar Haor -->
+    <string name="place_title_tanguar_haor">টাঙ্গুয়ার হাওর</string>
+    <string name="place_tanguar_haor_description">অদ্ভুত প্রাকৃতিক সৌন্দর্যে ভরপুর টাঙ্গুয়ার হাওরে অভিজ্ঞতা অর্জন করুন, যা প্রাকৃতিক প্রেমীদের একটি অনন্য জলাভূমি প্রণালী এবং প্রকৃতি প্রেমীদের প্রদর্শনী হিসাবে পরিচিত। সূর্যাস্তের দৃশ্যসহ শান্তিপূর্ণ জলগীতির সঙ্গে নৌকা ভ্রমণ করুন এবং শীতকালে আটকানো পাখির মধ্যে মাইগ্রেটরি পাখির উপস্থিতি দেখুন। টাঙ্গুয়ার হাওর নির্মিতি উনের জন্য ত্রিপুরা সংঘাতের অনন্য প্রাকৃতিক সৌন্দর্যও ধারণ করে। টাঙ্গুয়ার হাওরের মধ্যে মহামানবতা এবং প্রকৃতির সমন্বয়ও উল্লেখযোগ্য। টাঙ্গুয়ার হাওরের মগ্মময় সৌন্দর্যে মন মুগ্ধ হয়ে উঠুন এবং প্রকৃতি ও মানবজীবনের মধ্যে সমন্বয়ের আলোকে ভ্রমণ করুন।</string>
+    <string name="shunamganj">সুনামগঞ্জ</string>
+
+    <!-- Tajhat Palace -->
+    <string name="place_tajhat_palace">তাজহাট প্রাসাদ</string>
+    <string name="place_tajhat_palace_description">বাংলাদেশের রংপুরে অবস্থিত ঐতিহাসিক তাজহাট প্রাসাদটি বিশিষ্ট স্থান এবং সংস্কৃতি সম্পর্কিত গুরুত্বের জন্য পরিচিত।</string>
+
+    <!-- Kantajew Temple -->
+    <string name="place_kantajew_temple">কান্তজীউ মন্দির</string>
+    <string name="place_kantajew_temple_description">বাংলাদেশের দিনাজপুরে অবস্থিত বিখ্যাত হিন্দু মন্দির কান্তজীউ মন্দিরটি অতুলনীয় টেরাকোটা শিল্পকলা এবং সুন্দর স্থান হিসাবে জানা হয়।</string>
+
+    <!-- Shopnopuri Artificial Amusement Park -->
+    <string name="place_shopnopuri_amusement_park">শপনপুরি কৃত্রিম আনন্দমুখী পার্ক</string>
+
+    <string name="place_shopnopuri_amusement_park_description">শপনপুরি কৃত্রিম আনন্দমুখী পার্ক বাংলাদেশের দিনাজপুরে অবস্থিত একটি জনপ্রিয় বিনোদন পার্ক। এটি বিভিন্ন রম্যদান সম্পন্ন ভ্রমণ ব্যবস্থা, মনোরম পরিবেশ, এবং চিত্রসহ আকর্ষণীয় পরিবেশ প্রদান করে, যা সমস্ত বয়সের দর্শকদের জন্য একটি মজার অভিজ্ঞতা সরবরাহ করে।</string>
+
+    <string name="title_madhutila_eco_park">মাধুতিলা ইকো পার্ক</string>
+    <string name="description_madhutila_eco_park">মাধুতিলা ইকো পার্ক বাংলাদেশে অবস্থিত একটি সুন্দর বায়ুপ্রদূষণ পার্ক। এটি আকর্ষণীয় প্রাকৃতিক পরিবেশ, পর্যটনের পাখি দর্শন, এবং শান্তিপূর্ণ পরিবেশে প্রকৃতি বিচরণের মতো অনুভব করার সুযোগ প্রদান করে।</string>
+
+    <string name="title_china_matir_pahar">চীনা মাটির পাহাড়</string>
+    <string name="description_china_matir_pahar">চীনা মাটির পাহাড় বাংলাদেশের একটি দৃশ্যময় পাহাড় যা আদ্যতন মৃত গঠনগুলির জন্য পরিচিত। পাহাড়টি আচ্ছাদিত পরিবেশের অসাধারণ দৃশ্য উপহার করে এবং প্রাকৃতিক সৌন্দর্যের অনুভব করতে একটি জনপ্রিয় গন্তব্য স্থান।</string>
+
+    <string name="tour_guiid_bd_v1">বাংলাদেশ নির্বিশেষে এশিয়ার অজানা গহ্বরস্থানগুলির মধ্যে একটি, কিন্তু দুর্ভাগ্যবশত (প্রায়ই রাজনৈতিক অস্থিরতা এবং প্রাকৃতিক দুর্যোগের একটি মিশ্রণের ফলে) বাংলাদেশের আন্তর্জাতিকভাবে সেরা প্রতিষ্ঠান নেই। বাংলাদেশ এখনো বেশি পর্যটন অভিজ্ঞতা অর্জন করেনি এবং এটি প্রায় পর্যটিত নয়: একটি বিদেশি মুখমুখি সমাধান সবসময় বিনোদনমূলক আবেদন ও আনুগত্য সৃষ্টি করে। "দয়া করে, মেয়ে, আপনার দেশ?" এটা সম্ভবত যে বাংলাদেশে আমি আমার ভ্রমণের সময় সবচেয়ে বেশি বলা শব্দ। একটি পর্যটিত গন্তব্য হিসাবে, বাংলাদেশ উপস্থিত প্রচণ্ড পর্যটন-প্রতারণা থেকে মুক্ত এবং এটি সাধারণত ভিন্নস্বরূপ ভারতের সাপেক্ষে বেশি ভৌগোলিক ব্যাপার নেই, এবং সংচার
+
+ করা কঠিন হতে পারে। রাস্তাগুলি অভারিত হতে পারে, কিছু স্থানে যাতাযাত হতাশাজনক (প্রায়ই ঢাকা) - বিস্তারিত দেখতে যানবাহন বিভাগে - এবং পরিবহন শর্তাদি সর্বোত্তম অবস্থায় সীমিত হতে পারে। আঙ্গ্লা প্রচলিত নয়, যা অভিনব পর্যটন প্রভৃতিতে স্বাধীন ভ্রমণ করতে কঠিনতা সৃষ্টি করতে পারে আরও গ্রামীণ এলাকাগুলির জন্য। বাংলাদেশ কাঁচা হতে পারে: সুন্দর দৃশ্য, মানুষ এবং স্থানের সাথে অপেক্ষা করুন অপরিহার্য গরিবতা এবং বৃষ্টিপাত এবং দূষণের অসংখ্য দেখতে। যদি আপনি সংবর্ধিত ভাবে পরিচালিত না হন, পক্ষপাতের সাথে বসবাস করতে সহজ নন, এবং পৃথক শর্তগুলি অভিজ্ঞ হতে পারলে এসেন না। বাংলাদেশের সেহেতু সবচেয়ে ভাল বর্ণনা হলো "ভারতের একটি আরও কাঁচামাল সংস্করণ" - তবে এই তুলন
+
+াটি বাংলাদেশের উপলব্ধি এবং সংস্কৃতির প্রাচুর্যের সঙ্গে তুলনায় দূরে পড়ে। পর্যটকদের জন্য এই ছোট কিন্তু উচ্চচালিত দেশে যাঁরা পয়েন্ট করেন তাদের জন্য বাংলাদেশের অপেক্ষামাত্রা এবং সার্প্রাইজগুলির কথা রয়েছে।</string>
+
+    <string name="nafa_khum">নাফাখুম</string>
+    <string name="the_best_water_fall">সর্বশ্রেষ্ঠ জলপ্রপাত</string>
+    <string name="longest_sea_beach">সর্বদৈর্ঘ্যমান সমুদ্র সৈকত</string>
+    <string name="best_jheel_in_dhaka">ঢাকার সেরা জলপূর্ণ পুকুর</string>
 
 
 </resources>
