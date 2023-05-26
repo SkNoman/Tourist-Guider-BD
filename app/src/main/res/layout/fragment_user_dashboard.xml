@@ -110,20 +110,20 @@
 
                 <TextView
                     android:id="@+id/txtNearbyHotels"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="serif"
-                    android:textAlignment="center"
                     android:text="@string/nearby_hotels"
+                    android:textAlignment="center"
                     android:textColor="#575555"
                     android:textSize="@dimen/sp15"
                     android:textStyle="bold"
                     android:visibility="visible"
                     app:layout_constraintEnd_toEndOf="@+id/roundedImageView"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/roundedImageView"
                     app:layout_constraintTop_toBottomOf="@+id/ivNerbyPlaces" />
 
 
@@ -149,7 +149,21 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent" />
 
-
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="26dp"
+                    android:fontFamily="serif"
+                    android:text="@string/popular_places"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp15"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/featured_recycler_view"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView6"
+                    app:layout_constraintStart_toStartOf="@+id/featured_recycler_view" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
