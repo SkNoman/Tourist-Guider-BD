@@ -59,6 +59,7 @@
         android:drawablePadding="5dp"
         android:fontFamily="serif"
         android:gravity="center"
+        android:visibility="gone"
         android:text="@string/_17_hotels"
         android:textColor="@color/black"
         android:textSize="@dimen/_13sp"

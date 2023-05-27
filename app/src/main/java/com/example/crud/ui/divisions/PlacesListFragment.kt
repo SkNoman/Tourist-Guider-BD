@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -273,27 +274,27 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
         list.clear()
         list.add(PlaceListItem(
             201,
-            "Patenga Sea Beach",
+            getString(R.string.place_patenga_sea_beach),
             "https://tfe-bd.sgp1.cdn.digitaloceanspaces.com/uploads/1639194548.jpg"
             ,"17"))
         list.add(PlaceListItem(
             202,
-            "Cox's Bazar Sea Beach",
+            getString(R.string.cox_s_bazar_sea_beach),
             "https://ddnews.gov.in/sites/default/files/cox%20baazar.jpg"
             ,"20"))
         list.add(PlaceListItem(
             203,
-            "Saint Martin Island",
+            getString(R.string.place_saint_martin),
             "https://pathfriend-bd.com/wp-content/uploads/2019/08/Coxs-Bazaar-Saintmartin.jpg"
             ,"10"))
         list.add(PlaceListItem(
             204,
-            "Chandranath Hills",
+            getString(R.string.place_chandranath_pahar),
             "https://www.observerbd.com/2018/05/23/1527094921.jpg"
             ,"17"))
         list.add(PlaceListItem(
             205,
-            "Kaptai Lake",
+            getString(R.string.place_kaptai_lake),
             "https://www.localguidesconnect.com/t5/image/serverpage/image-id/1463475i85F976B454BD2D2A/image-size/large?v=v2&px=999"
             ,"17"))
         list.add(PlaceListItem(
@@ -390,6 +391,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 findNavController().navigate(action)
             }
             103 -> {
+                Log.e("nlog-lat-place","Lat: ${L.LAT_BANGLADESH_NATIONAL_PARLIAMENT}, Long: ${L.LONG_BANGLADESH_NATIONAL_PARLIAMENT}")
                 pD.add(PlaceDetails(getString(R.string.place_national_parliament),
                     getString(R.string.place_national_parliament_details),
                     getString(R.string.dhaka), L.LAT_BANGLADESH_NATIONAL_PARLIAMENT,
@@ -480,6 +482,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 findNavController().navigate(action)
             }
             204 ->{
+                Log.e("nlog-lat-place","Lat: ${L.LAT_CHANDRANATH_HILLS}, Long: ${L.LONG_CHANDRANATH_HILLS}")
                 pD.add(PlaceDetails(getString(R.string.place_chandranath_pahar)
                     ,getString(R.string.place_chandranath_pahar_description),
                     getString(R.string.sitakund),

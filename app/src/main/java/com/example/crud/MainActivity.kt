@@ -1,9 +1,11 @@
 package com.example.crud
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.location.LocationManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -66,7 +68,9 @@ class MainActivity : AppCompatActivity() {
                     drawerLayout.closeDrawer(GravityCompat.START)
                 }
                 R.id.maps -> {
-                    GoogleMaps.openGoogleMaps(this,23.8103,90.4125)
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.setPackage("com.google.android.apps.maps")
+                    startActivity(intent)
                 }
                 R.id.about_us -> {
                     navController.navigate(R.id.aboutFragment)
