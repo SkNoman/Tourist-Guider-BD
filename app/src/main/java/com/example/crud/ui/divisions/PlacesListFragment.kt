@@ -205,6 +205,21 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
             getString(R.string.place_jakob_tower),
             PIL.IMAGE_JAKOB_TOWER
             ,"9"))
+        list.add(PlaceListItem(
+            505,
+            getString(R.string.place_name_30_godown_monument),
+            PIL.IMAGE_30_GODOWN_MONUMENT
+            ,"9"))
+        list.add(PlaceListItem(
+            506,
+            getString(R.string.place_name_bibir_pukur),
+            PIL.IMAGE_BIBIR_PUKUR
+            ,"9"))
+        list.add(PlaceListItem(
+            507,
+            getString(R.string.place_name_freedom_fighters_park),
+            PIL.IMAGE_FREEDOM_FIGHTERS_PARK
+            ,"9"))
 
         showPlaceList(list)
     }
@@ -676,6 +691,40 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
+            505->{
+                pD.add(PlaceDetails(getString(R.string.place_name_30_godown_monument)
+                    ,getString(R.string.place_description_30_godown_monument),
+                    getString(R.string.barisal),
+                    L.LAT_30_GODOWN_MONUMENT,
+                    L.LONG_30_GODOWN_MONUMENT,
+                    PIL.IMAGE_30_GODOWN_MONUMENT))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            506->{
+                pD.add(PlaceDetails(getString(R.string.place_name_bibir_pukur)
+                    ,getString(R.string.place_description_bibir_pukur),
+                    getString(R.string.barisal),
+                    L.LAT_BIBIR_PUKUR,
+                    L.LONG_BIBIR_PUKUR,
+                    PIL.IMAGE_BIBIR_PUKUR))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            507->{
+                pD.add(PlaceDetails(getString(R.string.place_name_freedom_fighters_park)
+                    ,getString(R.string.place_description_freedom_fighters_park),
+                    getString(R.string.barisal),
+                    L.LAT_FREEDOM_FIGHTERS_PARK,
+                    L.LONG_FREEDOM_FIGHTERS_PARK,
+                    PIL.IMAGE_FREEDOM_FIGHTERS_PARK))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
 
             //SYLHET
             601->{

@@ -43,6 +43,9 @@ object PIL {
     const val IMAGE_KUAKATA_SEA_BEACH = "https://www.travelmate.com.bd/wp-content/uploads/2020/08/kuakata-patuakhai.jpg"
     const val IMAGE_FLOATING_GUAVA_MARKET = "https://www.lrbtravelteam.com/wp-content/uploads/2020/11/Floating-Guava-Market-.png"
     const val IMAGE_JAKOB_TOWER = "https://iamnrdurjoy.files.wordpress.com/2020/10/images.jpeg?w=737"
+    const val IMAGE_FREEDOM_FIGHTERS_PARK = "https://www.touristplaces.com.bd/images/pp/6/p120160.jpg"
+    const val IMAGE_BIBIR_PUKUR = "https://upload.wikimedia.org/wikipedia/commons/f/f5/Bibir_Pukur.jpg"
+    const val IMAGE_30_GODOWN_MONUMENT = "https://www.touristplaces.com.bd/images/pp/6/p120156.jpg"
 
     //SYLHET
     const val IMAGE_HAZRAT_SHAHJALAL_MAZAR = "https://porzoton.com/wp-content/uploads/2020/06/Shahjalal-Mazar-Dargah-Shahjalal-Sylhet.jpg"

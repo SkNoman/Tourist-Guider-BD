@@ -247,5 +247,17 @@
     <string name="best_jheel_in_dhaka">Best jheel in dhaka</string>
     <string name="popular_places">Popular places</string>
 
+    <!-- Freedom Fighter's park barisal -->
+    <string name="place_name_freedom_fighters_park">Freedom Fighter\'s Park Barisal</string>
+    <string name="place_description_freedom_fighters_park">Freedom Fighter\'s Park Barisal is a park dedicated to the freedom fighters of Bangladesh. It is located in Barisal and serves as a memorial to honor the sacrifices made during the liberation war.</string>
+
+    <!-- Bibir Pukur -->
+    <string name="place_name_bibir_pukur">Bibir Pukur</string>
+    <string name="place_description_bibir_pukur">Bibir Pukur is a historic pond located in Bangladesh. It holds significant cultural and historical value, serving as a reminder of the region\'s rich heritage.</string>
+
+    <!-- 30 Godown Freedom Fighters Monument -->
+    <string name="place_name_30_godown_monument">30 Godown Freedom Fighters Monument</string>
+    <string name="place_description_30_godown_monument">30 Godown Freedom Fighters Monument is a monument dedicated to the freedom fighters of Bangladesh. Situated in an area known as 30 Godown in Bangladesh, it stands as a symbol of bravery and sacrifice.</string>
+
 
 </resources>

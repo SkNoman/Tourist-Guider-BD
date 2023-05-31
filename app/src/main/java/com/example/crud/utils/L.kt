@@ -89,6 +89,19 @@ object L {
     const val LAT_JAKOB_TOWER = 23.710286
     const val LONG_JAKOB_TOWER = 90.407938
 
+    // Freedom Fighter's Park Barisal
+    const val LAT_FREEDOM_FIGHTERS_PARK = 22.6996
+    const val LONG_FREEDOM_FIGHTERS_PARK = 90.3344
+
+    // Bibir Pukur
+    const val LAT_BIBIR_PUKUR = 23.9633
+    const val LONG_BIBIR_PUKUR = 89.1034
+
+    // 30 Godown Freedom Fighters Monument
+    const val LAT_30_GODOWN_MONUMENT = 23.8428
+    const val LONG_30_GODOWN_MONUMENT = 90.2612
+
+
 
     //SYLHET
     const val LAT_HAZRAT_SHAHJALAL_MAZAR = 24.8993
