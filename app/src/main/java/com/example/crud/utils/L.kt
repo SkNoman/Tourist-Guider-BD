@@ -63,7 +63,7 @@ object L {
     const val LAT_RABINDAR_KUTIBARI = 23.2161
     const val LONG_RABINDAR_KUTIBARI = 89.1279
 
-    //rajshahi
+    //RAJSHAHI
     const val LAT_PUTHIA_TEMPLE_COMPLEX = 24.381576
     const val LONG_PUTHIA_TEMPLE_COMPLEX = 88.793834
 
@@ -75,6 +75,14 @@ object L {
 
     const val LAT_CHOTO_SHONA_MOSQUE = 23.176470
     const val LONG_CHOTO_SHONA_MOSQUE = 89.193497
+
+    const val LAT_VARENDA_RESEARCH_MUSEUM = 24.371814
+    const val LONG_VARENDA_RESEARCH_MUSEUM = 88.634020
+
+    const val LAT_SHAHID_ZIA_SHISHU_PARK = 24.378044
+    const val LONG_SHAHID_ZIA_SHISHU_PARK = 88.638957
+
+
 
     //BARISHAL
     const val LAT_BAITUL_AMAN_JAME_MASJID = 23.801056
@@ -135,12 +143,38 @@ object L {
     const val SHOPNOPURI_AMUSEMENT_PARK_LAT = 23.091645
     const val SHOPNOPURI_AMUSEMENT_PARK_LONG = 89.198988
 
+    const val RANGUR_TOWN_HALL_LAT = 25.7543
+    const val RANGPUR_TOWN_HALL_LONG = 89.2510
+
+    const val RANGPUR_ZOO_LAT = 25.7556
+    const val RANGPUR_ZOO_LONG = 89.2514
+
+    const val NAYABAD_MOSQUE_LAT = 24.8125243
+    const val NAYABAD_MOSQUE_LONG = 88.420916
+
     //MYMENTSING
     const val LAT_MADHUTILA_ECO_PARK = 24.847120
     const val LONG_MADHUTILA_ECO_PARK = 91.465684
 
     const val LAT_CHINA_MATIR_PAHAR = 24.177830
     const val LONG_CHINA_MATIR_PAHAR = 91.746895
+
+    // Shashi Lodge
+    const val LAT_SHASHI_LODGE = 23.830086
+    const val LONG_SHASHI_LODGE = 89.142985
+
+
+    // Luis Village Resort and Park
+    const val LAT_LUIS_VILLAGE_RESORT = 23.691775
+    const val LONG_LUIS_VILLAGE_RESORT = 89.245398
+
+
+    // Muktagacha Zamindar Bari
+    const val LAT_MUKTAGACHA_ZAMINDAR_BARI = 24.879140
+    const val LONG_MUKTAGACHA_ZAMINDAR_BARI = 89.887034
+
+
+
 
 
 

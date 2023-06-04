@@ -259,5 +259,30 @@
     <string name="place_name_30_godown_monument">30 Godown Freedom Fighters Monument</string>
     <string name="place_description_30_godown_monument">30 Godown Freedom Fighters Monument is a monument dedicated to the freedom fighters of Bangladesh. Situated in an area known as 30 Godown in Bangladesh, it stands as a symbol of bravery and sacrifice.</string>
 
+    <!-- Varendra Research Museum -->
+    <string name="place_name_varendra_research_museum">Varendra Research Museum</string>
+    <string name="place_description_varendra_research_museum">Explore the rich history and cultural heritage at Varendra Research Museum. Located in Rajshahi, Bangladesh, the museum houses a vast collection of artifacts, sculptures, and historical objects that depict the region\'s ancient civilization and dynasties.</string>
 
+    <!-- Shahid Zia Shishu Park -->
+    <string name="place_name_shahid_zia_shishu_park">Shahid Zia Shishu Park</string>
+    <string name="place_description_shahid_zia_shishu_park">Enjoy a day of fun and excitement at Shahid Zia Shishu Park. Situated in Bogura, Bangladesh, this amusement park offers a wide range of thrilling rides, entertainment facilities, and recreational activities for children and families to enjoy.</string>
+
+    <string name="place_name_rangpur_town_hall">Rangpur Town Hall</string>
+    <string name="place_description_rangpur_town_hall">Rangpur Town Hall is a City hall situated at the heart of the city of Rangpur, Bangladesh. Established in 1896 by the historical Rongopur Natya Samaj (Rangpur Dramatic Association or RDA) it is one of the oldest of its kind in Bangladesh. It has a glorious history in the whole timeline of civic society in Rangpur. It is one of the best known landmarks of the city as well</string>
+
+    <string name="place_name_rangpur_zoo">Rangpur Zoo</string>
+    <string name="place_description_rangpur_zoo">Recreation Park and Rangpur Zoo is located at Rangpur, Bangladesh, is the largest zoo in North Bengal and the second largest in Bangladesh in terms of size. With an area of 21.51 acres (8.70 ha) of lush green trees and grasses, the zoo is located east side of Hanuman-tola road beside Police Line Road, not far from Rangpur District Administration Office</string>
+
+    <string name="palce_name_nayabad_mosque">Nayabad Mosque</string>
+    <string name="palce_description_nayabad_mosque">Nayabad Mosque, is located in Nayabad village in Kaharole Upazila of Dinajpur District, Bangladesh, beside the Dhepa River.[1] It was built in 1793 CE during the rule of Mughal ruler Shah Alam II.[2] As indicated by local belief it was built by the Muslim architectural workers who came from Persia[3] to build the Kantajew Temple for their own use</string>
+    <string name="dinajpur">Dinajpur</string>
+
+    <string name="place_name_shashi_lodge">Shashi Lodge</string>
+    <string name="place_description_shashi_lodge">Explore the historic Shashi Lodge and witness its architectural beauty.</string>
+
+    <string name="place_name_luis_village_resort">Luis Village Resort and Park</string>
+    <string name="place_description_luis_village_resort">Experience the serenity of Luis Village Resort and Park and indulge in its recreational activities.</string>
+
+    <string name="place_name_muktagacha_zamindar_bari">Muktagacha Zamindar Bari</string>
+    <string name="place_description_muktagacha_zamindar_bari">Visit the grand Muktagacha Zamindar Bari and delve into its rich historical significance.</string>
 </resources>

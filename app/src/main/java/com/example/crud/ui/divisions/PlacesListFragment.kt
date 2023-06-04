@@ -113,7 +113,32 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 "5"
         )
         )
-        showPlaceList(list)
+        list.add(
+            PlaceListItem(
+                803,
+                getString(R.string.place_name_shashi_lodge),
+                PIL.IMAGE_URL_SHASHI_LODGE,
+                "5"
+            )
+        )
+
+        list.add(
+            PlaceListItem(
+                804,
+                getString(R.string.place_name_luis_village_resort),
+                PIL.IMAGE_URL_LUIS_VILLAGE_RESORT,
+                "5"
+            )
+        )
+        list.add(
+            PlaceListItem(
+                805,
+                getString(R.string.place_name_muktagacha_zamindar_bari),
+                PIL.IMAGE_URL_MUKTAGACHA_ZAMINDAR_BARI,
+                "5"
+            )
+        )
+                    showPlaceList(list)
     }
 
     private fun showRangpurDivision() {
@@ -136,6 +161,25 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
             703,
             getString(R.string.place_shopnopuri_amusement_park),
             PIL.IMAGE_SHOPNOPURI_AMUSEMENT_PARK,
+            "3"
+        ))
+        list.add(PlaceListItem(
+            704,
+            getString(R.string.place_name_rangpur_town_hall),
+            PIL.IMAGE_RANGPUR_TOWN_HALL,
+            "3"
+        ))
+
+        list.add(PlaceListItem(
+            705,
+            getString(R.string.place_name_rangpur_zoo),
+            PIL.IAMGE_RANGPUR_ZOO,
+            "3"
+        ))
+        list.add(PlaceListItem(
+            706,
+            getString(R.string.palce_name_nayabad_mosque),
+            PIL.IMAGE_NAYABAD_MOSQUE,
             "3"
         ))
         showPlaceList(list)
@@ -245,6 +289,18 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
             404,
             getString(R.string.place_name_choto_shona_mosque),
             PIL.IMAGE_LINK_CHOTO_SHONA_MOSQUE
+            ,"2"))
+
+        list.add(PlaceListItem(
+            405,
+            getString(R.string.place_name_varendra_research_museum),
+            PIL.IMAGE_URL_VARENDA_RESEARCH_MUSEUM
+            ,"2"))
+
+        list.add(PlaceListItem(
+            406,
+            getString(R.string.place_name_shahid_zia_shishu_park),
+            PIL.IMAGE_URL_SHAHID_ZIA_SHISHU_PARK
             ,"2"))
 
         showPlaceList(list)
@@ -646,6 +702,30 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 findNavController().navigate(action)
             }
 
+            405 ->{
+                pD.add(PlaceDetails(getString(R.string.place_name_varendra_research_museum)
+                    ,getString(R.string.place_description_varendra_research_museum),
+                    getString(R.string.rajshahi),
+                    L.LAT_VARENDA_RESEARCH_MUSEUM,
+                    L.LONG_VARENDA_RESEARCH_MUSEUM,
+                    PIL.IMAGE_URL_VARENDA_RESEARCH_MUSEUM))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
+            406 ->{
+                pD.add(PlaceDetails(getString(R.string.place_name_shahid_zia_shishu_park)
+                    ,getString(R.string.place_description_shahid_zia_shishu_park),
+                    getString(R.string.rajshahi),
+                    L.LAT_SHAHID_ZIA_SHISHU_PARK,
+                    L.LONG_SHAHID_ZIA_SHISHU_PARK,
+                    PIL.IMAGE_URL_SHAHID_ZIA_SHISHU_PARK))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+
             //BARISHAL
             501->{
                 pD.add(PlaceDetails(getString(R.string.place_baitul_aman_jame_masjid)
@@ -839,6 +919,39 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 pD.clear()
                 findNavController().navigate(action)
             }
+            704->{
+                pD.add(PlaceDetails(getString(R.string.place_name_rangpur_town_hall)
+                    ,getString(R.string.place_description_rangpur_town_hall),
+                    getString(R.string.rangpur),
+                    L.RANGUR_TOWN_HALL_LAT,
+                    L.RANGPUR_TOWN_HALL_LONG,
+                    PIL.IMAGE_RANGPUR_TOWN_HALL))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            705->{
+                pD.add(PlaceDetails(getString(R.string.place_name_rangpur_zoo)
+                    ,getString(R.string.place_description_rangpur_zoo),
+                    getString(R.string.rangpur),
+                    L.RANGPUR_ZOO_LAT,
+                    L.RANGPUR_ZOO_LONG,
+                    PIL.IAMGE_RANGPUR_ZOO))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            706->{
+                pD.add(PlaceDetails(getString(R.string.palce_name_nayabad_mosque)
+                    ,getString(R.string.palce_description_nayabad_mosque),
+                    getString(R.string.dinajpur),
+                    L.NAYABAD_MOSQUE_LAT,
+                    L.NAYABAD_MOSQUE_LONG,
+                    PIL.IMAGE_NAYABAD_MOSQUE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
 
             //MYMENTSING
             801->{
@@ -864,7 +977,50 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                 findNavController().navigate(action)
             }
 
+            803->{
+                pD.add(PlaceDetails(getString(R.string.place_name_shashi_lodge)
+                    ,getString(R.string.place_description_shashi_lodge),
+                    getString(R.string.mymensingh),
+                    L.LAT_SHASHI_LODGE,
+                    L.LONG_SHAHID_ZIA_SHISHU_PARK,
+                    PIL.IMAGE_URL_SHASHI_LODGE))
+                val action = PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
+            804-> {
+                pD.add(
+                    PlaceDetails(
+                        getString(R.string.place_name_luis_village_resort),
+                        getString(R.string.place_description_luis_village_resort),
+                        getString(R.string.mymensingh),
+                        L.LAT_LUIS_VILLAGE_RESORT,
+                        L.LONG_LUIS_VILLAGE_RESORT,
+                        PIL.IMAGE_URL_LUIS_VILLAGE_RESORT
+                    )
+                )
+                val action =
+                    PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
 
+            805-> {
+                pD.add(
+                    PlaceDetails(
+                        getString(R.string.place_name_muktagacha_zamindar_bari),
+                        getString(R.string.place_description_muktagacha_zamindar_bari),
+                        getString(R.string.mymensingh),
+                        L.LAT_MUKTAGACHA_ZAMINDAR_BARI,
+                        L.LONG_MUKTAGACHA_ZAMINDAR_BARI,
+                        PIL.IMAGE_URL_MUKTAGACHA_ZAMINDAR_BARI
+                    )
+                )
+                val action =
+                    PlacesListFragmentDirections.actionPlacesListFragmentToPlaceDetailsFragment(pD[0])
+                pD.clear()
+                findNavController().navigate(action)
+            }
             else ->{
                 Toast.makeText(requireContext(),getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
             }

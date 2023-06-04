@@ -37,6 +37,9 @@ object PIL {
     const val IMAGE_LINK_RUINS_BUDDHIST_VIHARA = "https://ak-d.tripcdn.com/images/01A1q120009dcbf7s053F.jpg"
     const val IMAGE_LINK_MOHASTHAN_GARH = "https://www.travelmate.com.bd/wp-content/uploads/2021/05/mahasthangarh-bogura.jpg"
     const val IMAGE_LINK_CHOTO_SHONA_MOSQUE = "https://lh3.googleusercontent.com/p/AF1QipN1ErDvJ827ZMRwXI9zPu495yBBk0L-SBIHFlMp=s680-w680-h510"
+    const val IMAGE_URL_VARENDA_RESEARCH_MUSEUM = "https://www.musafir.com.bd/images/places/Varendra-Research-Museum.jpg"
+    const val IMAGE_URL_SHAHID_ZIA_SHISHU_PARK = "https://upload.wikimedia.org/wikipedia/commons/9/9a/Shahid_Zia_Shishu_Park_03.jpg"
+
 
     //BARISHAL
     const val IMAGE_BAITUL_AMAN_JAME_MASJID = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Guthia_Mosque_16.jpg/640px-Guthia_Mosque_16.jpg"
@@ -60,9 +63,15 @@ object PIL {
     const val IMAGE_TAJHAT_PALACE = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Tajhat_Palace_28.JPG/800px-Tajhat_Palace_28.JPG"
     const val IMAGE_KANTAJEW_TEMPLE = "https://lh3.googleusercontent.com/p/AF1QipMt-NfA5o50978Znib7ldD7XXv3UIupom3pgA7k=s680-w680-h510"
     const val IMAGE_SHOPNOPURI_AMUSEMENT_PARK = "https://dailyasianage.com/library/1507917972_7.jpg"
+    const val IMAGE_RANGPUR_TOWN_HALL = "https://www.touristplaces.com.bd/images/pp/5/p115539.jpg"
+    const val IAMGE_RANGPUR_ZOO = "https://upload.wikimedia.org/wikipedia/commons/4/43/Rongpur_zoo.JPG"
+    const val IMAGE_NAYABAD_MOSQUE = "https://www.travelandexplorebd.com/storage/app/public/posts/April2020/Nayabad%203.jpg"
 
     //MYMENSING
     const val IMAGE_URL_MADHUTILA_ECO_PARK = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHtTTbPK3B0NikYKRixN2loCxXQiIeNijy3QYrDka2fTh2xQFY"
     const val IMAGE_URL_CHINA_MATIR_PAHAR = "https://travelersdiarybd.files.wordpress.com/2016/06/my_sm_bg_399445701.jpg"
+    const val IMAGE_URL_SHASHI_LODGE = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Front_side_of_Shashi_Lodge.jpg/2560px-Front_side_of_Shashi_Lodge.jpg"
+    const val IMAGE_URL_LUIS_VILLAGE_RESORT = "https://adarbepari.com/wp-content/uploads/2022/08/luis-village-park-resort.jpg"
+    const val IMAGE_URL_MUKTAGACHA_ZAMINDAR_BARI = "https://trippainter.com/wp-content/uploads/2020/12/muktagacha-jamidar-bari-1.jpg"
 
 }
