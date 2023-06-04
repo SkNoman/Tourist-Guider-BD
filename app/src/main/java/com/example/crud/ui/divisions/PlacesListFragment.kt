@@ -533,7 +533,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
             202 ->{
                 pD.add(PlaceDetails(getString(R.string.cox_s_bazar_sea_beach)
                     ,getString(R.string.cox_bazar_desc),
-                    getString(R.string.chittagong),
+                    getString(R.string.cox_bazar),
                     L.LAT_COX_BAZAR_SEA_BEACH,
                     L.LONG_COX_BAZAR_SEA_BEACH,
                     PIL.COXS_BAZAR_SEA_BEACH))
