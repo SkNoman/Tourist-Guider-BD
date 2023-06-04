@@ -8,7 +8,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
@@ -277,10 +276,10 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
                 findNavController().navigate(action)
             }
             else -> {
-                pD.add(PlaceDetails(getString(R.string.place_hatir_jheel),
-                    getString(R.string.place_hatir_jheel_details),
-                    getString(R.string.dhaka), L.LAT_HATIR_JHEEL,
-                    L.LONG_HATIR_JHEEL, PIL.PLACE_HATIR_JHEEL_IMAGE))
+                pD.add(PlaceDetails(getString(R.string.nafa_khum_waterfall),
+                    getString(R.string.nafa_khum_desc),
+                    getString(R.string.dhaka), L.LAT_NAFA_KHUM,
+                    L.LONG_NAFA_KHUM, PIL.NAFA_KHUM_WATERFALL))
                 val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
                 pD.clear()
                 findNavController().navigate(action)
