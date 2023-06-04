@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BD Tourist Guider</string>
+    <string name="app_name">Tourist Guider Bangladesh</string>
     <string name="android_n_development">এ্যান্ড্রয়েড \nডেভেলপমেন্ট</string>
     <string name="app_description">এটি একটি ডেমো অ্যাপ্লিকেশন।</string>
     <string name="loader">লোডার</string>
