@@ -268,5 +268,40 @@
 
     <string name="popular_places">জনপ্রিয় স্থানসমূহ</string>
 
+    <string name="place_name_freedom_fighters_park">মুক্তিযোদ্ধা পার্ক, বরিশাল</string>
+    <string name="place_description_freedom_fighters_park">মুক্তিযোদ্ধা পার্ক বরিশাল বাংলাদেশের মুক্তিযোদ্ধাদের প্রতি সমর্পিত একটি পার্ক। এটি বরিশালে অবস্থিত এবং মুক্তিযুদ্ধের মধ্যে দেওয়া বিপর্যয়গুলি স্মরণ করার জন্য একটি স্মারক হিসাবে কাজ করে।</string>
+
+    <!-- Bibir Pukur -->
+    <string name="place_name_bibir_pukur">বিবির পুকুর</string>
+    <string name="place_description_bibir_pukur">বিবির পুকুর একটি ঐতিহাসিক পুকুর যা বাংলাদেশে অবস্থিত। এটি প্রাচীন ঐতিহ্যের স্মারক ও সংস্কৃতির গুরুত্বপূর্ণ মান ধারণ করে, এটি এলাকার সমৃদ্ধ ঐতিহ্যিক সম্পদের স্মরণীয় হিসাবে কাজ করে।</string>
+
+    <!-- 30 Godown Freedom Fighters Monument -->
+    <string name="place_name_30_godown_monument">৩০ গোড়া মুক্তিযোদ্ধা স্মৃতিস্তম্ভ</string>
+    <string name="place_description_30_godown_monument">৩০ গোড়া মুক্তিযোদ্ধা স্মৃতিস্তম্ভ বাংলাদেশের মুক্তিযোদ্ধাদের সমর্পণ স্মৃতির জন্য একটি স্মৃতিস্তম্ভ। এটি ৩০ গোড়া নামের একটি এলাকায় অবস্থিত এবং বীরত্ব ও বিপন্নতা নির্ভরতা সূচনা করে।</string>
+
+    <!-- Varendra Research Museum -->
+    <string name="place_name_varendra_research_museum">ভারেন্দ্র গবেষণা মিউজিয়াম</string>
+    <string name="place_description_varendra_research_museum">ভারেন্দ্র গবেষণা মিউজিয়ামে ঐতিহাসিক সভ্যতা ও সাংস্কৃতিক উপস্থাপনা পর্যটন করুন। বাংলাদেশের রাজশাহীতে অবস্থিত এই মিউজিয়ামে প্রাচীন সভ্যতা এবং রাজবংশগুলির ঐতিহ্যিক বস্তুসমূহ রয়েছে।</string>
+
+    <!-- Shahid Zia Shishu Park -->
+    <string name="place_name_shahid_zia_shishu_park">শহীদ জিয়া শিশু পার্ক</string>
+    <string name="place_description_shahid_zia_shishu_park">শহীদ জিয়া শিশু পার্কে মজা ও উল্লাসের একটি দিন উপভোগ করুন। বাংলাদেশের বগুড়ায় অবস্থিত এই আমিউজমেন্ট পার্কটি শিশুদের এবং পরিবারের জন্য রম্য রহস্য সহ বিনোদনের বিভিন্ন সুযোগ-সুবিধা উপস্থিত রয়েছে।</string>
+
+    <string name="place_name_rangpur_zoo">রংপুর চিড়িয়াখানা</string>
+    <string name="place_description_rangpur_zoo">রংপুরের প্রশান্তি উপভোগ করুন এবং এর বিনোদনমূলক কার্যক্রমে প্রমোট করুন।</string>
+
+    <string name="palce_name_nayabad_mosque">নায়াবাদ মসজিদ</string>
+    <string name="palce_description_nayabad_mosque">নায়াবাদ মসজিদ, বাংলাদেশের দিনাজপুর জেলার কাহারল উপজেলার নায়াবাদ গ্রামে অবস্থিত, ডেপা নদীর পাশে[১] অবস্থিত। এটি মুঘল শাসক শাহ আলম দ্বিতীয়ের আদেশ অনুযায়ী ১৭৯৩ ইং সনে নির্মিত হয়েছে[২]। স্থানীয় বিশ্বাস অনুযায়ী এটি মুসলমান স্থপতিরা পারসি থেকে এসেছে[৩] এরা তাদের নিজেদের উপযুক্ত জন্য কান্তজীউ মন্দির নির্মাণ করতে বাংলাদেশের স্থাপত্য শিল্পীদের দ্বারা নির্মিত</string>
+    <string name="dinajpur">দিনাজপুর</string>
+
+    <string name="place_name_shashi_lodge">শশী লজ</string>
+    <string name="place_description_shashi_lodge">ঐতিহাসিক শশী লজ অন্যতম।</string>
+
+    <string name="place_name_luis_village_resort">লুইস ভিলেজ রিসোর্ট এবং পার্ক</string>
+    <string name="place_description_luis_village_resort">লুইস ভিলেজ রিসোর্ট এবং পার্কের শান্তি সম্পন্ন অনুভব করুন এবং এর বিনোদনমূলক কার্যক্রমে প্রমোট করুন।</string>
+
+    <string name="place_name_muktagacha_zamindar_bari">মুক্তাগাছা জমিদার বাড়ী</string>
+    <string name="place_description_muktagacha_zamindar_bari">গৌরবময় মুক্তাগাছা জমিদার বাড়ীতে ভ্রমণ করুন এবং এর ঐতিহাসিক গুরুত্বে মন মেলিয়ে যান।</string>
+
 
 </resources>
