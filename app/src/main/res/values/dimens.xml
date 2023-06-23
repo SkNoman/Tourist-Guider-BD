@@ -24,4 +24,11 @@
     <dimen name="_13sp">13sp</dimen>
     <dimen name="_8dp">8dp</dimen>
     <dimen name="_18sp">18sp</dimen>
+    <dimen name="_26sp">26sp</dimen>
+    <dimen name="_28sp">28sp</dimen>
+
+    <dimen name="_50dp">50dp</dimen>
+    <dimen name="_10dp">10dp</dimen>
+    <dimen name="_20dp">20dp</dimen>
+    <dimen name="_15dp">15dp</dimen>
 </resources>

@@ -1,10 +1,7 @@
 package com.example.crud.ui.splash
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
-import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
@@ -45,7 +42,7 @@ class FragmentSplash : BaseFragmentWithBinding<FragmentSplashBinding>(FragmentSp
             delay(3000)
             if (isFragmentAttached) {
                 withContext(Dispatchers.Main) {
-                    findNavController().navigate(R.id.fragmentDashboard)
+                    findNavController().navigate(R.id.login)
                 }
             }
         }

@@ -79,4 +79,14 @@
         tools:layout="@layout/fragment_tips" >
 
     </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.crud.ui.login_sign_up.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.example.crud.ui.login_sign_up.SignUp"
+        android:label="fragment_sing_up"
+        tools:layout="@layout/fragment_sing_up" />
 </navigation>

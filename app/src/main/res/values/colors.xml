@@ -12,4 +12,6 @@
     <color name="transparent">#00000000</color>
     <color name="magenta_pink">#E91E63</color>
     <color name="offWhite">#DBE0E4</color>
+    <color name="txtColorDarkBlue">#12206F</color>
+    <color name="color_bg_input_field">#EFECEC</color>
 </resources>
