@@ -1,12 +1,9 @@
 package com.example.crud.ui.login_sign_up
 
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.compose.animation.core.estimateAnimationDurationMillis
 import androidx.navigation.fragment.findNavController
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
@@ -64,6 +61,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
+                    SharedPref.sharedPrefManger(requireContext(),true,"isFromLogin")
                     binding.progressBarLogin.visibility = View.GONE
                     Toast.makeText(requireContext(),"Login In Successful",Toast.LENGTH_SHORT).show()
                     if (binding.checkBoxRememberMe.isChecked){
@@ -84,5 +82,6 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
       SharedPref.sharedPrefManger(requireContext(),uid,"uid")
         SharedPref.sharedPrefManger(requireContext(),email,"email")
         SharedPref.sharedPrefManger(requireContext(),password,"password")
+
     }
 }

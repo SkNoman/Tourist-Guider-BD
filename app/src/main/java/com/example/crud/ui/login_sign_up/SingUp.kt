@@ -8,7 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentSingUpBinding
-import com.example.crud.model.User
+import com.example.crud.model.Users
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -66,7 +66,7 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
 
     private fun addUserToDatabase(name: String, phone: String, email: String, uid: String) {
         dbRef.child("users").child(uid).setValue(
-            User.Users(name,phone,email,uid))
+            Users(name,phone,email,uid))
     }
 
     private fun validateSignUp():String {

@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.location.LocationManager
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -14,21 +13,21 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.example.crud.databinding.ActivityMainBinding
-import com.example.crud.ui.WebView
-import com.example.crud.utils.GoogleMaps
+import com.example.crud.utils.SharedPref
+import com.example.crud.utils.ToolbarCallback
 import com.example.crud.utils.showCustomToast
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),ToolbarCallback {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -50,7 +49,6 @@ class MainActivity : AppCompatActivity() {
         }
         binding.switchLanguage.setOnClickListener{
             if (binding.switchLanguage.text == "Bangla") {
-                Log.e("nlog","yes")
                 setAppLanguage("en")
             }else{
                 setAppLanguage("bn")
@@ -106,6 +104,13 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.travel_tips ->{
                     navController.navigate(R.id.tipsFragment)
+                }
+                R.id.sign_out ->{
+                   val auth = FirebaseAuth.getInstance()
+                    auth.signOut()
+                    SharedPref.sharedPrefManger(this,"","email")
+                    SharedPref.sharedPrefManger(this,"","password")
+                    navController.navigate(R.id.login)
                 }
                 else -> {
                     Toast.makeText(this,getString(R.string.this_feature_is_under_development),Toast.LENGTH_SHORT).show()
@@ -179,7 +184,6 @@ class MainActivity : AppCompatActivity() {
         }catch (e:Exception){
             Log.e("nlog-exc-BackPressed",e.toString())
         }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -187,6 +191,11 @@ class MainActivity : AppCompatActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun updateToolbarMsg(msg: String) {
+        Log.e("nlog-toolbar",msg)
+        binding.textView.text = msg
     }
 
 }

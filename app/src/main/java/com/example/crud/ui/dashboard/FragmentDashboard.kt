@@ -7,6 +7,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -24,6 +25,7 @@ import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentUserDashboardBinding
 import com.example.crud.model.PlaceDetails
 import com.example.crud.model.SlideItem
+import com.example.crud.model.Users
 import com.example.crud.model.dashboard.FeaturedItem
 import com.example.crud.model.dashboard.MenusItem
 import com.example.crud.ui.adapters.DashboardMainMenuAdapter
@@ -33,7 +35,15 @@ import com.example.crud.ui.adapters.SlideItemAdapter
 import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.L
 import com.example.crud.utils.PIL
+import com.example.crud.utils.SharedPref
+import com.example.crud.utils.ToolbarCallback
 import com.example.crud.utils.showCustomToast
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -45,11 +55,21 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener,FeaturedListItemAdapter.OnClickPopularPlace {
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var swipeLayout: SwipeRefreshLayout
+    private lateinit var mDbRef: DatabaseReference
+    private lateinit var auth: FirebaseAuth
+    private var toolbarCallback: ToolbarCallback? = null
     private val pD: MutableList<PlaceDetails> = mutableListOf()
 
     override fun onPause() {
         super.onPause()
         handler.removeCallbacks(viewPagerHotItemRunnable)
+    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        toolbarCallback = context as? ToolbarCallback
+        if (toolbarCallback == null) {
+            throw RuntimeException("$context must implement ToolbarCallback")
+        }
     }
 
     override fun onResume() {
@@ -59,11 +79,24 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-// Set the status bar color
+        // Set the status bar color
         requireActivity().window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.LightBlue)
+        mDbRef = FirebaseDatabase.getInstance().reference
+        auth = FirebaseAuth.getInstance()
+
         val checkNetwork = CheckNetwork(requireContext())
         if (!checkNetwork.isNetworkConnected){
             Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
+        }else{
+            val localData = SharedPref.getData(requireContext())
+            val fromLoginFlag = localData.getBoolean("isFromLogin",false)
+            Log.e("nlog","login ${fromLoginFlag.toString()}")
+            if(fromLoginFlag){
+                SharedPref.sharedPrefManger(requireContext(),false,"isFromLogin")
+                binding.progressBarDB.visibility = View.VISIBLE
+                val uid = auth.currentUser?.uid
+                getUserNameFromDb(uid!!)
+            }
         }
         CoroutineScope(Dispatchers.IO).launch {
             autoPlaceSlider()
@@ -91,6 +124,33 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
             findNavController().navigate(R.id.action_fragmentDashboard_to_tipsFragment)
         }
 
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+       // toolbarCallback = null
+    }
+    private fun getUserNameFromDb(uid:String) {
+        mDbRef.child("users").child(uid).addListenerForSingleValueEvent(object :
+            ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    binding.progressBarDB.visibility = View.GONE
+                    val userInfo = snapshot.getValue(Users::class.java)
+                    Log.e("nlog",userInfo?.name.toString())
+                    //Toast.makeText(requireContext(),"Welcome, ${userInfo?.name}",Toast.LENGTH_SHORT).show()
+                     toolbarCallback?.updateToolbarMsg("Hi, ${userInfo?.name}")
+                } else {
+                    binding.progressBarDB.visibility = View.GONE
+                    Toast.makeText(requireContext(),"Something went wrong",Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle any errors that occur during the data retrieval
+                Log.e("Firebase", "Data retrieval cancelled: ${error.message}")
+            }
+        })
     }
 
     private fun setMenus() {

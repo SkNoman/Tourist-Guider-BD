@@ -1,12 +1,19 @@
 package com.example.crud.model
 
-data class User(
-    val userList: List<Users>
-){
-    data class Users(
-        val name: String,
-        val phone: String,
-        val email: String,
-        val uid: String,
-    )
+
+
+ class Users{
+        var name: String?= null
+        var phone: String?= null
+        var email: String? =null
+        var uid: String? = null
+
+    constructor(){}
+
+constructor(name: String?,phone:String?,email: String?,uid:String?){
+    this.name = name
+    this.phone = phone
+    this.email = email
+    this.uid =uid
+}
 }
