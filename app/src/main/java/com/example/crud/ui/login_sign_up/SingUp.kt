@@ -9,6 +9,7 @@ import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentSingUpBinding
 import com.example.crud.model.Users
+import com.example.crud.utils.SharedPref
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -54,8 +55,9 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     addUserToDatabase(name,phone,email,auth.currentUser?.uid!!)
+                    SharedPref.sharedPrefManger(requireContext(),true,"isFromLogin")
                     binding.progressBar.visibility = View.GONE
-                    Toast.makeText(requireContext(),"Sign up Successful", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),"Welcome", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.fragmentDashboard)
                 } else {
                     binding.progressBar.visibility = View.GONE

@@ -60,6 +60,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     private var toolbarCallback: ToolbarCallback? = null
     private val pD: MutableList<PlaceDetails> = mutableListOf()
 
+
     override fun onPause() {
         super.onPause()
         handler.removeCallbacks(viewPagerHotItemRunnable)
@@ -85,18 +86,26 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         auth = FirebaseAuth.getInstance()
 
         val checkNetwork = CheckNetwork(requireContext())
+        val localData = SharedPref.getData(requireContext())
+        val isActivityRecreated = localData.getBoolean("recreated",false)
+
+        if (isActivityRecreated){
+            if (!checkNetwork.isNetworkConnected){
+                Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
+            }else{
+                SharedPref.sharedPrefManger(requireContext(),false,"recreated")
+                val uid = auth.currentUser?.uid
+                binding.progressBarDB.visibility = View.VISIBLE
+                getUserNameFromDb(uid!!)
+            }
+        }
+
+
+
         if (!checkNetwork.isNetworkConnected){
             Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
         }else{
-            val localData = SharedPref.getData(requireContext())
-            val fromLoginFlag = localData.getBoolean("isFromLogin",false)
-            Log.e("nlog","login ${fromLoginFlag.toString()}")
-            if(fromLoginFlag){
-                SharedPref.sharedPrefManger(requireContext(),false,"isFromLogin")
-                binding.progressBarDB.visibility = View.VISIBLE
-                val uid = auth.currentUser?.uid
-                getUserNameFromDb(uid!!)
-            }
+            callFirebaseDb()
         }
         CoroutineScope(Dispatchers.IO).launch {
             autoPlaceSlider()
@@ -126,9 +135,20 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
 
     }
 
+    private fun callFirebaseDb() {
+        val localData = SharedPref.getData(requireContext())
+        val fromLoginFlag = localData.getBoolean("isFromLogin",false)
+        if(fromLoginFlag){
+            SharedPref.sharedPrefManger(requireContext(),false,"isFromLogin")
+            binding.progressBarDB.visibility = View.VISIBLE
+            val uid = auth.currentUser?.uid
+            getUserNameFromDb(uid!!)
+        }
+    }
+
     override fun onDetach() {
         super.onDetach()
-       // toolbarCallback = null
+        toolbarCallback = null
     }
     private fun getUserNameFromDb(uid:String) {
         mDbRef.child("users").child(uid).addListenerForSingleValueEvent(object :

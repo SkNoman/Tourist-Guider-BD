@@ -23,6 +23,8 @@ import com.example.crud.utils.ToolbarCallback
 import com.example.crud.utils.showCustomToast
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Locale
 
@@ -160,6 +162,7 @@ class MainActivity : AppCompatActivity(),ToolbarCallback {
     }
 
     private fun setAppLanguage(languageCode: String) {
+        SharedPref.sharedPrefManger(this,true,"recreated")
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
 
@@ -194,7 +197,6 @@ class MainActivity : AppCompatActivity(),ToolbarCallback {
     }
 
     override fun updateToolbarMsg(msg: String) {
-        Log.e("nlog-toolbar",msg)
         binding.textView.text = msg
     }
 

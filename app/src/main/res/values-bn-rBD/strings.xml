@@ -302,6 +302,11 @@
 
     <string name="place_name_muktagacha_zamindar_bari">মুক্তাগাছা জমিদার বাড়ী</string>
     <string name="place_description_muktagacha_zamindar_bari">গৌরবময় মুক্তাগাছা জমিদার বাড়ীতে ভ্রমণ করুন এবং এর ঐতিহাসিক গুরুত্বে মন মেলিয়ে যান।</string>
-
+    <string name="register">Register</string>
+    <string name="sign_out">সাইন আউট</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="phone_signup">Phone</string>
 
 </resources>

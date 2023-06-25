@@ -63,7 +63,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
                 if (task.isSuccessful) {
                     SharedPref.sharedPrefManger(requireContext(),true,"isFromLogin")
                     binding.progressBarLogin.visibility = View.GONE
-                    Toast.makeText(requireContext(),"Login In Successful",Toast.LENGTH_SHORT).show()
+                   Toast.makeText(requireContext(),"Welcome",Toast.LENGTH_SHORT).show()
                     if (binding.checkBoxRememberMe.isChecked){
                         saveLoginInfo(auth.currentUser?.uid!!,binding.etEmailLogin.text.toString()
                         ,binding.etPassLogin.text.toString())
@@ -72,7 +72,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
                     binding.etEmailLogin.text=null
                     findNavController().navigate(R.id.fragmentDashboard)
                 }else {
-                    //binding.progressBarLogin.visibility = View.GONE
+                    binding.progressBarLogin.visibility = View.GONE
                     Toast.makeText(requireContext(),"Login Failed: ${task.exception}",Toast.LENGTH_SHORT).show()
                 }
             }
