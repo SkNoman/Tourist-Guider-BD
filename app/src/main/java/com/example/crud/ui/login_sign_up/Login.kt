@@ -1,14 +1,19 @@
 package com.example.crud.ui.login_sign_up
 
 
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentLoginBinding
+import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.SharedPref
+import com.example.crud.utils.Validation
+import com.example.crud.utils.showCustomToast
 import com.google.firebase.auth.FirebaseAuth
 
 
@@ -17,6 +22,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
 {
 
     private lateinit var auth: FirebaseAuth
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -24,13 +30,19 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
 
 
         binding.btnLogin.setOnClickListener{
-            if (validateLogin() == "OK"){
-                binding.progressBarLogin.visibility = View.VISIBLE
-                login(binding.etEmailLogin.text.toString(),
-                    binding.etPassLogin.text.toString())
-            }else {
-                Toast.makeText(requireContext(),validateLogin(),Toast.LENGTH_SHORT).show()
-            }
+            if (CheckNetwork(requireContext()).isNetworkConnected){
+                if (validateLogin() == "OK"){
+                    binding.progressBarLogin.visibility = View.VISIBLE
+                    login(binding.etEmailLogin.text.toString(),
+                        binding.etPassLogin.text.toString())
+                }else {
+                    Toast.makeText(requireContext(),validateLogin(),Toast.LENGTH_SHORT).show()
+
+                }
+          }else{
+                Toast(requireContext()).showCustomToast(getString(
+                    R.string.please_turn_on_internet_connection),requireActivity())
+          }
         }
 
         binding.tvRegister.setOnClickListener{
@@ -49,6 +61,8 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
             return "Please enter email"
         }else if(binding.etEmailLogin.text!!.length < 15){
             return "Please enter valid email"
+        }else if(!Validation.emailValidation(binding.etEmailLogin.text.toString())){
+            return "Please enter valid email format"
         }else if(binding.etPassLogin.text.isNullOrEmpty()){
             return "Please enter password"
         }else if (binding.etPassLogin.text!!.length < 6){
@@ -73,7 +87,8 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
                     findNavController().navigate(R.id.fragmentDashboard)
                 }else {
                     binding.progressBarLogin.visibility = View.GONE
-                    Toast.makeText(requireContext(),"Login Failed: ${task.exception}",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),"Something went wrong\n " +
+                            "try again with correct credentials",Toast.LENGTH_SHORT).show()
                 }
             }
     }
@@ -82,6 +97,5 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
       SharedPref.sharedPrefManger(requireContext(),uid,"uid")
         SharedPref.sharedPrefManger(requireContext(),email,"email")
         SharedPref.sharedPrefManger(requireContext(),password,"password")
-
     }
 }
