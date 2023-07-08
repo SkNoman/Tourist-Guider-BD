@@ -89,4 +89,14 @@
         android:name="com.example.crud.ui.login_sign_up.SignUp"
         android:label="fragment_sing_up"
         tools:layout="@layout/fragment_sing_up" />
+    <fragment
+        android:id="@+id/sendOtp"
+        android:name="com.example.crud.ui.login_sign_up.SendOtp"
+        android:label="fragment_send_otp"
+        tools:layout="@layout/fragment_send_otp" />
+    <fragment
+        android:id="@+id/validateOTP"
+        android:name="com.example.crud.ui.login_sign_up.ValidateOTP"
+        android:label="fragment_validate_o_t_p"
+        tools:layout="@layout/fragment_validate_o_t_p" />
 </navigation>

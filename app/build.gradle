@@ -102,14 +102,18 @@ dependencies {
     //Language support
     implementation 'com.akexorcist:localization:1.2.11'
 
-    //map
+    //MAP
     implementation 'com.google.android.gms:play-services-maps:18.1.0'
     implementation 'com.google.android.gms:play-services-location:21.0.1'
 
     //Lottie animations
     implementation 'com.airbnb.android:lottie:3.4.2'
 
+    //SWIPE REFRESH LAYOUT
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
+    //OTP LAYOUT
+    implementation 'io.github.chaosleung:pinview:1.4.4'
 
 
 

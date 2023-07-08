@@ -42,7 +42,7 @@ class FragmentSplash : BaseFragmentWithBinding<FragmentSplashBinding>(FragmentSp
             delay(3000)
             if (isFragmentAttached) {
                 withContext(Dispatchers.Main) {
-                    findNavController().navigate(R.id.login)
+                    findNavController().navigate(R.id.sendOtp)
                 }
             }
         }

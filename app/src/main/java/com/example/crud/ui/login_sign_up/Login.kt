@@ -46,7 +46,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
         }
 
         binding.tvRegister.setOnClickListener{
-            findNavController().navigate(R.id.signUp)
+            findNavController().navigate(R.id.sendOtp)
         }
         val localData = SharedPref.getData(requireContext())
         val email = localData.getString("email","")
