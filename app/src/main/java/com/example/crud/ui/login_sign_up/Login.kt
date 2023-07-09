@@ -63,7 +63,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
         googleSignInClient = GoogleSignIn.getClient(requireContext(),gso)
 
 
-        binding.btnLogin.setOnClickListener{
+        binding.actionGoogleLogin.setOnClickListener{
             if (CheckNetwork(requireContext()).isNetworkConnected){
                 signInGoogle()
             }else{
@@ -131,6 +131,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
                     SharedPref.sharedPrefManger(requireContext(),
                         it1,"name")
                 }
+                SharedPref.sharedPrefManger(requireContext(),true,"isGoogleLogin")
                 findNavController().navigate(R.id.fragmentDashboard)
             }else{
                 Toast.makeText(requireContext(),it.exception.toString(),Toast.LENGTH_SHORT).show()
@@ -144,6 +145,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
             .addOnCompleteListener(requireActivity()) { task ->
                 if (task.isSuccessful) {
                     SharedPref.sharedPrefManger(requireContext(),true,"isFromLogin")
+                    SharedPref.sharedPrefManger(requireContext(),false,"isGoogleLogin")
                     binding.progressBarLogin.visibility = View.GONE
                    Toast.makeText(requireContext(),"Welcome",Toast.LENGTH_SHORT).show()
                     if (binding.checkBoxRememberMe.isChecked){

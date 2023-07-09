@@ -88,11 +88,17 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         val checkNetwork = CheckNetwork(requireContext())
         val localData = SharedPref.getData(requireContext())
         val isActivityRecreated = localData.getBoolean("recreated",false)
+        val fromGoogleLoginFlag = localData.getBoolean("isGoogleLogin",false)
+
+        if (fromGoogleLoginFlag){
+            val name = localData.getString("name","")
+            setName(name)
+        }
 
         if (isActivityRecreated){
             if (!checkNetwork.isNetworkConnected){
                 Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
-            }else{
+            }else if(!fromGoogleLoginFlag){
                 SharedPref.sharedPrefManger(requireContext(),false,"recreated")
                 val uid = auth.currentUser?.uid
                 binding.progressBarDB.visibility = View.VISIBLE
@@ -105,7 +111,10 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         if (!checkNetwork.isNetworkConnected){
             Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
         }else{
-            callFirebaseDb()
+            if (!fromGoogleLoginFlag){
+                callFirebaseDb()
+            }
+
         }
         CoroutineScope(Dispatchers.IO).launch {
             autoPlaceSlider()
@@ -133,6 +142,10 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
             findNavController().navigate(R.id.action_fragmentDashboard_to_tipsFragment)
         }
 
+    }
+
+    private fun setName(name: String?) {
+        toolbarCallback?.updateToolbarMsg("Hi, $name}")
     }
 
     private fun callFirebaseDb() {

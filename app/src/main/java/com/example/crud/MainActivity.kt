@@ -112,6 +112,7 @@ class MainActivity : AppCompatActivity(),ToolbarCallback {
                     auth.signOut()
                     SharedPref.sharedPrefManger(this,"","email")
                     SharedPref.sharedPrefManger(this,"","password")
+                    SharedPref.sharedPrefManger(this,"","name")
                     navController.navigate(R.id.login)
                 }
                 else -> {
