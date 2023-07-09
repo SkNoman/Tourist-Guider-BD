@@ -47,7 +47,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:maxLength="25"
+            android:maxLength="50"
             android:background="@drawable/edit_text_bg_login"
             android:drawableStart="@drawable/baseline_alternate_email_24"
             android:drawablePadding="@dimen/_10dp"

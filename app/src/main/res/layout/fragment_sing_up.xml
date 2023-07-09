@@ -88,7 +88,7 @@
             android:inputType="textEmailAddress"
             android:ems="10"
             android:fontFamily="serif"
-            android:maxLength="25"
+            android:maxLength="50"
             android:hint="@string/email"
             android:drawableStart="@drawable/baseline_alternate_email_24"
             android:drawablePadding="@dimen/_10dp"
