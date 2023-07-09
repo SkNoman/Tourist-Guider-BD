@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.login_sign_up.SendOtp">
+
+
+    <EditText
+        android:id="@+id/etNumberOtp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50dp"
+        android:layout_margin="@dimen/dp16"
+        android:background="@drawable/edit_text_bg_login"
+        android:hint="@string/demo_number"
+        android:inputType="number"
+        android:padding="@dimen/_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSendOtp"
+        android:layout_width="@dimen/_200dp"
+        android:layout_height="@dimen/_40dp"
+        android:background="@drawable/bg_rounded_button_dp10"
+        android:layout_marginTop="24dp"
+        android:text="@string/send"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/txtColorDarkBlue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNumberOtp" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Send OTP"
+        android:textSize="@dimen/_18sp"
+        android:textColor="@color/txtColorDarkBlue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

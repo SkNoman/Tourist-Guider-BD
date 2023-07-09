@@ -292,4 +292,8 @@
     <string name="password">Password</string>
     <string name="phone_signup">Phone</string>
     <string name="please_turn_on_internet_connection">Please turn on internet connection</string>
+    <string name="demo_number">01XXXXXXXXX</string>
+    <string name="send">Send</string>
+    <string name="name">Name</string>
+    <string name="validate_otp">Validate OTP</string>
 </resources>
