@@ -33,6 +33,7 @@ import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.FusedLocation
 import com.example.crud.utils.L
 import com.example.crud.utils.PIL
 import com.example.crud.utils.SharedPref
@@ -92,19 +93,42 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
 
         if (fromGoogleLoginFlag){
             val name = localData.getString("name","")
-            setName(name)
+            if (isActivityRecreated){
+
+            }
+            CoroutineScope(Dispatchers.Main).launch {
+                try {
+                  setName(name)
+                } catch (e: Exception) {
+                    Log.d("setNameExe", e.toString())
+                }
+
+            }
+
         }
 
-        if (isActivityRecreated){
-            if (!checkNetwork.isNetworkConnected){
-                Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
-            }else if(!fromGoogleLoginFlag){
-                SharedPref.sharedPrefManger(requireContext(),false,"recreated")
-                val uid = auth.currentUser?.uid
-                binding.progressBarDB.visibility = View.VISIBLE
-                getUserNameFromDb(uid!!)
+        if (isActivityRecreated && fromGoogleLoginFlag){
+            try {
+                val name = localData.getString("name","")
+                setName(name)
+            }catch (e:Exception){
+                Log.d("setNameExe2", e.toString())
             }
         }
+
+        if (!fromGoogleLoginFlag){
+            if (isActivityRecreated){
+                if (!checkNetwork.isNetworkConnected){
+                    Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
+                }else{
+                    SharedPref.sharedPrefManger(requireContext(),false,"recreated")
+                    val uid = auth.currentUser?.uid
+                    binding.progressBarDB.visibility = View.VISIBLE
+                    getUserNameFromDb(uid!!)
+                }
+            }
+        }
+
 
 
 
@@ -145,7 +169,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     }
 
     private fun setName(name: String?) {
-        toolbarCallback?.updateToolbarMsg("Hi, $name}")
+        toolbarCallback?.updateToolbarMsg("Hi, $name")
     }
 
     private fun callFirebaseDb() {
