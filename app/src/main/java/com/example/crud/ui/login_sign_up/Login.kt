@@ -134,6 +134,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
                         it1,"name")
                 }
                 SharedPref.sharedPrefManger(requireContext(),true,"isGoogleLogin")
+                Toast.makeText(requireContext(),"Welcome",Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.fragmentDashboard)
             }else{
                 Toast.makeText(requireContext(),it.exception.toString(),Toast.LENGTH_SHORT).show()

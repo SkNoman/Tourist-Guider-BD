@@ -93,9 +93,6 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
 
         if (fromGoogleLoginFlag){
             val name = localData.getString("name","")
-            if (isActivityRecreated){
-
-            }
             CoroutineScope(Dispatchers.Main).launch {
                 try {
                   setName(name)
@@ -135,7 +132,9 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         if (!checkNetwork.isNetworkConnected){
             Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
         }else{
+            Log.e("nlog","yes")
             if (!fromGoogleLoginFlag){
+                Log.e("nlog","yes2")
                 callFirebaseDb()
             }
 
@@ -179,6 +178,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
             SharedPref.sharedPrefManger(requireContext(),false,"isFromLogin")
             binding.progressBarDB.visibility = View.VISIBLE
             val uid = auth.currentUser?.uid
+            Log.e("nlog-uid",uid.toString())
             getUserNameFromDb(uid!!)
         }
     }
@@ -188,6 +188,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         toolbarCallback = null
     }
     private fun getUserNameFromDb(uid:String) {
+        Log.e("nlog","getremote")
         mDbRef.child("users").child(uid).addListenerForSingleValueEvent(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
