@@ -16,7 +16,7 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/ivLoginAnim"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".35"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,136 +39,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivLoginAnim" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etEmailLogin"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/_50dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:maxLength="25"
-            android:background="@drawable/edit_text_bg_login"
-            android:drawableStart="@drawable/baseline_alternate_email_24"
-            android:drawablePadding="@dimen/_10dp"
-            android:ems="10"
-            android:fontFamily="serif"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="14dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etPasswordLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/edit_text_bg_login"
-            app:boxBackgroundMode="none"
-            app:hintAnimationEnabled="false"
-            app:hintEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etEmailLogin"
-            app:passwordToggleEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPassLogin"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
-                android:drawableStart="@drawable/baseline_lock_reset_24"
-                android:drawablePadding="@dimen/_10dp"
-                android:ems="10"
-                android:fontFamily="serif"
-                android:hint="@string/password"
-                android:maxLength="8"
-                android:inputType="textPassword"
-                android:padding="@dimen/_10dp"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etEmailLogin" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <TextView
-            android:id="@+id/txtForgetPasswordLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="serif"
-            android:text="Forgot password?"
-            android:visibility="gone"
-            android:textColor="@color/txtColorDarkBlue"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPasswordLayout" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnLogin"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/btn_login_bg"
             android:fontFamily="serif"
-            android:text="Login"
+            android:text="Login With Google"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/checkBoxRememberMe" />
-
-        <CheckBox
-            android:id="@+id/checkBoxRememberMe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="@color/txtColorDarkBlue"
-            android:fontFamily="serif"
-            android:text="Remember Me"
-            android:textColor="@color/txtColorDarkBlue"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPasswordLayout" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-            app:layout_constraintVertical_bias="0">
+            app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
 
-            <TextView
-                android:id="@+id/txtNewToChitChat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:gravity="center"
-                android:text="New in Tourist Guider?" />
 
-            <TextView
-                android:id="@+id/tvRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:fontFamily="serif"
-                android:text="@string/register"
-                android:textColor="@color/txtColorDarkBlue"
-                android:textStyle="bold" />
-        </LinearLayout>
+
+
 
         <ProgressBar
             android:id="@+id/progressBarLogin"
@@ -183,10 +75,6 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
 
 
 </ScrollView>

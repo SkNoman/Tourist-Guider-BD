@@ -110,8 +110,7 @@ class MainActivity : AppCompatActivity(),ToolbarCallback {
                 R.id.sign_out ->{
                    val auth = FirebaseAuth.getInstance()
                     auth.signOut()
-                    SharedPref.sharedPrefManger(this,"","email")
-                    SharedPref.sharedPrefManger(this,"","password")
+                    SharedPref.sharedPrefManger(this,"","name")
                     navController.navigate(R.id.login)
                 }
                 else -> {

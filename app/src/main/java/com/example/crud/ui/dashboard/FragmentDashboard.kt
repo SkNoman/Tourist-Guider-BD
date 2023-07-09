@@ -86,7 +86,13 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         auth = FirebaseAuth.getInstance()
 
         val checkNetwork = CheckNetwork(requireContext())
+
         val localData = SharedPref.getData(requireContext())
+        val name = localData.getString("name","")
+        setUserName(name)
+
+
+        /*val localData = SharedPref.getData(requireContext())
         val isActivityRecreated = localData.getBoolean("recreated",false)
 
         if (isActivityRecreated){
@@ -98,14 +104,14 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
                 binding.progressBarDB.visibility = View.VISIBLE
                 getUserNameFromDb(uid!!)
             }
-        }
+        }*/
 
 
 
         if (!checkNetwork.isNetworkConnected){
             Toast(requireContext()).showCustomToast(getString(R.string.pls_turn_on_internet),requireActivity())
         }else{
-            callFirebaseDb()
+            //callFirebaseDb()
         }
         CoroutineScope(Dispatchers.IO).launch {
             autoPlaceSlider()
@@ -135,43 +141,15 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
 
     }
 
-    private fun callFirebaseDb() {
-        val localData = SharedPref.getData(requireContext())
-        val fromLoginFlag = localData.getBoolean("isFromLogin",false)
-        if(fromLoginFlag){
-            SharedPref.sharedPrefManger(requireContext(),false,"isFromLogin")
-            binding.progressBarDB.visibility = View.VISIBLE
-            val uid = auth.currentUser?.uid
-            getUserNameFromDb(uid!!)
-        }
+    private fun setUserName(name: String?) {
+        toolbarCallback?.updateToolbarMsg("Hi, $name")
     }
 
     override fun onDetach() {
         super.onDetach()
         toolbarCallback = null
     }
-    private fun getUserNameFromDb(uid:String) {
-        mDbRef.child("users").child(uid).addListenerForSingleValueEvent(object :
-            ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    binding.progressBarDB.visibility = View.GONE
-                    val userInfo = snapshot.getValue(Users::class.java)
-                    Log.e("nlog",userInfo?.name.toString())
-                    //Toast.makeText(requireContext(),"Welcome, ${userInfo?.name}",Toast.LENGTH_SHORT).show()
-                     toolbarCallback?.updateToolbarMsg("Hi, ${userInfo?.name}")
-                } else {
-                    binding.progressBarDB.visibility = View.GONE
-                    Toast.makeText(requireContext(),"Something went wrong",Toast.LENGTH_SHORT).show()
-                }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                // Handle any errors that occur during the data retrieval
-                Log.e("Firebase", "Data retrieval cancelled: ${error.message}")
-            }
-        })
-    }
 
     private fun setMenus() {
         val menusItem: MutableList<MenusItem> = mutableListOf()
