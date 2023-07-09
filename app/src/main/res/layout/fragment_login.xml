@@ -19,6 +19,7 @@
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent=".35"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
@@ -124,6 +125,78 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/checkBoxRememberMe" />
 
+        <TextView
+            android:id="@+id/txtOr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="serif"
+            android:text="@string/or"
+            android:textColor="@color/txtColorDarkBlue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+        <TextView
+            android:id="@+id/line1"
+            android:layout_width="150dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/color_bg_input_field"
+            app:layout_constraintBottom_toBottomOf="@+id/txtOr"
+            app:layout_constraintEnd_toStartOf="@+id/txtOr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+        <TextView
+            android:id="@+id/line2"
+            android:layout_width="150dp"
+            android:layout_height="2dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/color_bg_input_field"
+            app:layout_constraintBottom_toBottomOf="@+id/txtOr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/txtOr"
+            app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+        <LinearLayout
+            android:id="@+id/actionGoogleLogin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_google_btn"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtOr">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="@dimen/_50dp"
+                android:layout_height="@dimen/_30sp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/google"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Login With Google"
+                android:textColor="@color/txtColorDarkBlue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+
         <CheckBox
             android:id="@+id/checkBoxRememberMe"
             android:layout_width="wrap_content"
@@ -148,7 +221,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+            app:layout_constraintTop_toBottomOf="@+id/actionGoogleLogin"
             app:layout_constraintVertical_bias="0">
 
             <TextView
