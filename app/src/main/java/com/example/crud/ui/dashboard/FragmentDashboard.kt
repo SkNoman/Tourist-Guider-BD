@@ -90,6 +90,8 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         val localData = SharedPref.getData(requireContext())
         val isActivityRecreated = localData.getBoolean("recreated",false)
         val fromGoogleLoginFlag = localData.getBoolean("isGoogleLogin",false)
+        Log.e("nlog",fromGoogleLoginFlag.toString())
+
 
         if (fromGoogleLoginFlag){
             val name = localData.getString("name","")

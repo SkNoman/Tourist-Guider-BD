@@ -165,6 +165,7 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
                     addUserToDatabase(name,phone,email,auth.currentUser?.uid!!)
                     SharedPref.sharedPrefManger(requireContext(),true,"isFromLogin")
                     SharedPref.sharedPrefManger(requireContext(),false,"isGoogleLogin")
+                    SharedPref.sharedPrefManger(requireContext(),"","name")
                     binding.progressBar.visibility = View.GONE
                     Toast.makeText(requireContext(),"Welcome", Toast.LENGTH_SHORT).show()
                     findNavController().navigate(R.id.fragmentDashboard)
