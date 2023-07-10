@@ -103,15 +103,19 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
             when (e) {
                 is FirebaseAuthInvalidCredentialsException -> {
                     Log.e(TAG,e.toString())
+                    Toast.makeText(requireContext(),"Invalid Credentials",Toast.LENGTH_SHORT).show()
                 }
 
                 is FirebaseTooManyRequestsException -> {
                     Log.e(TAG,e.toString())
+                    Toast.makeText(requireContext(),"This device is blocked due to unusual activity\n" +
+                            "Please try after sometime!",Toast.LENGTH_SHORT).show()
                 }
 
                 is FirebaseAuthMissingActivityForRecaptchaException -> {
                     // reCAPTCHA verification attempted with null Activity
                     Log.e(TAG,e.toString())
+                    Toast.makeText(requireContext(),"Something went wrong!",Toast.LENGTH_SHORT).show()
                 }
             }
 

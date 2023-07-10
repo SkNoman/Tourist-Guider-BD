@@ -4,6 +4,7 @@ package com.example.crud.ui.login_sign_up
 import android.app.Activity
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -111,6 +112,10 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
         if (result.resultCode == Activity.RESULT_OK){
             val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
             handelResults(task)
+        }else if(result.resultCode == Activity.RESULT_CANCELED){
+            Log.e("nlog",result.toString())
+            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+            handelResults(task)
         }
     }
 
@@ -121,7 +126,8 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
                 updateUI(account)
             }
         }else{
-            Toast.makeText(requireContext(),task.exception.toString(),Toast.LENGTH_SHORT).show()
+            Log.e("nlog",task.exception.toString())
+            Toast.makeText(requireContext(),"Something went wrong\nUse another way!",Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -137,7 +143,8 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
                 Toast.makeText(requireContext(),"Welcome",Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.fragmentDashboard)
             }else{
-                Toast.makeText(requireContext(),it.exception.toString(),Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),"Something went wrong\n" +
+                        "Use another way!",Toast.LENGTH_SHORT).show()
             }
         }
     }

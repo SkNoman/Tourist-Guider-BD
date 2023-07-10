@@ -6,9 +6,10 @@ import android.net.Uri
 import android.util.Log
 
 object GoogleMaps {
-    fun openGoogleMaps(context: Context, latitude: Double, longitude: Double) {
+    fun openGoogleMaps(context: Context, latitude: Double, longitude: Double,placeName:String) {
         Log.e("nlog-lat","Lat: $latitude, Long: $longitude")
-        val uri = "https://www.google.com/maps/place/$latitude,$longitude"
+        //val uri = "https://www.google.com/maps/place/$latitude,$longitude"
+       val uri =  "geo:$latitude,$longitude?q=$placeName ,Bangladesh"
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
         intent.setPackage("com.google.android.apps.maps")
         context.startActivity(intent)

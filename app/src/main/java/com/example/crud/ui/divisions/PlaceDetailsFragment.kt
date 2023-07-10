@@ -29,7 +29,7 @@ class PlaceDetailsFragment : BaseFragmentWithBinding<FragmentPlaceDetailsBinding
                     .placeholder(R.drawable.item3).into(ivPlaceImage)
                 Log.e("nlog-lat-details","Lat: ${result.lat}, Long: ${result.long}")
                 binding.txtMapDirection.setOnClickListener{
-                    GoogleMaps.openGoogleMaps(requireContext(),result.lat,result.long)
+                    GoogleMaps.openGoogleMaps(requireContext(),result.lat,result.long,result.placeName)
                 }
             }
         }catch (e:Exception){
