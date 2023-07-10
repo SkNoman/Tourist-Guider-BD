@@ -64,6 +64,21 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
             }
         }
 
+        binding.txtSignUpWV.setOnClickListener{
+            if (CheckNetwork(requireContext()).isNetworkConnected){
+                if (validateSignUp() == "OK"){
+                    binding.progressBar.visibility = View.VISIBLE
+                    signUp()
+                }else{
+                    Toast.makeText(requireContext(),validateSignUp(), Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Toast(requireContext()).showCustomToast(getString(
+                    R.string.please_turn_on_internet_connection),requireActivity())
+            }
+
+        }
+
         binding.tvLoginBack.setOnClickListener{
             findNavController().navigate(R.id.login)
         }
@@ -99,6 +114,8 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
             // for instance if the the phone number format is not valid.
             Log.w(TAG, "onVerificationFailed", e)
             binding.progressBar.visibility = View.GONE
+            Toast(requireContext()).showCustomToast("Something went wrong\n" +
+                    "please try alternate signup",requireActivity())
 
             when (e) {
                 is FirebaseAuthInvalidCredentialsException -> {
@@ -175,7 +192,8 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
                     findNavController().navigate(R.id.fragmentDashboard)
                 } else {
                     binding.progressBar.visibility = View.GONE
-                    Toast.makeText(requireContext(),"Sign up Failed: ${task.exception}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),"Sign up Failed\n" +
+                            "Please try again!", Toast.LENGTH_SHORT).show()
                 }
             }
     }

@@ -68,6 +68,11 @@ class ValidateOTP : BaseFragmentWithBinding<FragmentValidateOTPBinding>(
                     Toast.makeText(requireContext(),"Please enter otp",Toast.LENGTH_SHORT).show()
                 }
             }
+
+            binding.txtQuickSignUp.setOnClickListener{
+                binding.progressBar.visibility = View.VISIBLE
+                signUp(name, phone, email, password)
+            }
         }else{
             Toast(requireContext()).showCustomToast(getString
                 (R.string.please_turn_on_internet_connection),requireActivity())
@@ -108,7 +113,8 @@ class ValidateOTP : BaseFragmentWithBinding<FragmentValidateOTPBinding>(
                     findNavController().navigate(R.id.fragmentDashboard)
                 } else {
                      binding.progressBar.visibility = View.GONE
-                    Toast.makeText(requireContext(),"Sign up Failed: ${task.exception}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),"Sign up Failed\n" +
+                            "Please try again!", Toast.LENGTH_SHORT).show()
                 }
             }
     }
