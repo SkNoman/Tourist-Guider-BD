@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".admin.ui.dashboard.AdminDashboard">
+
+
+    <TextView
+        android:id="@+id/txtAdminName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:drawableStart="@drawable/baseline_admin_panel_settings_24"
+        android:drawablePadding="@dimen/_10dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="serif"
+        android:textColor="@color/txtColorDarkBlue"
+        android:textSize="@dimen/_18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Hi, Rajia" />
+
+    <ImageView
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/baseline_logout_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/txtColorDarkBlue" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="#BA847979"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAdminName" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="serif"
+        android:text="Select Divsion"
+        android:textColor="@color/txtColorDarkBlue"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13"
+        app:drawableStartCompat="@drawable/baseline_location_on_24_orrange" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnAddPlace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="@+id/textView14"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView14"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/txtFieldDropdown"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_50dp"
+        android:layout_marginStart="@dimen/dp16"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="@dimen/dp16"
+        android:padding="@dimen/_10dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_input_field_dp15"
+        android:backgroundTint="@color/color_bg_input_field"
+        android:drawablePadding="@dimen/dp10"
+        android:focusable="false"
+        android:inputType="textPersonName"
+        android:textColor="@color/txtColorDarkBlue"
+        android:textColorHint="@color/LightBlue"
+        android:textSize="@dimen/sp15"
+        app:drawableEndCompat="@drawable/baseline_arrow_drop_down_circle_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddPlace"
+        tools:ignore="TextViewEdits" />
+
+    <Spinner
+        android:id="@+id/divisionListSpinner"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/txtFieldDropdown"
+        app:layout_constraintEnd_toEndOf="@+id/txtFieldDropdown"
+        app:layout_constraintStart_toStartOf="@+id/txtFieldDropdown" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

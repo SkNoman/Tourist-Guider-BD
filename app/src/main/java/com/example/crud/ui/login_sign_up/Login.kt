@@ -38,6 +38,9 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
 
         auth = FirebaseAuth.getInstance()
 
+        binding.btnLoginAsAdmin.setOnClickListener{
+            findNavController().navigate(R.id.adminLogin)
+        }
 
         binding.btnLogin.setOnClickListener{
             if (CheckNetwork(requireContext()).isNetworkConnected){

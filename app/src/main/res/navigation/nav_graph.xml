@@ -99,4 +99,14 @@
         android:name="com.example.crud.ui.login_sign_up.ValidateOTP"
         android:label="fragment_validate_o_t_p"
         tools:layout="@layout/fragment_validate_o_t_p" />
+    <fragment
+        android:id="@+id/adminLogin"
+        android:name="com.example.crud.admin.ui.AdminLogin"
+        android:label="fragment_admin_login"
+        tools:layout="@layout/fragment_admin_login" />
+    <fragment
+        android:id="@+id/adminDashboard"
+        android:name="com.example.crud.admin.ui.dashboard.AdminDashboard"
+        android:label="fragment_admin_dashboard"
+        tools:layout="@layout/fragment_admin_dashboard" />
 </navigation>

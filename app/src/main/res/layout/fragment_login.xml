@@ -255,6 +255,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/btnLoginAsAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Login As Admin"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textColor="@color/txtColorDarkBlue"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBoxRememberMe"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/checkBoxRememberMe" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
