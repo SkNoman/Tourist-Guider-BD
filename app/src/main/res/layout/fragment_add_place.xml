@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".admin.ui.dashboard.AddPlace">
+
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Add Place"
+        android:textSize="@dimen/_18sp"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:textColor="@color/txtColorDarkBlue"
+        android:layout_marginLeft="@dimen/_20dp"
+        android:layout_marginTop="@dimen/_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12">
+
+            <EditText
+                android:id="@+id/etPlaceName"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/edit_text_bg_login"
+                android:hint="Enter place name"
+                android:inputType="text"
+                android:padding="@dimen/_10dp" />
+
+            <EditText
+                android:id="@+id/etPlaceDistrict"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/edit_text_bg_login"
+                android:hint="Enter place district"
+                android:inputType="text"
+                android:padding="@dimen/_10dp" />
+
+            <TextView
+                android:id="@+id/etPlaceDivision"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:background="@drawable/edit_text_bg_login"
+                android:drawablePadding="@dimen/dp10"
+                android:focusable="false"
+                android:gravity="center_vertical"
+                android:inputType="textPersonName"
+                android:padding="@dimen/_10dp"
+                android:layout_margin="@dimen/_10dp"
+                android:textSize="@dimen/_18sp"
+                app:drawableEndCompat="@drawable/baseline_arrow_drop_down_circle_24"
+                app:layout_constraintEnd_toStartOf="@+id/btnAddPlace"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView14"
+                tools:ignore="TextViewEdits" />
+            <Spinner
+                android:id="@+id/divisionListSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                app:layout_constraintBottom_toBottomOf="@+id/etPlaceDivision"
+                app:layout_constraintEnd_toEndOf="@+id/etPlaceDivision"
+                app:layout_constraintStart_toStartOf="@+id/etPlaceDivision" />
+
+            <EditText
+                android:id="@+id/etPlaceImageLink"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/edit_text_bg_login"
+                android:hint="Enter image link"
+                android:inputType="text"
+                android:padding="@dimen/_10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etPlaceLat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50dp"
+                    android:layout_margin="@dimen/_10dp"
+                    android:background="@drawable/edit_text_bg_login"
+                    android:hint="Enter Latitude"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/_10dp" />
+
+                <EditText
+                    android:id="@+id/etPlaceLong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_50dp"
+                    android:layout_margin="@dimen/_10dp"
+                    android:background="@drawable/edit_text_bg_login"
+                    android:hint="Enter Longitude"
+                    android:inputType="numberDecimal"
+                    android:padding="@dimen/_10dp" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/etPlaceDetails"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50dp"
+                android:layout_margin="@dimen/_10dp"
+                android:background="@drawable/edit_text_bg_login"
+                android:hint="Enter place details"
+                android:inputType="text"
+                android:padding="@dimen/_10dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAddPlace"
+                android:layout_width="@dimen/_200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_rounded_button_dp10"
+                android:backgroundTint="#8BC34A"
+                android:gravity="center"
+                android:text="Add"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

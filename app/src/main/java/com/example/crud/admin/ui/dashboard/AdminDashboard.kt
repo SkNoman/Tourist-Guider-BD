@@ -17,13 +17,13 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
         super.onViewCreated(view, savedInstanceState)
 
         val adminName = requireArguments().getString("admin_name")
-        binding.txtAdminName.text = "Hello, $adminName"
+        "Hello, $adminName".also { binding.txtAdminName.text = it }
 
         data class Divisions(
             val names: String
         ){
             override fun toString(): String {
-                return "$names"
+                return names
             }
         }
 
@@ -68,6 +68,10 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
 
         binding.btnLogout.setOnClickListener{
             findNavController().navigate(R.id.login)
+        }
+
+        binding.btnAddPlace.setOnClickListener{
+            findNavController().navigate(R.id.addPlace)
         }
     }
 }

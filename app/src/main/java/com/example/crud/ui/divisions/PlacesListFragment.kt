@@ -11,9 +11,11 @@ import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.crud.R
+import com.example.crud.admin.model.PlaceName
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentPlacesListBinding
 import com.example.crud.model.PlaceDetails
+import com.example.crud.model.Users
 import com.example.crud.model.menu.PlaceListItem
 import com.example.crud.ui.adapters.OnClickPlace
 import com.example.crud.ui.adapters.PlaceListAdapter
@@ -21,17 +23,25 @@ import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.L
 import com.example.crud.utils.PIL
 import com.example.crud.utils.showCustomToast
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
     (FragmentPlacesListBinding::inflate),OnClickPlace{
 
-    private val list: MutableList<PlaceListItem> = mutableListOf()
+    private val list: MutableList<PlaceName> = mutableListOf()
     private val pD: MutableList<PlaceDetails> = mutableListOf()
+    private lateinit var dbRef: DatabaseReference
 
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        dbRef = FirebaseDatabase.getInstance().reference
 
         binding.ivBackBtn.setOnClickListener{
             findNavController().popBackStack()
@@ -46,34 +56,35 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
         when(requireArguments().getInt("divisionId")){
             1->{
                 binding.txtPlaceBannerName.text = getString(R.string.dhaka_division)
-                showDhakaDivision()
+                showPlaces("Dhaka")
             }
             2->{
+                showPlaces("Chittagong")
                 binding.txtPlaceBannerName.text = getString(R.string.chittagong_division)
-                showChittagongDivision()
+
             }
             3->{
                 binding.txtPlaceBannerName.text = getString(R.string.khulna_division)
-                showKhulnaDivision()
+
             }
             4->{
                 binding.txtPlaceBannerName.text = getString(R.string.rajshahi_division)
-                showRajshahiDivision()
+
             }
             5->{
-                showBarishalDivision()
+
                 binding.txtPlaceBannerName.text = getString(R.string.barisal_divsion)
             }
             6->{
-                showSylhetDivision()
+
                 binding.txtPlaceBannerName.text = getString(R.string.sylhet_division)
             }
             7->{
-                showRangpurDivision()
+
                 binding.txtPlaceBannerName.text = getString(R.string.rangpur_division)
             }
             8->{
-                showMymensingDivision()
+
                 binding.txtPlaceBannerName.text = getString(R.string.mymensingh_division)
             }
         }
@@ -94,343 +105,57 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
         })
     }
 
-    private fun showMymensingDivision() {
-        list.clear()
-        list.add(
-            PlaceListItem(
-            801,
-            getString(R.string.title_madhutila_eco_park),
-            PIL.IMAGE_URL_MADHUTILA_ECO_PARK,
-                "4"
-        )
-        )
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun showPlaces(division: String) {
+        if (CheckNetwork(requireContext()).isNetworkConnected){
+            dbRef.child("places").child(division).addListenerForSingleValueEvent(object :
+                ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
 
-        list.add(
-            PlaceListItem(
-            802,
-            getString(R.string.title_china_matir_pahar),
-            PIL.IMAGE_URL_CHINA_MATIR_PAHAR,
-                "5"
-        )
-        )
-        list.add(
-            PlaceListItem(
-                803,
-                getString(R.string.place_name_shashi_lodge),
-                PIL.IMAGE_URL_SHASHI_LODGE,
-                "5"
-            )
-        )
+                       /* for (placeSnapshot in snapshot.children) {
+                            val place = placeSnapshot.getValue(PlaceName::class.java)
+                            place?.let {
+                                Log.e("nlog-it",it.placeDetails?.name.toString())
+                                list.add(it)
+                            }
+                        }*/
+                        val place = snapshot.getValue(PlaceName::class.java)
 
-        list.add(
-            PlaceListItem(
-                804,
-                getString(R.string.place_name_luis_village_resort),
-                PIL.IMAGE_URL_LUIS_VILLAGE_RESORT,
-                "5"
-            )
-        )
-        list.add(
-            PlaceListItem(
-                805,
-                getString(R.string.place_name_muktagacha_zamindar_bari),
-                PIL.IMAGE_URL_MUKTAGACHA_ZAMINDAR_BARI,
-                "5"
-            )
-        )
-                    showPlaceList(list)
+                        Log.e("nlog",place?.placeDetails?.name.toString())
+
+                           /* Log.e("nlog",list[0].name.toString())
+                           Log.e("nlog-e",list[0].placeDetails.toString())*/
+
+
+
+                    } else {
+                        //binding.progressBarDB.visibility = View.GONE
+                        Toast.makeText(requireContext(),"Something went wrong",Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // Handle any errors that occur during the data retrieval
+                    Log.e("Firebase", "Data retrieval cancelled: ${error.message}")
+                }
+            })
+        }else{
+            Toast(requireContext()).showCustomToast("Please turn on internet",requireActivity())
+        }
     }
 
-    private fun showRangpurDivision() {
-        list.clear()
-        list.add(
-            PlaceListItem(
-            701,
-            getString(R.string.place_tajhat_palace),
-            PIL.IMAGE_TAJHAT_PALACE,
-            "2"
-            )
-        )
-        list.add(PlaceListItem(
-            702,
-            getString(R.string.place_kantajew_temple),
-            PIL.IMAGE_KANTAJEW_TEMPLE,
-            "3"
-        ))
-        list.add(PlaceListItem(
-            703,
-            getString(R.string.place_shopnopuri_amusement_park),
-            PIL.IMAGE_SHOPNOPURI_AMUSEMENT_PARK,
-            "3"
-        ))
-        list.add(PlaceListItem(
-            704,
-            getString(R.string.place_name_rangpur_town_hall),
-            PIL.IMAGE_RANGPUR_TOWN_HALL,
-            "3"
-        ))
 
-        list.add(PlaceListItem(
-            705,
-            getString(R.string.place_name_rangpur_zoo),
-            PIL.IAMGE_RANGPUR_ZOO,
-            "3"
-        ))
-        list.add(PlaceListItem(
-            706,
-            getString(R.string.palce_name_nayabad_mosque),
-            PIL.IMAGE_NAYABAD_MOSQUE,
-            "3"
-        ))
-        showPlaceList(list)
-    }
-
-    private fun showSylhetDivision() {
-        list.clear()
-        list.add(PlaceListItem(
-            601,
-            getString(R.string.place_title_hazrat_shahjalal_mazar),
-            PIL.IMAGE_HAZRAT_SHAHJALAL_MAZAR
-            ,"20"))
-
-        list.add(PlaceListItem(
-            602,
-            getString(R.string.place_title_sada_pathor),
-            PIL.IMAGE_SADA_PATHOR
-            ,"2"))
-        list.add(PlaceListItem(
-            603,
-            getString(R.string.place_title_jaflong),
-            PIL.IMAGE_JAFLONG
-            ,"10"))
-
-        list.add(PlaceListItem(
-            604,
-            getString(R.string.place_title_lalakhal),
-            PIL.IMAGE_LALAKHAL
-            ,"2"))
-        list.add(PlaceListItem(
-            605,
-            getString(R.string.place_title_ratargul_swamp_forest),
-            PIL.IMAGE_RATARGUL_SWAMP_FOREST
-            ,"2"))
-        list.add(PlaceListItem(
-            606,
-            getString(R.string.place_title_malnichhera_tea_garden),
-            PIL.IMAGE_MALNICHHERA_TEA_GARDEN
-            ,"5"))
-        list.add(PlaceListItem(
-            607,
-            getString(R.string.place_title_tanguar_haor),
-            PIL.IMAGE_TANGUAR_HAOR
-            ,"7"))
-        showPlaceList(list)
-    }
-
-    private fun showBarishalDivision() {
-        list.clear()
-        list.add(PlaceListItem(
-            501,
-            getString(R.string.place_baitul_aman_jame_masjid),
-            PIL.IMAGE_BAITUL_AMAN_JAME_MASJID
-            ,"1"))
-        list.add(PlaceListItem(
-            502,
-            getString(R.string.place_kuakata_sea_beach),
-            PIL.IMAGE_KUAKATA_SEA_BEACH
-            ,"20"))
-        list.add(PlaceListItem(
-            503,
-            getString(R.string.place_floating_guava_market),
-            PIL.IMAGE_FLOATING_GUAVA_MARKET
-            ,"3"))
-        list.add(PlaceListItem(
-            504,
-            getString(R.string.place_jakob_tower),
-            PIL.IMAGE_JAKOB_TOWER
-            ,"9"))
-        list.add(PlaceListItem(
-            505,
-            getString(R.string.place_name_30_godown_monument),
-            PIL.IMAGE_30_GODOWN_MONUMENT
-            ,"9"))
-        list.add(PlaceListItem(
-            506,
-            getString(R.string.place_name_bibir_pukur),
-            PIL.IMAGE_BIBIR_PUKUR
-            ,"9"))
-        list.add(PlaceListItem(
-            507,
-            getString(R.string.place_name_freedom_fighters_park),
-            PIL.IMAGE_FREEDOM_FIGHTERS_PARK
-            ,"9"))
-
-        showPlaceList(list)
-    }
-
-    private fun showRajshahiDivision() {
-        list.clear()
-        list.add(PlaceListItem(
-            401,
-            getString(R.string.place_name_puthia_temple_complex),
-            PIL.IMAGE_LINK_PUTHIA_TEMPLE_COMPLEX
-            ,"3"))
-        list.add(PlaceListItem(
-            402,
-            getString(R.string.place_name_ruins_buddhist_vihara),
-            PIL.IMAGE_LINK_RUINS_BUDDHIST_VIHARA
-            ,"4"))
-        list.add(PlaceListItem(
-            403,
-            getString(R.string.place_name_mohasthan_garh),
-            PIL.IMAGE_LINK_MOHASTHAN_GARH
-            ,"5"))
-        list.add(PlaceListItem(
-            404,
-            getString(R.string.place_name_choto_shona_mosque),
-            PIL.IMAGE_LINK_CHOTO_SHONA_MOSQUE
-            ,"2"))
-
-        list.add(PlaceListItem(
-            405,
-            getString(R.string.place_name_varendra_research_museum),
-            PIL.IMAGE_URL_VARENDA_RESEARCH_MUSEUM
-            ,"2"))
-
-        list.add(PlaceListItem(
-            406,
-            getString(R.string.place_name_shahid_zia_shishu_park),
-            PIL.IMAGE_URL_SHAHID_ZIA_SHISHU_PARK
-            ,"2"))
-
-        showPlaceList(list)
-    }
-
-    private fun showKhulnaDivision() {
-        list.clear()
-        list.add(PlaceListItem(
-            301,
-            getString(R.string.sundarbans),
-            "https://porzoton.com/wp-content/uploads/2020/04/Royal-Bengal-Tiger-Sundarban-Bangladesh.jpg"
-            ,"2"))
-        list.add(PlaceListItem(
-            302,
-            getString(R.string.sixty_dome_mosque),
-            "https://upload.wikimedia.org/wikipedia/commons/4/4f/Sixty_Dome_Mosque%2CBagerhat.jpg"
-            ,"10"))
-        list.add(PlaceListItem(
-            303,
-            getString(R.string.hazrat_khan_jahan_ali_tomb),
-            "https://upload.wikimedia.org/wikipedia/commons/3/38/Khan_jahan_ali_mazar_building.jpg"
-            ,"10"))
-        list.add(PlaceListItem(
-            304,
-            getString(R.string.khodla_math_temple),
-            "https://www.lrbtravelteam.com/wp-content/uploads/2020/11/Kodla-Moth.png"
-            ,"5"))
-        list.add(PlaceListItem(
-            305,
-            getString(R.string.mausoleum_of_lalon_shah),
-            "https://upload.wikimedia.org/wikipedia/commons/8/8a/Fakir_lalon_saha_mazar.JPG"
-            ,"8"))
-        list.add(PlaceListItem(
-            306,
-            getString(R.string.shilaidaha_rabindra_kuthibari),
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Shilaidaha_Kuthibadi.jpg/1280px-Shilaidaha_Kuthibadi.jpg"
-            ,"4"))
-        showPlaceList(list)
-    }
-
-    private fun showChittagongDivision() {
-        list.clear()
-        list.add(PlaceListItem(
-            201,
-            getString(R.string.place_patenga_sea_beach),
-            "https://tfe-bd.sgp1.cdn.digitaloceanspaces.com/uploads/1639194548.jpg"
-            ,"17"))
-        list.add(PlaceListItem(
-            202,
-            getString(R.string.cox_s_bazar_sea_beach),
-            "https://ddnews.gov.in/sites/default/files/cox%20baazar.jpg"
-            ,"20"))
-        list.add(PlaceListItem(
-            203,
-            getString(R.string.place_saint_martin),
-            "https://pathfriend-bd.com/wp-content/uploads/2019/08/Coxs-Bazaar-Saintmartin.jpg"
-            ,"10"))
-        list.add(PlaceListItem(
-            204,
-            getString(R.string.place_chandranath_pahar),
-            "https://www.observerbd.com/2018/05/23/1527094921.jpg"
-            ,"17"))
-        list.add(PlaceListItem(
-            205,
-            getString(R.string.place_kaptai_lake),
-            "https://www.localguidesconnect.com/t5/image/serverpage/image-id/1463475i85F976B454BD2D2A/image-size/large?v=v2&px=999"
-            ,"17"))
-        list.add(PlaceListItem(
-            206,
-            getString(R.string.nafa_khum_waterfall),
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/NafaKhum%2CThanchi%2CBandarban.jpg/2560px-NafaKhum%2CThanchi%2CBandarban.jpg"
-            ,"20"))
-        showPlaceList(list)
-    }
-
-    private fun showDhakaDivision() {
-        list.clear()
-        list.add(PlaceListItem(
-            101,
-            getString(R.string.place_ahsan_manzil),
-            PIL.PLACE_AHSAN_MANZIL_IMAGE
-            ,"17"))
-        list.add(PlaceListItem(
-            102,
-             getString(R.string.place_lalbagh_fort)
-             ,PIL.PLACE_LALBAGH_FORT_IMAGE
-            ,"20"))
-        list.add(PlaceListItem(
-            103,
-             getString(R.string.place_national_parliament)
-            ,PIL.PLACE_NATIONAL_PARLIAMENT_IMAGE
-            ,"10"))
-        list.add(PlaceListItem(
-            104,
-             getString(R.string.place_sonargaon_museum)
-           ,PIL.PLACE_SONARGAON_MUSEUM_IMAGE
-            ,"17"))
-        list.add(PlaceListItem(
-            105,
-            getString(R.string.place_bangabandhu_safari_park),
-            PIL.PLACE_BANGABANDHU_SAFARI_PARK_IMAGE
-            ,"17"))
-        list.add(PlaceListItem(
-            106,
-             getString(R.string.place_bangabandhu_military_museum)
-            ,PIL.PLACE_BANGABANDHU_MILITARY_MUSEUM_IMAGE
-            ,"20"))
-        list.add(PlaceListItem(
-            107,
-            getString(R.string.place_taj_mahal_bangladesh)
-            ,PIL.PLACE_TAJ_MAHAL_BANGLADESH_IMAGE
-            ,"10"))
-        list.add(PlaceListItem(
-            108,
-            getString(R.string.place_hatir_jheel)
-           ,PIL.PLACE_HATIR_JHEEL_IMAGE
-            ,"17"))
-        showPlaceList(list)
-    }
-
-    private fun showPlaceList(list: List<PlaceListItem>) {
+    private fun showPlaceList(list: List<PlaceName>) {
         binding.recyclerViewDhakaDivision.adapter =
             PlaceListAdapter(requireContext(), list,this)
         }
 
     fun filter(text: String?) {
-        val temp: MutableList<PlaceListItem> = ArrayList()
+        val temp: MutableList<PlaceName> = ArrayList()
 
         for (s in list) {
-            if (s.placeName!!.contains(text!!,true)) {
+            if (s.name!!.contains(text!!,true)) {
                 temp.add(s)
             }
         }
