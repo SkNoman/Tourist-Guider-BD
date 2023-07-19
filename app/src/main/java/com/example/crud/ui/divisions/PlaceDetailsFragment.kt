@@ -9,27 +9,28 @@ import com.bumptech.glide.Glide
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentPlaceDetailsBinding
-import com.example.crud.model.PlaceDetails
 import com.example.crud.utils.GoogleMaps
 
 class PlaceDetailsFragment : BaseFragmentWithBinding<FragmentPlaceDetailsBinding>
     (FragmentPlaceDetailsBinding::inflate){
 
-    private val args by navArgs<PlaceDetailsFragmentArgs>()
-    private lateinit var result: PlaceDetails
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //GET THE PLACE DETAILS FROM LIST PAGE.
-        result = args.pD
+
+
         try {
-            binding.apply {
-                txtPlaceNameD.text = result.placeName
-                txtDescValueD.text = result.placeDetails
-                txtDistrictD.text = result.placeDistrict
-                Glide.with(requireContext()).load(result.placeImage)
+           binding.apply {
+                txtPlaceNameD.text = requireArguments().getString("name","Place Name")
+                txtDescValueD.text = requireArguments().getString("details","Place Details")
+                txtDistrictD.text = requireArguments().getString("district","Place District")
+                Glide.with(requireContext()).load(requireArguments().getString("image-link","https://media.istockphoto.com/id/516449022/photo/lady-with-kayak.jpg?s=612x612&w=0&k=20&c=Yp-rzpmY_hbhpbTE38z6toouRKW-lAEN-ZvuWvH8kKE="))
                     .placeholder(R.drawable.item3).into(ivPlaceImage)
-                Log.e("nlog-lat-details","Lat: ${result.lat}, Long: ${result.long}")
                 binding.txtMapDirection.setOnClickListener{
-                    GoogleMaps.openGoogleMaps(requireContext(),result.lat,result.long,result.placeName)
+                    GoogleMaps.openGoogleMaps(requireContext(),
+                        requireArguments().getDouble("lat",0.0),
+                        requireArguments().getDouble("long",0.0),
+                        requireArguments().getString("name","Place name"),
+                        requireArguments().getString("district","Bangladesh"))
                 }
             }
         }catch (e:Exception){

@@ -45,22 +45,12 @@
         android:name="com.example.crud.ui.divisions.PlacesListFragment"
         android:label="fragment_dhaka"
         tools:layout="@layout/fragment_places_list" >
-        <action
-            android:id="@+id/action_placesListFragment_to_placeDetailsFragment"
-            app:destination="@id/placeDetailsFragment"
-            app:enterAnim="@anim/enter_right_to_left"
-            app:exitAnim="@anim/exit_right_to_left"
-            app:popEnterAnim="@anim/enter_left_to_right"
-            app:popExitAnim="@anim/exit_left_to_right" />
     </fragment>
     <fragment
         android:id="@+id/placeDetailsFragment"
         android:name="com.example.crud.ui.divisions.PlaceDetailsFragment"
         android:label="fragment_place_details"
         tools:layout="@layout/fragment_place_details" >
-        <argument
-            android:name="pD"
-            app:argType="com.example.crud.model.PlaceDetails" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"

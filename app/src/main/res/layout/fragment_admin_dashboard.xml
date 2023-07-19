@@ -67,9 +67,9 @@
         android:clickable="true"
         android:focusable="true"
         android:src="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toBottomOf="@+id/txtFieldDropdown"
+        app:layout_constraintBottom_toBottomOf="@+id/textView14"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtFieldDropdown" />
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/txtFieldDropdown"
@@ -79,7 +79,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/bg_input_field_dp15"
-        android:backgroundTint="@color/color_bg_input_field"
+        android:backgroundTint="#652196F3"
         android:drawablePadding="@dimen/dp10"
         android:focusable="false"
         android:gravity="center_vertical"
@@ -89,9 +89,9 @@
         android:textColorHint="@color/LightBlue"
         android:textSize="@dimen/sp15"
         app:drawableEndCompat="@drawable/baseline_arrow_drop_down_circle_24"
-        app:layout_constraintEnd_toStartOf="@+id/btnAddPlace"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/btnAddPlace"
         tools:ignore="TextViewEdits" />
 
     <Spinner
@@ -101,6 +101,17 @@
         app:layout_constraintBottom_toBottomOf="@+id/txtFieldDropdown"
         app:layout_constraintEnd_toEndOf="@+id/txtFieldDropdown"
         app:layout_constraintStart_toStartOf="@+id/txtFieldDropdown" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/placeListRecyclerViewAdmin"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/dp16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFieldDropdown"
+        tools:listitem="@layout/place_list_item_admin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

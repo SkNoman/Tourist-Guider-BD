@@ -21,9 +21,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import androidx.viewpager2.widget.ViewPager2
 import com.example.crud.R
+import com.example.crud.admin.model.PlaceDetails
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentUserDashboardBinding
-import com.example.crud.model.PlaceDetails
 import com.example.crud.model.SlideItem
 import com.example.crud.model.Users
 import com.example.crud.model.dashboard.FeaturedItem
@@ -33,7 +33,6 @@ import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
 import com.example.crud.utils.CheckNetwork
-import com.example.crud.utils.FusedLocation
 import com.example.crud.utils.L
 import com.example.crud.utils.PIL
 import com.example.crud.utils.SharedPref
@@ -376,34 +375,6 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     }
 
     override fun onClickPopularPlace(id: Int) {
-        when (id) {
-            108 -> {
-                pD.add(PlaceDetails(getString(R.string.place_hatir_jheel),
-                    getString(R.string.place_hatir_jheel_details),
-                    getString(R.string.dhaka), L.LAT_HATIR_JHEEL,
-                    L.LONG_HATIR_JHEEL, PIL.PLACE_HATIR_JHEEL_IMAGE))
-                val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
-                pD.clear()
-                findNavController().navigate(action)
-            }
-            202 -> {
-                pD.add(PlaceDetails(getString(R.string.cox_s_bazar),
-                    getString(R.string.cox_bazar_desc),
-                    getString(R.string.cox_bazar), L.LAT_COX_BAZAR_SEA_BEACH,
-                    L.LONG_COX_BAZAR_SEA_BEACH, PIL.COXS_BAZAR_SEA_BEACH))
-                val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
-                pD.clear()
-                findNavController().navigate(action)
-            }
-            else -> {
-                pD.add(PlaceDetails(getString(R.string.nafa_khum_waterfall),
-                    getString(R.string.nafa_khum_desc),
-                    getString(R.string.dhaka), L.LAT_NAFA_KHUM,
-                    L.LONG_NAFA_KHUM, PIL.NAFA_KHUM_WATERFALL))
-                val action = FragmentDashboardDirections.actionFragmentDashboardToPlaceDetailsFragment(pD[0])
-                pD.clear()
-                findNavController().navigate(action)
-            }
-        }
+
     }
 }
