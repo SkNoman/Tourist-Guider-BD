@@ -33,10 +33,10 @@ class PlaceListAdapterAdmin(context: Context,
         holder.bind(mContext,menuContent)
 
         holder.binding.ivDeleteAdmin.setOnClickListener{
-            onClickDelete.onClickDelete(menuContent!!.name!!, menuContent.division!!)
+            onClickDelete.onClickDelete(menuContent!!.nameEn!!, menuContent.divisionEn!!)
         }
         holder.binding.ivEditAdmin.setOnClickListener{
-            onClickEdit.onClickEdit(menuContent!!.name!!)
+            onClickEdit.onClickEdit(menuContent!!.nameEn!!)
         }
 
     }
@@ -54,8 +54,8 @@ class PlaceListItemViewHolder(val binding: PlaceListItemAdminBinding):
 
 
     fun bind(context: Context, placeListData: PlaceDetails?){
-        binding.txtPlaceNameAdmin.text = placeListData!!.name
-        binding.txtDistrictAdmin.text = placeListData.district
+        binding.txtPlaceNameAdmin.text = placeListData!!.nameEn
+        binding.txtDistrictAdmin.text = placeListData.districtEn
         Glide.with(context).load(placeListData.imageLink)
             .placeholder(R.drawable.item3).into(binding.ivPlaceImageAdmin)
 

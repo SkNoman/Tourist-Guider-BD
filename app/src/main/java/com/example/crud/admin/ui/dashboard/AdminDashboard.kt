@@ -122,7 +122,7 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
                                 pD.add(it)
                             }
                         }
-                        Log.e("nlog",pD[0].details.toString())
+                        Log.e("nlog",pD[0].detailsEn.toString())
                         showPlaceList(pD)
                         if(pD.isEmpty()){
                             Toast.makeText(requireContext(),"No Place Found", Toast.LENGTH_SHORT).show()

@@ -1,24 +1,35 @@
 package com.example.crud.admin.model
 
 class PlaceDetails{
-    var name: String? = null
-    var district: String? = null
-    var division: String? = null
+    var nameEn: String? = null
+    var nameBn: String? = null
+    var districtEn: String? = null
+    var districtBn: String? = null
+    var divisionEn: String? = null
+    var divisionBn: String? = null
     var imageLink: String? = null
     var lat: Double? = null
     var long: Double? = null
-    var details: String? = null
+    var detailsEn: String? = null
+    var detailsBn: String? = null
 
     constructor(){}
 
-    constructor(name:String,district:String,division:String,imageLink: String,lat:Double,
-                long: Double, details:String){
-        this.name = name
-        this.district = district
-        this.division = division
+    constructor(nameEn:String,nameBn:String,
+                districtEn:String,districtBn:String,
+                divisionEn:String,  divisionBn:String,
+                imageLink: String,lat:Double, long: Double,
+                detailsEn:String,detailsBn:String){
+        this.nameEn = nameEn
+        this.nameBn = nameBn
+        this.districtEn = districtEn
+        this.districtBn = districtBn
+        this.divisionEn = divisionEn
+        this.divisionBn = divisionBn
         this.imageLink = imageLink
         this.lat = lat
         this.long = long
-        this.details = details
+        this.detailsEn = detailsEn
+        this.detailsBn = detailsBn
     }
 }
