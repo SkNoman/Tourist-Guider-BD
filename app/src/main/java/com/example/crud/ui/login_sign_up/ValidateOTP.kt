@@ -110,6 +110,7 @@ class ValidateOTP : BaseFragmentWithBinding<FragmentValidateOTPBinding>(
                     SharedPref.sharedPrefManger(requireContext(),"","name")
                     binding.progressBar.visibility = View.GONE
                     Toast.makeText(requireContext(),"Welcome", Toast.LENGTH_SHORT).show()
+                    SharedPref.sharedPrefManger(requireContext(),"en","languageCode")
                     findNavController().navigate(R.id.fragmentDashboard)
                 } else {
                      binding.progressBar.visibility = View.GONE
