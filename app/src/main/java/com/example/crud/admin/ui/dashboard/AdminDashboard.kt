@@ -108,11 +108,11 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
     @RequiresApi(Build.VERSION_CODES.M)
     private fun showPlaces(division: String) {
         if (CheckNetwork(requireContext()).isNetworkConnected){
-            dbRef.child("places").child(division).addValueEventListener(object :
+            dbRef.child("places").child(division).addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
-                        binding.placeListRecyclerViewAdmin.visibility = View.VISIBLE
+                        //binding.placeListRecyclerViewAdmin.visibility = View.VISIBLE
                         pD.clear()
                         for (placeSnapshot in snapshot.children) {
                              val placeName = snapshot.key

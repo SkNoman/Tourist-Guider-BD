@@ -45,55 +45,7 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
 
     }
 
-    private fun initBn() {
-        //Bengali
-        data class DivisionsBn(
-            val namesBn: String
-        ){
-            override fun toString(): String {
-                return namesBn
-            }
-        }
 
-        val listBn = mutableListOf<DivisionsBn>()
-        listBn.add(DivisionsBn("ঢাকা"))
-        listBn.add(DivisionsBn("চট্টগ্রাম"))
-        listBn.add(DivisionsBn("রাজশাহী"))
-        listBn.add(DivisionsBn("খুলনা"))
-        listBn.add(DivisionsBn("বরিশাল"))
-        listBn.add(DivisionsBn("সিলেট"))
-        listBn.add(DivisionsBn("ময়মনসিংহ"))
-        listBn.add(DivisionsBn("রংপুর"))
-
-        divisionNameBn = binding.etPlaceDivisionBn.text.toString()
-
-        binding.etPlaceDivisionBn.setOnClickListener {
-            binding.divisionListSpinnerBn.performClick()
-        }
-
-        val dataAdapterBn: ArrayAdapter<DivisionsBn> =
-            ArrayAdapter<DivisionsBn>(
-                requireContext(),
-                com.chaos.view.R.layout.support_simple_spinner_dropdown_item,
-                listBn
-            )
-
-        binding.divisionListSpinnerBn.adapter = dataAdapterBn
-
-        binding.divisionListSpinnerBn.onItemSelectedListener =
-            object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    parent: AdapterView<*>?,
-                    view: View?,
-                    position: Int,
-                    id: Long
-                ) {
-                    binding.etPlaceDivisionBn.text = listBn[position].namesBn
-                }
-
-                override fun onNothingSelected(parent: AdapterView<*>?) {}
-            }
-    }
 
     private fun addPlaceToDB() {
         try {
@@ -112,7 +64,7 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
                     binding.etPlaceDetails.text.toString(),
                     binding.etPlaceDetailsBn.text.toString()
                 ))
-            Toast.makeText(requireContext(),"Place Added Successfully",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(),"Place Added Successfully",Toast.LENGTH_SHORT).show()
         }catch (e:Exception){
             Log.e("nlog",e.toString())
             Toast(requireContext()).showCustomToast("Something Went Wrong",requireActivity())
@@ -124,8 +76,7 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
         return "Ok"
     }
 
-    private fun init()
-    {
+    private fun init() {
         data class Divisions(
             val names: String
         ){
@@ -178,5 +129,54 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
 
+    }
+    private fun initBn() {
+        //Bengali
+        data class DivisionsBn(
+            val namesBn: String
+        ){
+            override fun toString(): String {
+                return namesBn
+            }
+        }
+
+        val listBn = mutableListOf<DivisionsBn>()
+        listBn.add(DivisionsBn("ঢাকা"))
+        listBn.add(DivisionsBn("চট্টগ্রাম"))
+        listBn.add(DivisionsBn("রাজশাহী"))
+        listBn.add(DivisionsBn("খুলনা"))
+        listBn.add(DivisionsBn("বরিশাল"))
+        listBn.add(DivisionsBn("সিলেট"))
+        listBn.add(DivisionsBn("ময়মনসিংহ"))
+        listBn.add(DivisionsBn("রংপুর"))
+
+        divisionNameBn = binding.etPlaceDivisionBn.text.toString()
+
+        binding.etPlaceDivisionBn.setOnClickListener {
+            binding.divisionListSpinnerBn.performClick()
+        }
+
+        val dataAdapterBn: ArrayAdapter<DivisionsBn> =
+            ArrayAdapter<DivisionsBn>(
+                requireContext(),
+                com.chaos.view.R.layout.support_simple_spinner_dropdown_item,
+                listBn
+            )
+
+        binding.divisionListSpinnerBn.adapter = dataAdapterBn
+
+        binding.divisionListSpinnerBn.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    binding.etPlaceDivisionBn.text = listBn[position].namesBn
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {}
+            }
     }
 }
