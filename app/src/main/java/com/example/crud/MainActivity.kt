@@ -164,6 +164,7 @@ class MainActivity : AppCompatActivity(),ToolbarCallback {
 
     private fun setAppLanguage(languageCode: String) {
         SharedPref.sharedPrefManger(this,true,"recreated")
+        SharedPref.sharedPrefManger(this,languageCode,"languageCode")
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
 
@@ -179,6 +180,12 @@ class MainActivity : AppCompatActivity(),ToolbarCallback {
         try {
             when (navController.currentDestination?.id) {
                 R.id.fragmentDashboard -> {
+                    finish()
+                }
+                R.id.login ->{
+                    finish()
+                }
+                R.id.adminDashboard ->{
                     finish()
                 }
                 else -> {

@@ -27,6 +27,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView12">
 
+            <ImageView
+                android:id="@+id/ivBackBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_arrow_back_35"
+                android:contentDescription="@string/tour"/>
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
@@ -35,6 +44,7 @@
                 android:drawableStart="@drawable/baseline_add_circle_24"
                 android:textSize="22sp"
                 android:drawablePadding="10dp"
+                android:layout_marginBottom="@dimen/dp20"
                 android:textStyle="bold"
                 android:fontFamily="serif"
                 android:textColor="@color/txtColorDarkBlue"
@@ -45,48 +55,48 @@
             <EditText
                 android:id="@+id/etPlaceName"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg_login"
                 android:hint="Enter place name"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:layout_marginTop="@dimen/dp20"
                 android:padding="@dimen/_10dp" />
 
             <EditText
                 android:id="@+id/etPlaceNameBn"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg_login"
                 android:hint="Enter place name bengali"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/_10dp" />
 
             <EditText
                 android:id="@+id/etPlaceDistrict"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg_login"
                 android:hint="Enter place district"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/_10dp" />
 
             <EditText
                 android:id="@+id/etPlaceDistrictBn"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg_login"
                 android:hint="Enter place district bengali"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/_10dp" />
 
             <TextView
                 android:id="@+id/etPlaceDivision"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg_login"
                 android:drawablePadding="@dimen/dp10"
@@ -115,7 +125,7 @@
             <TextView
                 android:id="@+id/etPlaceDivisionBn"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg_login"
                 android:drawablePadding="@dimen/dp10"
@@ -144,11 +154,11 @@
             <EditText
                 android:id="@+id/etPlaceImageLink"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg_login"
                 android:hint="Enter image link"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/_10dp" />
 
             <LinearLayout
@@ -159,7 +169,8 @@
                 <EditText
                     android:id="@+id/etPlaceLat"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_50dp"
+                    android:layout_height="wrap_content"
+                    android:maxLength="15"
                     android:layout_margin="@dimen/_10dp"
                     android:background="@drawable/edit_text_bg_login"
                     android:hint="Enter Latitude"
@@ -169,7 +180,8 @@
                 <EditText
                     android:id="@+id/etPlaceLong"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/_50dp"
+                    android:layout_height="wrap_content"
+                    android:maxLength="15"
                     android:layout_margin="@dimen/_10dp"
                     android:background="@drawable/edit_text_bg_login"
                     android:hint="Enter Longitude"
@@ -180,21 +192,21 @@
             <EditText
                 android:id="@+id/etPlaceDetails"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg_login"
                 android:hint="Enter place details"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/_10dp" />
 
             <EditText
                 android:id="@+id/etPlaceDetailsBn"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_50dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="@dimen/_10dp"
                 android:background="@drawable/edit_text_bg_login"
                 android:hint="Enter place details bengali"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/_10dp" />
 
             <ProgressBar

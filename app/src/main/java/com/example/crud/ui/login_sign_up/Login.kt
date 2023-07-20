@@ -41,6 +41,11 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
         binding.btnLoginAsAdmin.setOnClickListener{
             findNavController().navigate(R.id.adminLogin)
         }
+        try {
+            SharedPref.sharedPrefManger(requireContext(),"en","languageCode")
+        }catch (e:Exception){
+            //No Exception ha ha
+        }
 
         binding.btnLogin.setOnClickListener{
             if (CheckNetwork(requireContext()).isNetworkConnected){

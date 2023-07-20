@@ -20,6 +20,7 @@ import com.example.crud.ui.adapters.PlaceListAdapter
 import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.L
 import com.example.crud.utils.PIL
+import com.example.crud.utils.SharedPref
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -34,7 +35,47 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
 
     private val pD: MutableList<PlaceDetails> = mutableListOf()
     private lateinit var dbRef: DatabaseReference
-    private var lnType = ""
+    private var languageType = ""
+
+
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        dbRef = FirebaseDatabase.getInstance().reference
+        val localData = SharedPref.getData(requireContext())
+        languageType = localData.getString("languageCode","").toString()
+
+
+        initialize(languageType)
+
+        binding.ivBackBtn.setOnClickListener{
+            findNavController().popBackStack()
+        }
+        binding.recyclerViewDhakaDivision.setHasFixedSize(true)
+        binding.recyclerViewDhakaDivision.layoutManager =
+            GridLayoutManager(activity,2,GridLayoutManager.VERTICAL,false)
+        if(!CheckNetwork(requireContext()).isNetworkConnected){
+            Toast(requireContext()).showCustomToast(getString(R.string.pls_chk_internet),
+                requireActivity())
+        }
+
+
+        binding.searchPlaces.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                filter(s.toString(),languageType)
+            }
+
+        })
+    }
 
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -79,57 +120,10 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        dbRef = FirebaseDatabase.getInstance().reference
-
-
-        binding.switchLanguageWeb.setOnClickListener{
-            if (binding.switchLanguageWeb.text == "Bangla") {
-                lnType = "en"
-                binding.switchLanguageWeb.text = "English"
-                initialize("en")
-            }else{
-                lnType = "bn"
-                binding.switchLanguageWeb.text = "Bangla"
-                initialize("bn")
-            }
-        }
-
-        initialize("en")
-
-        binding.ivBackBtn.setOnClickListener{
-            findNavController().popBackStack()
-        }
-        binding.recyclerViewDhakaDivision.setHasFixedSize(true)
-        binding.recyclerViewDhakaDivision.layoutManager =
-            GridLayoutManager(activity,2,GridLayoutManager.VERTICAL,false)
-        if(!CheckNetwork(requireContext()).isNetworkConnected){
-            Toast(requireContext()).showCustomToast(getString(R.string.pls_chk_internet),
-                requireActivity())
-        }
-
-
-        binding.searchPlaces.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-            }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                filter(s.toString(),lnType)
-            }
-
-        })
-    }
-
-    @RequiresApi(Build.VERSION_CODES.M)
     private fun showPlaces(division: String,languageType: String) {
         if (CheckNetwork(requireContext()).isNetworkConnected){
-            dbRef.child("places").child(division).addValueEventListener(object :
+            binding.progressBarPlaceList.visibility = View.VISIBLE
+            dbRef.child("places").child(division).addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
@@ -142,12 +136,17 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                                 pD.add(it)
                             }
                         }
+                        binding.progressBarPlaceList.visibility = View.GONE
                         showPlaceList(pD,languageType)
+                    }else{
+                        binding.progressBarPlaceList.visibility = View.GONE
+                        Toast.makeText(requireContext(),"No Place Found",Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     // Handle any errors that occur during the data retrieval
+                    binding.progressBarPlaceList.visibility = View.GONE
                     Log.e("Firebase", "Data retrieval cancelled: ${error.message}")
                 }
             })
@@ -178,16 +177,27 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
 
     override fun onClick(name: String) {
        for (i in pD.indices){
-            if (pD[i].nameBn == name){
+            if (pD[i].nameEn == name){
                 val bundle = Bundle()
-                bundle.putString("name",pD[i].nameEn)
-                bundle.putString("details",pD[i].detailsEn)
-                bundle.putString("district",pD[i].districtBn)
-                bundle.putString("division",pD[i].divisionBn)
-                bundle.putString("image-link",pD[i].imageLink)
-                pD[i].lat?.let { bundle.putDouble("lat", it) }
-                pD[i].long?.let { bundle.putDouble("long",it) }
-                findNavController().navigate(R.id.placeDetailsFragment,bundle)
+                if (languageType == "en"){
+                    bundle.putString("name",pD[i].nameEn)
+                    bundle.putString("district",pD[i].districtEn)
+                    bundle.putString("details",pD[i].detailsEn)
+                    bundle.putString("division",pD[i].divisionEn)
+                    bundle.putString("image-link",pD[i].imageLink)
+                    pD[i].lat?.let { bundle.putDouble("lat", it) }
+                    pD[i].long?.let { bundle.putDouble("long",it) }
+                    findNavController().navigate(R.id.placeDetailsFragment,bundle)
+                }else{
+                    bundle.putString("name",pD[i].nameBn)
+                    bundle.putString("district",pD[i].districtBn)
+                    bundle.putString("details",pD[i].detailsBn)
+                    bundle.putString("division",pD[i].divisionBn)
+                    bundle.putString("image-link",pD[i].imageLink)
+                    pD[i].lat?.let { bundle.putDouble("lat", it) }
+                    pD[i].long?.let { bundle.putDouble("long",it) }
+                    findNavController().navigate(R.id.placeDetailsFragment,bundle)
+             }
             }
        }
     }

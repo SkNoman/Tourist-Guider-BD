@@ -9,18 +9,16 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
-import com.example.crud.R
-import com.example.crud.admin.model.PlaceDetails
 import com.example.crud.base.BaseFragmentWithBinding
-import com.example.crud.databinding.FragmentAddPlaceBinding
+import com.example.crud.databinding.FragmentEditPlaceBinding
 import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 
-class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
-    FragmentAddPlaceBinding::inflate)
+class EditPlace : BaseFragmentWithBinding<FragmentEditPlaceBinding>(
+    FragmentEditPlaceBinding::inflate)
 {
 
     private var divisionName : String = ""
@@ -32,13 +30,14 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
 
         dbRef = FirebaseDatabase.getInstance().reference
 
+        getDataAndSet()
         init()
         initBn()
 
-        binding.btnAddPlace.setOnClickListener{
+        binding.btnUpdatePlace.setOnClickListener{
             if (CheckNetwork(requireContext()).isNetworkConnected){
                 if(validateInputFields() == "Ok"){
-                    addPlaceToDB()
+                    updatePlace()
                 }else{
                     Toast(requireContext()).showCustomToast(validateInputFields(),requireActivity())
                 }
@@ -50,43 +49,75 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
 
     }
 
+    private fun getDataAndSet()
+    {
+        try {
+            binding.apply {
+                etPlaceName.setText(requireArguments().getString("nameEn", "Place Name"))
+                etPlaceNameBn.setText(requireArguments().getString("nameBn", "Place Name"))
+
+                etPlaceDistrict.setText(requireArguments().getString("districtEn", "Place Name"))
+                etPlaceDistrictBn.setText(requireArguments().getString("districtBn", "Place Name"))
+
+                etPlaceImageLink.setText(requireArguments().getString("image-link", "Place Image"))
+
+                etPlaceLat.setText(requireArguments().getDouble("lat", 0.0).toString())
+                etPlaceLong.setText(requireArguments().getDouble("long", 0.0).toString())
+
+                etPlaceDetails.setText(requireArguments().getString("detailsEn","Place Details"))
+                etPlaceDetailsBn.setText(requireArguments().getString("detailsBn","Place Details"))
+            }
+        }catch (e:Exception){
+            Log.e("nlog-e",e.toString())
+        }
+    }
 
 
-    private fun addPlaceToDB() {
+
+    private fun updatePlace()
+    {
         try {
             binding.progressBar.visibility = View.VISIBLE
-            dbRef.child("places").child(binding.etPlaceDivision.text.toString())
-                .child(binding.etPlaceName.text.toString())
-                .setValue(PlaceDetails(
-                    binding.etPlaceName.text.toString(),
-                    binding.etPlaceNameBn.text.toString(),
-                    binding.etPlaceDistrict.text.toString(),
-                    binding.etPlaceDistrictBn.text.toString(),
-                    binding.etPlaceDivision.text.toString(),
-                    binding.etPlaceDivisionBn.text.toString(),
-                    binding.etPlaceImageLink.text.toString(),
-                    binding.etPlaceLat.text.toString().toDouble(),
-                    binding.etPlaceLong.text.toString().toDouble(),
-                    binding.etPlaceDetails.text.toString(),
-                    binding.etPlaceDetailsBn.text.toString()
-                ))
-            binding.etPlaceName.text = null
-            binding.etPlaceNameBn.text = null
-            binding.etPlaceDistrict.text = null
-            binding.etPlaceDistrictBn.text = null
-            binding.etPlaceImageLink.text = null
-            binding.etPlaceLat.text = null
-            binding.etPlaceLong.text = null
-            binding.etPlaceDetails.text = null
-            binding.etPlaceDetailsBn.text = null
-            binding.progressBar.visibility = View.GONE
-            Toast.makeText(requireContext(),"Place Added Successfully",Toast.LENGTH_SHORT).show()
-        }catch (e:Exception){
-            binding.progressBar.visibility = View.GONE
-            Log.e("nlog",e.toString())
-            Toast(requireContext()).showCustomToast("Something Went Wrong",requireActivity())
-        }
 
+            val placeData  = hashMapOf<String, Any>(
+                "nameEn" to binding.etPlaceName.text.toString(),
+                "nameBn" to binding.etPlaceNameBn.text.toString(),
+                "districtEn" to binding.etPlaceDistrict.text.toString(),
+                "districtBn" to binding.etPlaceDistrictBn.text.toString(),
+                /*"divisionEn" to binding.etPlaceDivision.text.toString(),
+                "divisionBn" to binding.etPlaceDivisionBn.text.toString(),*/
+                "imageLink" to binding.etPlaceImageLink.text.toString(),
+                "latitude" to binding.etPlaceLat.text.toString().toDouble(),
+                "longitude" to binding.etPlaceLong.text.toString().toDouble(),
+                "detailsEn" to binding.etPlaceDetails.text.toString(),
+                "detailsBn" to binding.etPlaceDetailsBn.text.toString()
+            )
+
+
+            dbRef.child("places").child(binding.etPlaceDivision.text.toString())
+                .child(binding.etPlaceName.text.toString()).updateChildren(placeData)
+                .addOnSuccessListener {
+                    binding.etPlaceName.text = null
+                    binding.etPlaceNameBn.text = null
+                    binding.etPlaceDistrict.text = null
+                    binding.etPlaceDistrictBn.text = null
+                    binding.etPlaceImageLink.text = null
+                    binding.etPlaceLat.text = null
+                    binding.etPlaceLong.text = null
+                    binding.etPlaceDetails.text = null
+                    binding.etPlaceDetailsBn.text = null
+                    binding.progressBar.visibility = View.GONE
+                    findNavController().popBackStack()
+                    Toast.makeText(requireContext(),"Place Updated Successfully",Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    binding.progressBar.visibility = View.GONE
+                    Toast(requireContext()).showCustomToast("Something Went Wrong",requireActivity())
+                }
+        }catch (e:Exception){
+                binding.progressBar.visibility = View.GONE
+            Log.e("nlog-e",e.toString())
+        }
     }
 
     private fun validateInputFields():String {

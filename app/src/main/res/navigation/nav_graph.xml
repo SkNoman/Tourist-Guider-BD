@@ -104,4 +104,9 @@
         android:name="com.example.crud.admin.ui.dashboard.AddPlace"
         android:label="fragment_add_place"
         tools:layout="@layout/fragment_add_place" />
+    <fragment
+        android:id="@+id/editPlace"
+        android:name="com.example.crud.admin.ui.dashboard.EditPlace"
+        android:label="fragment_edit_place"
+        tools:layout="@layout/fragment_edit_place" />
 </navigation>

@@ -21,10 +21,18 @@ class PlaceDetailsFragment : BaseFragmentWithBinding<FragmentPlaceDetailsBinding
         try {
            binding.apply {
                 txtPlaceNameD.text = requireArguments().getString("name","Place Name")
+               txtDistrictD.text = requireArguments().getString("district","Place District")
                 txtDescValueD.text = requireArguments().getString("details","Place Details")
-                txtDistrictD.text = requireArguments().getString("district","Place District")
-                Glide.with(requireContext()).load(requireArguments().getString("image-link","https://media.istockphoto.com/id/516449022/photo/lady-with-kayak.jpg?s=612x612&w=0&k=20&c=Yp-rzpmY_hbhpbTE38z6toouRKW-lAEN-ZvuWvH8kKE="))
+
+
+                Glide.with(requireContext()).load(requireArguments().
+                getString("image-link",
+                    "https://media.istockphoto.com/id/516449022/photo/" +
+                            "lady-with-kayak.jpg?s=612x612&w=0&k=20&c=Yp-rzpmY" +
+                            "_hbhpbTE38z6toouRKW-lAEN-ZvuWvH8kKE="))
                     .placeholder(R.drawable.item3).into(ivPlaceImage)
+
+
                 binding.txtMapDirection.setOnClickListener{
                     GoogleMaps.openGoogleMaps(requireContext(),
                         requireArguments().getDouble("lat",0.0),

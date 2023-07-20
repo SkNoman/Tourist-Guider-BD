@@ -174,7 +174,7 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
                     pD.clear()
                     for (placeSnapshot in snapshot.children) {
                         val placeName = snapshot.key
-                        Log.e("place-name",placeName.toString())
+                        Log.e("placeKey",placeName.toString())
                         val place = placeSnapshot.getValue(PlaceDetails::class.java)
                         place?.let {
                             pD.add(it)
@@ -200,6 +200,26 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
     }
 
     override fun onClickEdit(name: String) {
-        Toast.makeText(requireContext(),"Click Edit button for $name",Toast.LENGTH_SHORT).show()
+
+        for (i in pD.indices){
+            if (pD[i].nameEn == name){
+                val bundle = Bundle()
+                bundle.putString("nameEn",pD[i].nameEn)
+                bundle.putString("districtEn",pD[i].districtEn)
+                bundle.putString("detailsEn",pD[i].detailsEn)
+                bundle.putString("divisionEn",pD[i].divisionEn)
+
+                //bn
+                bundle.putString("nameBn",pD[i].nameBn)
+                bundle.putString("districtBn",pD[i].districtBn)
+                bundle.putString("detailsBn",pD[i].detailsBn)
+                bundle.putString("divisionBn",pD[i].divisionBn)
+
+                bundle.putString("image-link",pD[i].imageLink)
+                pD[i].lat?.let { bundle.putDouble("lat", it) }
+                pD[i].long?.let { bundle.putDouble("long",it) }
+                findNavController().navigate(R.id.editPlace,bundle)
+            }
+        }
     }
 }
