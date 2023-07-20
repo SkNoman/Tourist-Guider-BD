@@ -108,7 +108,7 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
     @RequiresApi(Build.VERSION_CODES.M)
     private fun showPlaces(division: String) {
         if (CheckNetwork(requireContext()).isNetworkConnected){
-            dbRef.child("places").child(division).addListenerForSingleValueEvent(object :
+            dbRef.child("places").child(division).addValueEventListener(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
@@ -123,16 +123,11 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
                             }
                         }
                         Log.e("nlog",pD[0].details.toString())
-                        if (pD.isNotEmpty()){
-                            showPlaceList(pD)
-                        }else{
+                        showPlaceList(pD)
+                        if(pD.isEmpty()){
                             Toast.makeText(requireContext(),"No Place Found", Toast.LENGTH_SHORT).show()
                         }
 
-                    } else {
-                        binding.placeListRecyclerViewAdmin.visibility = View.GONE
-                        //binding.progressBarDB.visibility = View.GONE
-                        Toast.makeText(requireContext(),"No Place Found", Toast.LENGTH_SHORT).show()
                     }
                 }
 
@@ -158,7 +153,6 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
             .addOnSuccessListener {
                 // Deletion successful
                 Toast.makeText(requireContext(), "$name Deleted Successfully",Toast.LENGTH_SHORT).show()
-                showPlaces(division)
             }
             .addOnFailureListener { exception ->
                 // Handle any errors that occur during deletion

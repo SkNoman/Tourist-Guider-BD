@@ -107,7 +107,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
     @RequiresApi(Build.VERSION_CODES.M)
     private fun showPlaces(division: String) {
         if (CheckNetwork(requireContext()).isNetworkConnected){
-            dbRef.child("places").child(division).addListenerForSingleValueEvent(object :
+            dbRef.child("places").child(division).addValueEventListener(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
@@ -121,9 +121,6 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                             }
                         }
                         showPlaceList(pD)
-                    } else {
-                        //binding.progressBarDB.visibility = View.GONE
-                        Toast.makeText(requireContext(),"Something went wrong",Toast.LENGTH_SHORT).show()
                     }
                 }
 
