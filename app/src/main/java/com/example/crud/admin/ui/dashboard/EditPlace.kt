@@ -20,7 +20,8 @@ import com.google.firebase.database.FirebaseDatabase
 class EditPlace : BaseFragmentWithBinding<FragmentEditPlaceBinding>(
     FragmentEditPlaceBinding::inflate)
 {
-
+    private var placeKey : String = ""
+    private var division: String = ""
     private var divisionName : String = ""
     private var divisionNameBn : String = ""
     private lateinit var dbRef: DatabaseReference
@@ -53,6 +54,9 @@ class EditPlace : BaseFragmentWithBinding<FragmentEditPlaceBinding>(
     {
         try {
             binding.apply {
+                placeKey = requireArguments().getString("placeKey", "Place Key")
+                division = requireArguments().getString("divisionEn", "Place Division")
+
                 etPlaceName.setText(requireArguments().getString("nameEn", "Place Name"))
                 etPlaceNameBn.setText(requireArguments().getString("nameBn", "Place Name"))
 
@@ -93,9 +97,9 @@ class EditPlace : BaseFragmentWithBinding<FragmentEditPlaceBinding>(
                 "detailsBn" to binding.etPlaceDetailsBn.text.toString()
             )
 
-
-            dbRef.child("places").child(binding.etPlaceDivision.text.toString())
-                .child(binding.etPlaceName.text.toString()).updateChildren(placeData)
+            Log.e("placeKey", placeKey)
+            dbRef.child("places").child(division)
+                .child(placeKey).updateChildren(placeData)
                 .addOnSuccessListener {
                     binding.etPlaceName.text = null
                     binding.etPlaceNameBn.text = null

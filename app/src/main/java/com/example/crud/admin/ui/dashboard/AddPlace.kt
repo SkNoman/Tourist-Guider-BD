@@ -17,6 +17,7 @@ import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import kotlin.random.Random
 
 
 class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
@@ -55,9 +56,11 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
     private fun addPlaceToDB() {
         try {
             binding.progressBar.visibility = View.VISIBLE
+            val random = Random.nextInt(1,2000)
             dbRef.child("places").child(binding.etPlaceDivision.text.toString())
-                .child(binding.etPlaceName.text.toString())
+                .child(binding.etPlaceName.text.toString()+random.toString())
                 .setValue(PlaceDetails(
+                    binding.etPlaceName.text.toString()+random.toString(),
                     binding.etPlaceName.text.toString(),
                     binding.etPlaceNameBn.text.toString(),
                     binding.etPlaceDistrict.text.toString(),

@@ -59,8 +59,7 @@ tools:context=".admin.ui.dashboard.EditPlace">
             android:layout_margin="@dimen/_10dp"
             android:background="@drawable/edit_text_bg_login"
             android:hint="Enter place name"
-            android:inputType="none"
-            android:focusable="false"
+
             android:layout_marginTop="@dimen/dp20"
             android:padding="@dimen/_10dp" />
 
@@ -71,8 +70,6 @@ tools:context=".admin.ui.dashboard.EditPlace">
             android:layout_margin="@dimen/_10dp"
             android:background="@drawable/edit_text_bg_login"
             android:hint="Enter place name bengali"
-            android:inputType="none"
-            android:focusable="false"
             android:padding="@dimen/_10dp" />
 
         <EditText

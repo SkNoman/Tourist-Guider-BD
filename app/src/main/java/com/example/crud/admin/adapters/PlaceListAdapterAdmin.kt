@@ -33,20 +33,20 @@ class PlaceListAdapterAdmin(context: Context,
         holder.bind(mContext,menuContent)
 
         holder.binding.ivDeleteAdmin.setOnClickListener{
-            onClickDelete.onClickDelete(menuContent!!.nameEn!!, menuContent.divisionEn!!)
+            onClickDelete.onClickDelete(menuContent!!.placeKey!!, menuContent.divisionEn!!)
         }
         holder.binding.ivEditAdmin.setOnClickListener{
-            onClickEdit.onClickEdit(menuContent!!.nameEn!!)
+            onClickEdit.onClickEdit(menuContent!!.placeKey!!)
         }
 
     }
 }
 interface OnClickDelete{
-    fun onClickDelete(name:String,division:String)
+    fun onClickDelete(placeKey:String,division:String)
 }
 
 interface OnClickEdit{
-    fun onClickEdit(name:String)
+    fun onClickEdit(placeKey:String)
 }
 
 class PlaceListItemViewHolder(val binding: PlaceListItemAdminBinding):

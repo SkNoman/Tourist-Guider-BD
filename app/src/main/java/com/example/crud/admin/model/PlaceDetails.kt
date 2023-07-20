@@ -1,6 +1,7 @@
 package com.example.crud.admin.model
 
 class PlaceDetails{
+    var placeKey: String? =null
     var nameEn: String? = null
     var nameBn: String? = null
     var districtEn: String? = null
@@ -15,11 +16,12 @@ class PlaceDetails{
 
     constructor(){}
 
-    constructor(nameEn:String,nameBn:String,
+    constructor(placeKey: String,nameEn:String,nameBn:String,
                 districtEn:String,districtBn:String,
                 divisionEn:String,  divisionBn:String,
                 imageLink: String,lat:Double, long: Double,
                 detailsEn:String,detailsBn:String){
+        this.placeKey = placeKey
         this.nameEn = nameEn
         this.nameBn = nameBn
         this.districtEn = districtEn

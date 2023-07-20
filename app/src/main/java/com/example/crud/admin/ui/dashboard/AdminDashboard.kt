@@ -149,12 +149,12 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    override fun onClickDelete(name: String, division: String) {
+    override fun onClickDelete(placeKey: String, division: String) {
         binding.progressBarAdminList.visibility = View.VISIBLE
-        dbRef.child("places").child(division).child(name).removeValue()
+        dbRef.child("places").child(division).child(placeKey).removeValue()
             .addOnSuccessListener {
                 // Deletion successful
-                Toast.makeText(requireContext(), "$name Deleted Successfully",Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Place Deleted Successfully",Toast.LENGTH_SHORT).show()
                 updateUI()
             }
             .addOnFailureListener { exception ->
@@ -170,7 +170,7 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    //binding.placeListRecyclerViewAdmin.visibility = View.VISIBLE
+                    binding.placeListRecyclerViewAdmin.visibility = View.VISIBLE
                     pD.clear()
                     for (placeSnapshot in snapshot.children) {
                         val placeName = snapshot.key
@@ -183,27 +183,30 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
                     Log.e("nlog",pD[0].detailsEn.toString())
                     binding.progressBarAdminList.visibility = View.GONE
                     showPlaceList(pD)
-                    if(pD.isEmpty()){
-                        binding.progressBarAdminList.visibility = View.GONE
-                        Toast.makeText(requireContext(),"No Place Found", Toast.LENGTH_SHORT).show()
-                    }
 
+
+                }else{
+                    binding.placeListRecyclerViewAdmin.visibility = View.GONE
+                    binding.progressBarAdminList.visibility = View.GONE
+                    Toast.makeText(requireContext(),"No Place Found", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
                 // Handle any errors that occur during the data retrieval
+                binding.placeListRecyclerViewAdmin.visibility = View.GONE
                 binding.progressBarAdminList.visibility = View.GONE
                 Log.e("Firebase", "Data retrieval cancelled: ${error.message}")
             }
         })
     }
 
-    override fun onClickEdit(name: String) {
+    override fun onClickEdit(placeKey: String) {
 
         for (i in pD.indices){
-            if (pD[i].nameEn == name){
+            if (pD[i].placeKey == placeKey){
                 val bundle = Bundle()
+                bundle.putString("placeKey",pD[i].placeKey)
                 bundle.putString("nameEn",pD[i].nameEn)
                 bundle.putString("districtEn",pD[i].districtEn)
                 bundle.putString("detailsEn",pD[i].detailsEn)
