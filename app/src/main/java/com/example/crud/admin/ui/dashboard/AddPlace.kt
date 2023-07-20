@@ -49,6 +49,7 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
 
     private fun addPlaceToDB() {
         try {
+            binding.progressBar.visibility = View.VISIBLE
             dbRef.child("places").child(binding.etPlaceDivision.text.toString())
                 .child(binding.etPlaceName.text.toString())
                 .setValue(PlaceDetails(
@@ -59,13 +60,25 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
                     binding.etPlaceDivision.text.toString(),
                     binding.etPlaceDivisionBn.text.toString(),
                     binding.etPlaceImageLink.text.toString(),
-                    20.2121,
-                    90.23232,
+                    binding.etPlaceLat.text.toString().toDouble(),
+                    binding.etPlaceLong.text.toString().toDouble(),
                     binding.etPlaceDetails.text.toString(),
                     binding.etPlaceDetailsBn.text.toString()
                 ))
+            binding.etPlaceName.text = null
+            binding.etPlaceNameBn.text = null
+            binding.etPlaceDistrict.text = null
+            binding.etPlaceDistrictBn.text = null
+            binding.etPlaceImageLink.text = null
+            binding.etPlaceLat.text = null
+            binding.etPlaceLong.text = null
+            binding.etPlaceDetails.text = null
+            binding.etPlaceDetailsBn.text = null
+            binding.progressBar.visibility = View.GONE
+
                 Toast.makeText(requireContext(),"Place Added Successfully",Toast.LENGTH_SHORT).show()
         }catch (e:Exception){
+            binding.progressBar.visibility = View.GONE
             Log.e("nlog",e.toString())
             Toast(requireContext()).showCustomToast("Something Went Wrong",requireActivity())
         }
@@ -73,7 +86,27 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
     }
 
     private fun validateInputFields():String {
-        return "Ok"
+        if (binding.etPlaceName.text.toString().isEmpty()){
+            return "Please enter place name"
+        }else if (binding.etPlaceNameBn.text.toString().isEmpty()){
+            return "Please enter place name in bengali"
+        }else if (binding.etPlaceDistrict.text.toString().isEmpty()){
+            return "Please enter place district"
+        }else if (binding.etPlaceDistrictBn.text.toString().isEmpty()){
+            return "Please enter place district in bengali"
+        }else if (binding.etPlaceImageLink.text.toString().isEmpty()){
+            return "Please enter image link"
+        }else if (binding.etPlaceLat.text.isEmpty()){
+            return "Please enter place latitude"
+        }else if (binding.etPlaceLong.text.isEmpty()){
+            return "Please enter place longitude"
+        }else if (binding.etPlaceDetails.text.isEmpty()){
+            return "Please enter place details"
+        }else if (binding.etPlaceDetails.text.isEmpty()){
+            return "Please enter place details in bengali"
+        }else{
+            return "Ok"
+        }
     }
 
     private fun init() {

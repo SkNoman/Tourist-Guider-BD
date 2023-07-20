@@ -31,6 +31,7 @@ class AdminLogin : BaseFragmentWithBinding<FragmentAdminLoginBinding>(
         binding.btnLogin.setOnClickListener{
             if (CheckNetwork(requireContext()).isNetworkConnected){
                 if (validateLogin() == "OK"){
+                    binding.progressBarLogin.visibility = View.VISIBLE
                     adminLogin(binding.etUsernameLogin.text.toString(),
                         binding.etPassLogin.text.toString())
                 }else{
@@ -57,15 +58,19 @@ class AdminLogin : BaseFragmentWithBinding<FragmentAdminLoginBinding>(
                     findNavController().navigate(R.id.adminDashboard,bundle)
                     binding.etPassLogin.text = null
                     binding.etUsernameLogin.text = null
+                    binding.progressBarLogin.visibility = View.GONE
                     Toast.makeText(requireContext(),"Login Success",Toast.LENGTH_SHORT).show()
                 }else{
+                    binding.progressBarLogin.visibility = View.GONE
                     Toast.makeText(requireContext(),"Please enter correct password",Toast.LENGTH_SHORT).show()
                 }
 
             }else{
+                binding.progressBarLogin.visibility = View.GONE
                 Toast(requireContext()).showCustomToast("Sorry No User Found",requireActivity())
             }
         }.addOnFailureListener{
+            binding.progressBarLogin.visibility = View.GONE
             Toast(requireContext()).showCustomToast("Error getting data $it",requireActivity())
         }
     }
