@@ -7,11 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.Priority
 import com.example.crud.R
 import com.example.crud.admin.model.PlaceDetails
-import com.example.crud.admin.model.PlaceName
-import com.example.crud.model.menu.PlaceListItem
 
 class PlaceListAdapter(context: Context,
                        carList: List<PlaceDetails?>,

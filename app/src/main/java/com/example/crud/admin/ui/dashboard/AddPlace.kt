@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
-import com.example.crud.R
 import com.example.crud.admin.model.PlaceDetails
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentAddPlaceBinding

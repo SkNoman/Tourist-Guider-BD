@@ -46,7 +46,7 @@ object L {
 
     //khulna
     const val LAT_SHUNDARBAN = 21.9497
-    const val LONG_SHUNDARBAN = 89.1833
+    const val LONG_SHUNDARBAN = 21.9497
 
     const val LAT_SIXTY_DOMED_MOSQUE = 22.6595
     const val LONG_SIXTY_DOMED_MOSQUE = 89.7858

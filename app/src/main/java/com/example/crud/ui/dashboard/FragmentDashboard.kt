@@ -33,7 +33,6 @@ import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
 import com.example.crud.utils.CheckNetwork
-import com.example.crud.utils.L
 import com.example.crud.utils.PIL
 import com.example.crud.utils.SharedPref
 import com.example.crud.utils.ToolbarCallback

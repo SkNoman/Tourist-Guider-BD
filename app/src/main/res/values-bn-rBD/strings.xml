@@ -150,6 +150,7 @@
     <string name="rangamati">"রাঙ্গামাটি"</string>
     <string name="nafa_khum_waterfall">নাফা-খুম ঝর্ণা</string>
     <string name="nafa_khum_desc">এটি দেশের সর্ববৃহৎ পানিপাত অনুযায়ী একটি প্রাকৃতিক ঝর্ণা। বনপাহাড়ী নদী এখানে আকারের উত্তপ্ততা করে এখানে পড়ে প্রায় 25–30 ফুট বা 7.62-9.144 মিটার। নিজস্ব মারমা ভাষায় "ঙাফা" শব্দটি ছাগলমাছ / বন্ধুক মাছ এবং "খোঁঙ" শব্দটি "মাঠ" বোঝায়।</string>
+
     <string name="sundarbans">সুন্দরবন</string>
     <string name="sixty_dome_mosque">ষাট গম্বুজ মসজিদ</string>
     <string name="hazrat_khan_jahan_ali_tomb">হযরত খান জাহান আলীর মাজার</string>
@@ -196,7 +197,6 @@
     <!-- Kuakata Sea Beach -->
     <string name="place_kuakata_sea_beach">কুয়াকাটা সমুদ্র সৈকত</string>
     <string name="description_kuakata_sea_beach">কুয়াকাটা সমুদ্র সৈকত হল একটি জনপ্রিয় পর্যটন গন্তব্য যা প্রাকৃতিক সৌন্দর্যের জন্য পরিচিত এবং অবস্থানের অবিশ্বাস্য সূর্যাস্ত দৃশ্যের জন্য।</string>
-
     <!-- Floating Guava Market -->
     <string name="place_floating_guava_market">ভাসমান পেয়ারা বাজার</string>
     <string name="description_floating_guava_market">ভাসমান পেয়ারা বাজার হল একটি অদ্বিতীয় বাজার যা বাংলাদেশে অবস্থিত, যেখানে গুয়াভা নৌকা ওপারে বিক্রি হয়।</string>

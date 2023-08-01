@@ -12,14 +12,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.crud.R
 import com.example.crud.admin.model.PlaceDetails
-import com.example.crud.admin.model.PlaceName
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentPlacesListBinding
 import com.example.crud.ui.adapters.OnClickPlace
 import com.example.crud.ui.adapters.PlaceListAdapter
 import com.example.crud.utils.CheckNetwork
-import com.example.crud.utils.L
-import com.example.crud.utils.PIL
 import com.example.crud.utils.SharedPref
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.database.DataSnapshot
@@ -27,7 +24,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import kotlin.math.ln
 
 
 class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>

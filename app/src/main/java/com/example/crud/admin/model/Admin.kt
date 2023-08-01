@@ -1,7 +1,5 @@
 package com.example.crud.admin.model
 
-import android.provider.ContactsContract.CommonDataKinds.Email
-
 class Admin {
     var email: String? = null
     var pass: String? = null
