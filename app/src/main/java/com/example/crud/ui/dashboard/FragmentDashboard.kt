@@ -35,6 +35,7 @@ import com.example.crud.ui.adapters.SlideItemAdapter
 import com.example.crud.utils.CheckNetwork
 import com.example.crud.utils.PIL
 import com.example.crud.utils.SharedPref
+import com.example.crud.utils.ShowLoader
 import com.example.crud.utils.ToolbarCallback
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.auth.FirebaseAuth
@@ -120,6 +121,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
                     SharedPref.sharedPrefManger(requireContext(),false,"recreated")
                     val uid = auth.currentUser?.uid
                     binding.progressBarDB.visibility = View.VISIBLE
+                   // ShowLoader.show(this,true)
                     getUserNameFromDb(uid!!)
                 }
             }
