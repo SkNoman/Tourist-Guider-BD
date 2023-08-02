@@ -4,8 +4,8 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 
 object ShowLoader {
-
-    private lateinit var dialog: DialogFragment
+/*
+    lateinit var dialog: DialogFragment
     fun show(childFragment: Fragment,show: Boolean){
         dialog = Loader()
         if (show){
@@ -15,6 +15,6 @@ object ShowLoader {
             dialog.dismiss()
         }
 
-    }
+    }*/
 
 }

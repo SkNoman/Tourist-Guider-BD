@@ -12,7 +12,7 @@ import com.example.crud.databinding.LoaderDialogBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 @AndroidEntryPoint
-class Loader (): AppCompatDialogFragment() {
+class Loader (onClick: OnClick): AppCompatDialogFragment() {
     private var binding: LoaderDialogBinding? = null
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -25,5 +25,10 @@ class Loader (): AppCompatDialogFragment() {
         builder?.background = ColorDrawable(Color.TRANSPARENT)
         builder?.setView(binding!!.root)
         return builder!!.create()
+    }
+    interface OnClick{
+        fun onClick(){
+
+        }
     }
 }

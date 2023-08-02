@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -33,9 +34,9 @@ import com.example.crud.ui.adapters.FeaturedListItemAdapter
 import com.example.crud.ui.adapters.OnClickMenu
 import com.example.crud.ui.adapters.SlideItemAdapter
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.Loader
 import com.example.crud.utils.PIL
 import com.example.crud.utils.SharedPref
-import com.example.crud.utils.ShowLoader
 import com.example.crud.utils.ToolbarCallback
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.auth.FirebaseAuth
@@ -52,15 +53,23 @@ import java.util.*
 
 @AndroidEntryPoint
 class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
-    (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener,FeaturedListItemAdapter.OnClickPopularPlace {
+    (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener,FeaturedListItemAdapter.OnClickPopularPlace,Loader.OnClick {
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var swipeLayout: SwipeRefreshLayout
     private lateinit var mDbRef: DatabaseReference
     private lateinit var auth: FirebaseAuth
     private var toolbarCallback: ToolbarCallback? = null
     private val pD: MutableList<PlaceDetails> = mutableListOf()
+    private lateinit var dialog: DialogFragment
 
-
+    fun showLoader(show: Boolean){
+        dialog = Loader(this)
+        if (show){
+            dialog.show(childFragmentManager, "Loader")
+            dialog.isCancelable = false
+        }
+        dialog.dismiss()
+    }
     override fun onPause() {
         super.onPause()
         handler.removeCallbacks(viewPagerHotItemRunnable)
@@ -120,8 +129,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
                 }else{
                     SharedPref.sharedPrefManger(requireContext(),false,"recreated")
                     val uid = auth.currentUser?.uid
-                    binding.progressBarDB.visibility = View.VISIBLE
-                   // ShowLoader.show(this,true)
+                    showLoader(true)
                     getUserNameFromDb(uid!!)
                 }
             }
@@ -177,7 +185,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         val fromLoginFlag = localData.getBoolean("isFromLogin",false)
         if(fromLoginFlag){
             SharedPref.sharedPrefManger(requireContext(),false,"isFromLogin")
-            binding.progressBarDB.visibility = View.VISIBLE
+            showLoader(true)
             val uid = auth.currentUser?.uid
             Log.e("nlog-uid",uid.toString())
             getUserNameFromDb(uid!!)
@@ -194,13 +202,13 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    binding.progressBarDB.visibility = View.GONE
+                    showLoader(false)
                     val userInfo = snapshot.getValue(Users::class.java)
                     Log.e("nlog",userInfo?.name.toString())
                     //Toast.makeText(requireContext(),"Welcome, ${userInfo?.name}",Toast.LENGTH_SHORT).show()
                      toolbarCallback?.updateToolbarMsg("Hi, ${userInfo?.name}")
                 } else {
-                    binding.progressBarDB.visibility = View.GONE
+                    showLoader(false)
                     Toast.makeText(requireContext(),"Something went wrong",Toast.LENGTH_SHORT).show()
                 }
             }
