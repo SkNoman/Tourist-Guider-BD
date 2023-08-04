@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.crud.R
@@ -17,6 +18,7 @@ import com.example.crud.databinding.FragmentPlacesListBinding
 import com.example.crud.ui.adapters.OnClickPlace
 import com.example.crud.ui.adapters.PlaceListAdapter
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.Loader
 import com.example.crud.utils.SharedPref
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.database.DataSnapshot
@@ -32,8 +34,19 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
     private val pD: MutableList<PlaceDetails> = mutableListOf()
     private lateinit var dbRef: DatabaseReference
     private var languageType = ""
+    private lateinit var dialog: DialogFragment
 
+    fun showLoader(show: Boolean){
 
+        if (show){
+            dialog = Loader()
+            dialog.show(childFragmentManager, "Loader")
+            dialog.isCancelable = false
+        }else{
+            dialog.dismiss()
+        }
+
+    }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -118,7 +131,7 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
     @RequiresApi(Build.VERSION_CODES.M)
     private fun showPlaces(division: String,languageType: String) {
         if (CheckNetwork(requireContext()).isNetworkConnected){
-            binding.progressBarPlaceList.visibility = View.VISIBLE
+            showLoader(true)
             dbRef.child("places").child(division).addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -132,17 +145,17 @@ class PlacesListFragment : BaseFragmentWithBinding<FragmentPlacesListBinding>
                                 pD.add(it)
                             }
                         }
-                        binding.progressBarPlaceList.visibility = View.GONE
+                        showLoader(false)
                         showPlaceList(pD,languageType)
                     }else{
-                        binding.progressBarPlaceList.visibility = View.GONE
+                        showLoader(false)
                         Toast.makeText(requireContext(),"No Place Found",Toast.LENGTH_SHORT).show()
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
                     // Handle any errors that occur during the data retrieval
-                    binding.progressBarPlaceList.visibility = View.GONE
+                    showLoader(false)
                     Log.e("Firebase", "Data retrieval cancelled: ${error.message}")
                 }
             })

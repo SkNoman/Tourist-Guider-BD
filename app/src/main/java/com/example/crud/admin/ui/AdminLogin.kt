@@ -6,12 +6,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.crud.R
 import com.example.crud.admin.model.Admin
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentAdminLoginBinding
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.Loader
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -22,6 +24,19 @@ class AdminLogin : BaseFragmentWithBinding<FragmentAdminLoginBinding>(
     FragmentAdminLoginBinding::inflate)
 {
     private lateinit var mDbRef: DatabaseReference
+    private lateinit var dialog: DialogFragment
+
+    private fun showLoader(show: Boolean){
+
+        if (show){
+            dialog = Loader()
+            dialog.show(childFragmentManager, "Loader")
+            dialog.isCancelable = false
+        }else{
+            dialog.dismiss()
+        }
+
+    }
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
@@ -31,7 +46,7 @@ class AdminLogin : BaseFragmentWithBinding<FragmentAdminLoginBinding>(
         binding.btnLogin.setOnClickListener{
             if (CheckNetwork(requireContext()).isNetworkConnected){
                 if (validateLogin() == "OK"){
-                    binding.progressBarLogin.visibility = View.VISIBLE
+                    showLoader(true)
                     adminLogin(binding.etUsernameLogin.text.toString(),
                         binding.etPassLogin.text.toString())
                 }else{
@@ -48,7 +63,7 @@ class AdminLogin : BaseFragmentWithBinding<FragmentAdminLoginBinding>(
     private fun adminLogin(username:String,pass: String) {
         mDbRef.child("admins").child(username).get().addOnSuccessListener {
             if (it.exists()){
-                binding.progressBarLogin.visibility = View.GONE
+                showLoader(false)
                 val adminInfo = it.getValue(Admin::class.java)
                 Log.e("nlog-admin",adminInfo?.pass.toString())
                 Log.e("nlog-admin",adminInfo?.email.toString())
@@ -58,19 +73,17 @@ class AdminLogin : BaseFragmentWithBinding<FragmentAdminLoginBinding>(
                     findNavController().navigate(R.id.adminDashboard,bundle)
                     binding.etPassLogin.text = null
                     binding.etUsernameLogin.text = null
-                    binding.progressBarLogin.visibility = View.GONE
                     Toast.makeText(requireContext(),"Login Success",Toast.LENGTH_SHORT).show()
                 }else{
-                    binding.progressBarLogin.visibility = View.GONE
                     Toast.makeText(requireContext(),"Please enter correct password",Toast.LENGTH_SHORT).show()
                 }
 
             }else{
-                binding.progressBarLogin.visibility = View.GONE
+                showLoader(false)
                 Toast(requireContext()).showCustomToast("Sorry No User Found",requireActivity())
             }
         }.addOnFailureListener{
-            binding.progressBarLogin.visibility = View.GONE
+            showLoader(false)
             Toast(requireContext()).showCustomToast("Error getting data $it",requireActivity())
         }
     }

@@ -9,11 +9,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentLoginBinding
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.Loader
 import com.example.crud.utils.SharedPref
 import com.example.crud.utils.Validation
 import com.example.crud.utils.showCustomToast
@@ -32,6 +34,19 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
 
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
+    private lateinit var dialog: DialogFragment
+
+    private fun showLoader(show: Boolean){
+
+        if (show){
+            dialog = Loader()
+            dialog.show(childFragmentManager, "Loader")
+            dialog.isCancelable = false
+        }else{
+            dialog.dismiss()
+        }
+
+    }
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,7 +65,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
         binding.btnLogin.setOnClickListener{
             if (CheckNetwork(requireContext()).isNetworkConnected){
                 if (validateLogin() == "OK"){
-                    binding.progressBarLogin.visibility = View.VISIBLE
+                    showLoader(true)
                     login(binding.etEmailLogin.text.toString(),
                         binding.etPassLogin.text.toString())
                 }else {
@@ -164,7 +179,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
                 if (task.isSuccessful) {
                     SharedPref.sharedPrefManger(requireContext(),true,"isFromLogin")
                     SharedPref.sharedPrefManger(requireContext(),false,"isGoogleLogin")
-                    binding.progressBarLogin.visibility = View.GONE
+                    showLoader(false)
                    Toast.makeText(requireContext(),"Welcome",Toast.LENGTH_SHORT).show()
                     if (binding.checkBoxRememberMe.isChecked){
                         saveLoginInfo(auth.currentUser?.uid!!,binding.etEmailLogin.text.toString()
@@ -174,7 +189,7 @@ class Login : BaseFragmentWithBinding<FragmentLoginBinding>
                     binding.etEmailLogin.text=null
                     findNavController().navigate(R.id.fragmentDashboard)
                 }else {
-                    binding.progressBarLogin.visibility = View.GONE
+                    showLoader(false)
                     Toast.makeText(requireContext(),"Something went wrong\n " +
                             "try again with correct credentials",Toast.LENGTH_SHORT).show()
                 }

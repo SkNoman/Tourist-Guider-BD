@@ -8,11 +8,13 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.crud.admin.model.PlaceDetails
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentAddPlaceBinding
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.Loader
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -26,6 +28,21 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
     private var divisionName : String = ""
     private var divisionNameBn : String = ""
     private lateinit var dbRef: DatabaseReference
+
+
+    private lateinit var dialog: DialogFragment
+
+    private fun showLoader(show: Boolean){
+
+        if (show){
+            dialog = Loader()
+            dialog.show(childFragmentManager, "Loader")
+            dialog.isCancelable = false
+        }else{
+            dialog.dismiss()
+        }
+
+    }
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,7 +71,7 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
 
     private fun addPlaceToDB() {
         try {
-            binding.progressBar.visibility = View.VISIBLE
+            showLoader(true)
             val random = Random.nextInt(1,2000)
             dbRef.child("places").child(binding.etPlaceDivision.text.toString())
                 .child(binding.etPlaceName.text.toString()+random.toString())
@@ -81,10 +98,10 @@ class AddPlace : BaseFragmentWithBinding<FragmentAddPlaceBinding>(
             binding.etPlaceLong.text = null
             binding.etPlaceDetails.text = null
             binding.etPlaceDetailsBn.text = null
-            binding.progressBar.visibility = View.GONE
+            showLoader(false)
             Toast.makeText(requireContext(),"Place Added Successfully",Toast.LENGTH_SHORT).show()
         }catch (e:Exception){
-            binding.progressBar.visibility = View.GONE
+            showLoader(false)
             Log.e("nlog",e.toString())
             Toast(requireContext()).showCustomToast("Something Went Wrong",requireActivity())
         }

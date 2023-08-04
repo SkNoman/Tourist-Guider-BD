@@ -53,7 +53,7 @@ import java.util.*
 
 @AndroidEntryPoint
 class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
-    (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener,FeaturedListItemAdapter.OnClickPopularPlace,Loader.OnClick {
+    (FragmentUserDashboardBinding:: inflate),OnClickMenu,OnRefreshListener,FeaturedListItemAdapter.OnClickPopularPlace {
     private val handler = Handler(Looper.getMainLooper())
     private lateinit var swipeLayout: SwipeRefreshLayout
     private lateinit var mDbRef: DatabaseReference
@@ -63,12 +63,15 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     private lateinit var dialog: DialogFragment
 
     fun showLoader(show: Boolean){
-        dialog = Loader(this)
+
         if (show){
+            dialog = Loader()
             dialog.show(childFragmentManager, "Loader")
             dialog.isCancelable = false
+        }else{
+            dialog.dismiss()
         }
-        dialog.dismiss()
+
     }
     override fun onPause() {
         super.onPause()
@@ -216,6 +219,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
             override fun onCancelled(error: DatabaseError) {
                 // Handle any errors that occur during the data retrieval
                 Log.e("Firebase", "Data retrieval cancelled: ${error.message}")
+                showLoader(false)
             }
         })
     }

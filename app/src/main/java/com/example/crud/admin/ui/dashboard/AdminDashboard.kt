@@ -8,6 +8,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.crud.R
@@ -18,6 +19,7 @@ import com.example.crud.admin.model.PlaceDetails
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentAdminDashboardBinding
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.Loader
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -31,6 +33,20 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
     private val pD: MutableList<PlaceDetails> = mutableListOf()
     private lateinit var dbRef: DatabaseReference
     var divisionName : String = ""
+
+    private lateinit var dialog: DialogFragment
+
+    private fun showLoader(show: Boolean){
+
+        if (show){
+            dialog = Loader()
+            dialog.show(childFragmentManager, "Loader")
+            dialog.isCancelable = false
+        }else{
+            dialog.dismiss()
+        }
+
+    }
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -105,9 +121,11 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
-    private fun showPlaces(division: String) {
+    private fun showPlaces(division: String)
+    {
         if (CheckNetwork(requireContext()).isNetworkConnected){
-            binding.progressBarAdminList.visibility = View.VISIBLE
+            showLoader(true)
+
             dbRef.child("places").child(division).addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -121,10 +139,10 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
                                 pD.add(it)
                             }
                         }
-                        binding.progressBarAdminList.visibility = View.GONE
+                        showLoader(false)
                         showPlaceList(pD)
                     }else{
-                        binding.progressBarAdminList.visibility = View.GONE
+                        showLoader(false)
                         binding.placeListRecyclerViewAdmin.visibility = View.GONE
                         Toast.makeText(requireContext(),"No Place Found", Toast.LENGTH_SHORT).show()
                     }
@@ -132,7 +150,7 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
 
                 override fun onCancelled(error: DatabaseError) {
                     // Handle any errors that occur during the data retrieval
-                    binding.progressBarAdminList.visibility = View.GONE
+                    showLoader(false)
                     Toast.makeText(requireContext(),"Something Went Wrong\n" +
                             "$error", Toast.LENGTH_SHORT).show()
                 }
@@ -140,6 +158,7 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
         }else{
             Toast(requireContext()).showCustomToast("Please turn on internet",requireActivity())
         }
+        showLoader(false)
     }
 
     private fun showPlaceList(list: List<PlaceDetails>) {
@@ -149,7 +168,6 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onClickDelete(placeKey: String, division: String) {
-        binding.progressBarAdminList.visibility = View.VISIBLE
         dbRef.child("places").child(division).child(placeKey).removeValue()
             .addOnSuccessListener {
                 // Deletion successful
@@ -158,7 +176,7 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
             }
             .addOnFailureListener { exception ->
                 // Handle any errors that occur during deletion
-                binding.progressBarAdminList.visibility = View.GONE
+                showLoader(false)
                 Log.e("Firebase", "Error deleting data: ${exception.message}")
                 Toast.makeText(requireContext(), "Something went wrong",Toast.LENGTH_SHORT).show()
             }
@@ -180,13 +198,13 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
                         }
                     }
                     Log.e("nlog",pD[0].detailsEn.toString())
-                    binding.progressBarAdminList.visibility = View.GONE
+                    showLoader(false)
                     showPlaceList(pD)
 
 
                 }else{
                     binding.placeListRecyclerViewAdmin.visibility = View.GONE
-                    binding.progressBarAdminList.visibility = View.GONE
+                    showLoader(false)
                     Toast.makeText(requireContext(),"No Place Found", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -194,7 +212,7 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
             override fun onCancelled(error: DatabaseError) {
                 // Handle any errors that occur during the data retrieval
                 binding.placeListRecyclerViewAdmin.visibility = View.GONE
-                binding.progressBarAdminList.visibility = View.GONE
+                showLoader(false)
                 Log.e("Firebase", "Data retrieval cancelled: ${error.message}")
             }
         })

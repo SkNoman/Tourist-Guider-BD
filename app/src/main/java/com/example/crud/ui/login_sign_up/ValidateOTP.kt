@@ -6,12 +6,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentValidateOTPBinding
 import com.example.crud.model.Users
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.Loader
 import com.example.crud.utils.SharedPref
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.auth.FirebaseAuth
@@ -34,6 +36,19 @@ class ValidateOTP : BaseFragmentWithBinding<FragmentValidateOTPBinding>(
     private lateinit var password: String
     private lateinit var auth: FirebaseAuth
     private lateinit var dbRef: DatabaseReference
+    private lateinit var dialog: DialogFragment
+
+    private fun showLoader(show: Boolean){
+
+        if (show){
+            dialog = Loader()
+            dialog.show(childFragmentManager, "Loader")
+            dialog.isCancelable = false
+        }else{
+            dialog.dismiss()
+        }
+
+    }
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -56,7 +71,7 @@ class ValidateOTP : BaseFragmentWithBinding<FragmentValidateOTPBinding>(
                 val typedOtp = binding.pinview.text
                 if (typedOtp!!.isNotEmpty()){
                     if (typedOtp.length == 6){
-                        binding.progressBar.visibility = View.VISIBLE
+                        showLoader(true)
                         val credential : PhoneAuthCredential = PhoneAuthProvider.getCredential(
                             OTP, typedOtp.toString()
                         )
@@ -70,7 +85,7 @@ class ValidateOTP : BaseFragmentWithBinding<FragmentValidateOTPBinding>(
             }
 
             binding.txtQuickSignUp.setOnClickListener{
-                binding.progressBar.visibility = View.VISIBLE
+                showLoader(true)
                 signUp(name, phone, email, password)
             }
         }else{
@@ -91,7 +106,7 @@ class ValidateOTP : BaseFragmentWithBinding<FragmentValidateOTPBinding>(
 
                     Toast.makeText(requireContext(),"Please enter valid OTP",Toast
                         .LENGTH_SHORT).show()
-                    binding.progressBar.visibility = View.GONE
+                    showLoader(false)
                 }
             }
     }
@@ -108,12 +123,12 @@ class ValidateOTP : BaseFragmentWithBinding<FragmentValidateOTPBinding>(
                     SharedPref.sharedPrefManger(requireContext(),true,"isFromLogin")
                     SharedPref.sharedPrefManger(requireContext(),false,"isGoogleLogin")
                     SharedPref.sharedPrefManger(requireContext(),"","name")
-                    binding.progressBar.visibility = View.GONE
+                    showLoader(false)
                     Toast.makeText(requireContext(),"Welcome", Toast.LENGTH_SHORT).show()
                     SharedPref.sharedPrefManger(requireContext(),"en","languageCode")
                     findNavController().navigate(R.id.fragmentDashboard)
                 } else {
-                     binding.progressBar.visibility = View.GONE
+                     showLoader(false)
                     Toast.makeText(requireContext(),"Sign up Failed\n" +
                             "Please try again!", Toast.LENGTH_SHORT).show()
                 }

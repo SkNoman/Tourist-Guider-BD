@@ -7,12 +7,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.crud.R
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentSingUpBinding
 import com.example.crud.model.Users
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.Loader
 import com.example.crud.utils.SharedPref
 import com.example.crud.utils.Validation
 import com.example.crud.utils.showCustomToast
@@ -37,6 +39,19 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
     private lateinit var auth: FirebaseAuth
     private lateinit var dbRef: DatabaseReference
 
+    private lateinit var dialog: DialogFragment
+
+    private fun showLoader(show: Boolean){
+
+        if (show){
+            dialog = Loader()
+            dialog.show(childFragmentManager, "Loader")
+            dialog.isCancelable = false
+        }else{
+            dialog.dismiss()
+        }
+
+    }
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,7 +66,7 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
 
             if (CheckNetwork(requireContext()).isNetworkConnected){
                 if (validateSignUp() == "OK"){
-                    binding.progressBar.visibility = View.VISIBLE;
+                    showLoader(true)
                     var phone = binding.etPhone.text.toString().trim()
                     phone = "+88$phone"
                     verifyPhoneNumber(phone)
@@ -67,7 +82,7 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
         binding.txtSignUpWV.setOnClickListener{
             if (CheckNetwork(requireContext()).isNetworkConnected){
                 if (validateSignUp() == "OK"){
-                    binding.progressBar.visibility = View.VISIBLE
+                    showLoader(true)
                     signUp()
                 }else{
                     Toast.makeText(requireContext(),validateSignUp(), Toast.LENGTH_SHORT).show()
@@ -113,7 +128,7 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
             // This callback is invoked in an invalid request for verification is made,
             // for instance if the the phone number format is not valid.
             Log.w(TAG, "onVerificationFailed", e)
-            binding.progressBar.visibility = View.GONE
+            showLoader(false)
             Toast(requireContext()).showCustomToast("Something went wrong\n" +
                     "please try alternate signup",requireActivity())
 
@@ -154,7 +169,7 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
             bundle.putString("phone",binding.etPhone.text.toString())
             bundle.putString("email",binding.etEmailSignUp.text.toString())
             bundle.putString("pass",binding.etPasswordSignUp.text.toString())
-            binding.progressBar.visibility = View.GONE
+            showLoader(false)
             findNavController().navigate(R.id.validateOTP,bundle)
 
         }
@@ -166,7 +181,7 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
                 if (task.isSuccessful) {
                     signUp()
                 } else {
-                    binding.progressBar.visibility = View.GONE
+                    showLoader(false)
                     Toast.makeText(requireContext(),getString(R.string.something_went_wrong),
                         Toast.LENGTH_SHORT).show()
                 }
@@ -187,12 +202,12 @@ class SignUp : BaseFragmentWithBinding<FragmentSingUpBinding>(
                     SharedPref.sharedPrefManger(requireContext(),true,"isFromLogin")
                     SharedPref.sharedPrefManger(requireContext(),false,"isGoogleLogin")
                     SharedPref.sharedPrefManger(requireContext(),"","name")
-                    binding.progressBar.visibility = View.GONE
+                    showLoader(false)
                     Toast.makeText(requireContext(),"Welcome", Toast.LENGTH_SHORT).show()
                     SharedPref.sharedPrefManger(requireContext(),"en","languageCode")
                     findNavController().navigate(R.id.fragmentDashboard)
                 } else {
-                    binding.progressBar.visibility = View.GONE
+                    showLoader(false)
                     Toast.makeText(requireContext(),"Sign up Failed\n" +
                             "Please try again!", Toast.LENGTH_SHORT).show()
                 }

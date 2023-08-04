@@ -8,10 +8,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.crud.base.BaseFragmentWithBinding
 import com.example.crud.databinding.FragmentEditPlaceBinding
 import com.example.crud.utils.CheckNetwork
+import com.example.crud.utils.Loader
 import com.example.crud.utils.showCustomToast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -25,6 +27,20 @@ class EditPlace : BaseFragmentWithBinding<FragmentEditPlaceBinding>(
     private var divisionName : String = ""
     private var divisionNameBn : String = ""
     private lateinit var dbRef: DatabaseReference
+
+    private lateinit var dialog: DialogFragment
+
+    private fun showLoader(show: Boolean){
+
+        if (show){
+            dialog = Loader()
+            dialog.show(childFragmentManager, "Loader")
+            dialog.isCancelable = false
+        }else{
+            dialog.dismiss()
+        }
+
+    }
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -81,7 +97,7 @@ class EditPlace : BaseFragmentWithBinding<FragmentEditPlaceBinding>(
     private fun updatePlace()
     {
         try {
-            binding.progressBar.visibility = View.VISIBLE
+            showLoader(true)
 
             val placeData  = hashMapOf<String, Any>(
                 "nameEn" to binding.etPlaceName.text.toString(),
@@ -110,16 +126,16 @@ class EditPlace : BaseFragmentWithBinding<FragmentEditPlaceBinding>(
                     binding.etPlaceLong.text = null
                     binding.etPlaceDetails.text = null
                     binding.etPlaceDetailsBn.text = null
-                    binding.progressBar.visibility = View.GONE
+                    showLoader(false)
                     findNavController().popBackStack()
                     Toast.makeText(requireContext(),"Place Updated Successfully",Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
-                    binding.progressBar.visibility = View.GONE
+                    showLoader(false)
                     Toast(requireContext()).showCustomToast("Something Went Wrong",requireActivity())
                 }
         }catch (e:Exception){
-                binding.progressBar.visibility = View.GONE
+                showLoader(false)
             Log.e("nlog-e",e.toString())
         }
     }
