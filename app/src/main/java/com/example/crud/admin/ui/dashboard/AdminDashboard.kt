@@ -117,7 +117,6 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
         }
         //Always show dhaka division first
         showPlaces("Dhaka")
-
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -125,10 +124,10 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
     {
         if (CheckNetwork(requireContext()).isNetworkConnected){
             showLoader(true)
-
             dbRef.child("places").child(division).addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
+                    Log.e("nlog-enters","yes")
                     if (snapshot.exists()) {
                         binding.placeListRecyclerViewAdmin.visibility = View.VISIBLE
                         pD.clear()
@@ -168,9 +167,11 @@ class AdminDashboard : BaseFragmentWithBinding<FragmentAdminDashboardBinding>(
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onClickDelete(placeKey: String, division: String) {
+        showLoader(true)
         dbRef.child("places").child(division).child(placeKey).removeValue()
             .addOnSuccessListener {
                 // Deletion successful
+                showLoader(false)
                 Toast.makeText(requireContext(), "Place Deleted Successfully",Toast.LENGTH_SHORT).show()
                 updateUI()
             }
