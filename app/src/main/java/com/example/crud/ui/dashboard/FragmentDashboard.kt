@@ -61,6 +61,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
     private var toolbarCallback: ToolbarCallback? = null
     private val pD: MutableList<PlaceDetails> = mutableListOf()
     private lateinit var dialog: DialogFragment
+    private var languageType = ""
 
     fun showLoader(show: Boolean){
 
@@ -99,6 +100,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
 
         val checkNetwork = CheckNetwork(requireContext())
         val localData = SharedPref.getData(requireContext())
+        languageType = localData.getString("languageCode","").toString()
 
         val isActivityRecreated = localData.getBoolean("recreated",false)
         val fromGoogleLoginFlag = localData.getBoolean("isGoogleLogin",false)
@@ -284,7 +286,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         //MANUAL ADDITION OF RECYCLER CARD VIEW
         featuredLocations.add(
             FeaturedItem(
-                206,
+                "Nafa-Khum Waterfal1019",
                 PIL.NAFA_KHUM_WATERFALL,
                 getString(R.string.nafa_khum),
                 getString(R.string.the_best_water_fall)
@@ -292,7 +294,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         )
         featuredLocations.add(
             FeaturedItem(
-                202,
+                "Cox's Bazar Sea Beach253",
                 PIL.COXS_BAZAR_SEA_BEACH,
                 getString(R.string.cox_bazar),
                 getString(R.string.longest_sea_beach)
@@ -300,7 +302,7 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         )
         featuredLocations.add(
             FeaturedItem(
-                108,
+                "Hatir Jheel769",
                 PIL.PLACE_HATIR_JHEEL_IMAGE,
                 getString(R.string.place_hatir_jheel),
                 getString(R.string.best_jheel_in_dhaka)
@@ -386,7 +388,59 @@ class FragmentDashboard : BaseFragmentWithBinding<FragmentUserDashboardBinding>
         swipeLayout.isRefreshing = false
     }
 
-    override fun onClickPopularPlace(id: Int) {
+    override fun onClickPopularPlace(key: String) {
+        var division = ""
+        division = when (key) {
+            "Nafa-Khum Waterfal1019" -> {
+                "Chittagong"
+            }
+            "Cox's Bazar Sea Beach253" -> {
+                "Chittagong"
+            }
+            else -> {
+                "Dhaka"
+            }
+        }
+        showLoader(true)
+        mDbRef.child("places").child(division).child(key).addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    val place = snapshot.getValue(PlaceDetails::class.java)
+                    Log.e("nlog-new",place?.nameEn.toString())
+                    val bundle = Bundle()
+                    if (languageType == "en"){
+                        bundle.putString("name",place?.nameEn)
+                        bundle.putString("district",place?.districtEn)
+                        bundle.putString("details",place?.detailsEn)
+                        bundle.putString("division",place?.divisionEn)
+                        bundle.putString("image-link",place?.imageLink)
+                        place?.lat?.let { bundle.putDouble("lat", it) }
+                        place?.long?.let { bundle.putDouble("long",it) }
+                        showLoader(false)
+                        findNavController().navigate(R.id.placeDetailsFragment,bundle)
+                    }else{
+                        bundle.putString("name",place?.nameBn)
+                        bundle.putString("district",place?.districtBn)
+                        bundle.putString("details",place?.detailsBn)
+                        bundle.putString("division",place?.divisionBn)
+                        bundle.putString("image-link",place?.imageLink)
+                        place?.lat?.let { bundle.putDouble("lat", it) }
+                        place?.long?.let { bundle.putDouble("long",it) }
+                        showLoader(false)
+                        findNavController().navigate(R.id.placeDetailsFragment,bundle)
+                    }
+                }else{
+                    showLoader(false)
+                    Toast.makeText(requireContext(),"Something went wrong",Toast.LENGTH_SHORT).show()
+                }
 
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                showLoader(false)
+               Log.e("nlog-new","error happened")
+            }
+
+        })
     }
 }

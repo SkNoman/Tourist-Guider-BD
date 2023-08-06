@@ -27,7 +27,7 @@ class FeaturedListItemAdapter(
         val featuredContent: FeaturedItem = content[position]
         holder.bind(mContext,featuredContent)
         holder.itemView.setOnClickListener{
-            onClickPopularPlace.onClickPopularPlace(featuredContent.id)
+            onClickPopularPlace.onClickPopularPlace(featuredContent.key)
         }
     }
 
@@ -35,7 +35,7 @@ class FeaturedListItemAdapter(
         return content.size
     }
     interface OnClickPopularPlace{
-        fun onClickPopularPlace(id:Int)
+        fun onClickPopularPlace(key:String)
     }
 }
 
